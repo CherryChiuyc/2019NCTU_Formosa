@@ -1,0 +1,18 @@
+190628
+Description
+
+According to data, cancer is the most significant factor when it comes to mortality rate in Taiwan. In fact, cancer takes the first place of the reason of death for over thirty years.
+We all know there is a high correlation between cancer and cell mutation. Furthermore, the correlation between cell mutation and the outer source an organism encounter in daily life.
+Thus, NCTU_Formosa 2019 design a device that detects the danger in environment. By using E. coli as our pioneer, we can detect the cell mutation rate in anywhere we want. Therefore, the danger coefficient could be quantified.
+Our designed E. coli carries different suicide genes. We keep tracking the number of colonies, once the mutation happened in the suicide region, it would have survived. Otnumber of the colonieherwise it dies.
+The quorum system in the gene circuit will served as an indicator. It helps us to track the number of the colony. The fluorescent signal connected with QS system allows itself to be observed by machine. The data can be process by our model to get more accurate result.We expect to build a device that simple as a danger detector but with our complex design. The APP come with will also be handy when the device is not convenience for the circumstance.
+
+Inspriation
+
+NCTU Formosa has years of iGEM experience. Dealing with E coli has become out daily routine. Once upon a time, an experiment related with suicide gene was perform. We discovered that the number of colonies would not always drop to zero as we expected. It bounces back whenever our colonies reaches the bottom
+
+Like a phoenix, reborn from ashes.
+
+We consider this phenomenon as an opportunity, a blessing from nature. Like the phoenix Fawkes in “Harry Potter” serve as a guardian. The precious part about this experiment is that it opens up a whole new territory what mutation could do its possibility is infinite.
+
+Thus, we design an unique experiment of E.coli with suicide gene colleberate with multiple signaling systems as a hazard detector. When exposed in dangerous environment, mutation in E.coli occured more frequently. The faster it mutates, the less function will the suicide gene express.
