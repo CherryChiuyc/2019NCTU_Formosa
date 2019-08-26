@@ -1,0 +1,359 @@
+{{NCTU_Formosa/test}}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Team Member</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+  <script src="jQueryAssets/jquery.ui-1.10.4.dialog.min.js"></script>
+
+  <style>
+
+
+  body {
+    margin: 0;
+    font-size: 0;
+    font-family: Levenim MT;
+    box-sizing: border-box;
+  }
+
+  .wrapper {
+    background-color: white;
+    padding-bottom: 150px;
+  }
+
+  .title {
+    margin-bottom: 100px;
+  }
+
+  .picture {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 50px;
+  }
+
+  .circle {
+    width: 10%;
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }
+
+  .circle:hover {
+    -webkit-filter: opacity(0.6);
+    transform: scale(1.1);
+  }
+
+  .introduction {
+    width: 85%;
+    max-width: 1280px;
+    height: auto;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 120px;
+    overflow: visible;
+  }
+
+  .title_1 {
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 1%;
+    padding-bottom: 3vmin;
+  }
+
+  .dec2 {
+    width: 5%;
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    left: -2%;
+  }
+
+  .content {
+    width: 50%;
+    position: relative;
+    display: block;
+    left: 10%;
+    font-size: 4vmin;
+    text-align: justify;
+    display: inline-block;
+  }
+
+  .team {
+    width: 30%;
+    display: inline-block;
+    position: relative;
+    left: 5%;
+    top: 0%;
+    vertical-align: super;
+  }
+
+  .team_intro {
+    width: 53%;
+    display: inline-block;
+    position: relative;
+    left: 10%;
+    vertical-align: super;
+  }
+
+  .dec7 {
+    position: relative;
+    margin-top: 2%;
+    width: 50%;
+    float: right;
+    bottom: 30px;
+  }
+
+  .student {
+    width: 90%;
+    max-width: 1280px;
+    height: auto;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+  }
+
+  .dec3 {
+    width: 100%;
+  }
+
+  .outline {
+    width: 50%;
+    display: block;
+    background-size: 86%;
+    background-repeat: no-repeat;
+    background-position: 50% 78%;
+
+  }
+
+  .people_1 {
+    background-image: url("http://2018.igem.org/wiki/images/f/f4/T--NCTU_Formosa--Erick.png");
+  }
+  .people_2{
+    background-image: url("http://2018.igem.org/wiki/images/d/dc/T--NCTU_Formosa--Celia.png");
+  }
+
+
+  .people {
+    position: absolute;
+    width: 43%;
+    left: 3.5%;
+    top: 10vh;
+  }
+
+  .block {
+    display: block;
+    text-align: justify;
+    position: relative;
+    left: 2%;
+    font-size: 3vmin;
+    width: 46%;
+  }
+
+  .title_2 {
+    width: 45%;
+    margin-right: 40%;
+    float: left;
+    margin-top: 50px;
+    margin-left: 3%;
+    margin-bottom: 30px;
+  }
+
+  .dec4 {
+    width: 5%;
+    position: absolute;
+    right: -2%;
+    top: 13%;
+  }
+
+  .dec5 {
+    width: 95%;
+    margin-top: 40px;
+  }
+
+  .intro_left {
+    width: 46%;
+    display: inline-block;
+    margin-left: 3%;
+    margin-top: 30px;
+  }
+
+  .intro_right {
+    width: 46%;
+    display: inline-block;
+    margin-left: 1%;
+    margin-top: 30px;
+  }
+
+  .instructor {
+    width: 90%;
+    max-width: 1280px;
+    height: auto;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+  }
+
+  .title_3 {
+    width: 45%;
+    position: relative;
+    top: 4%;
+    margin-right: 50%;
+    margin-bottom: 20px;
+  }
+
+  .teacher1 {
+    left: 0%;
+    top: 0%;
+    display: inline-block;
+    position: relative;
+    width: 12%;
+  }
+
+  .outline1 {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    width: 36%;
+  }
+
+  .teacher2 {
+    left: 0%;
+    top: 0%;
+    position: relative;
+    display: inline-block;
+    margin-left: 2%;
+    width: 12%;
+  }
+
+  .outline2 {
+    width: 36%;
+    display: inline-block;
+    position: relative;
+  }
+
+  .dec8 {
+    position: relative;
+    width: 50%;
+    left: 54%;
+  }
+
+  .advisor {
+    width: 85%;
+    max-width: 1280px;
+    height: auto;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title_4 {
+    width: 45%;
+    position: relative;
+    top: 4%;
+    margin-right: 50%;
+    margin-bottom: 20px;
+  }
+
+  .text{
+      font-size: 3vmin;
+      width: 75%;
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+
+  .ta1 {
+    left: 0%;
+    top: 0%;
+    padding: 20px;
+    display: inline-block;
+    position: relative;
+    width: 12%;
+  }
+  </style>
+
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+  <div class="title"><img class="picture" src="http://2018.igem.org/wiki/images/d/df/T--NCTU_Formosa--Team.png"/></div>
+  <div class="introduction">
+    <!--.title_1 Team Introduction-->
+    <img class="title_1" src="http://2018.igem.org/wiki/images/1/1b/T--NCTU_Formosa--team_intro.png"/>
+    <img class="dec2" src="http://2018.igem.org/wiki/images/1/16/T--NCTU_Formosa--team_dec2.png "/>
+    <img class="team" src="http://2018.igem.org/wiki/images/c/c1/T--NCTU_Formosa--team_photo.jpg"/>
+    <img  class="team_intro" src="http://2018.igem.org/wiki/images/6/6f/T--NCTU_Formosa--Team_intro.png">
+    <img class="dec7" src="http://2018.igem.org/wiki/images/b/b3/T--NCTU_Formosa--dec8.png"/>
+  </div>
+  <div class="student">
+    <img class="title_2" src="http://2018.igem.org/wiki/images/9/9f/T--NCTU_Formosa--Student_member2.png"/>
+    <img src="http://2018.igem.org/wiki/images/f/f4/T--NCTU_Formosa--Erick.png" class="intro_left student_1">
+    <img src="http://2018.igem.org/wiki/images/c/c1/T--NCTU_Formosa--Nick.png" class="intro_right student_2">
+    <img src="http://2018.igem.org/wiki/images/0/00/T--NCTU_Formosa--Yelii.png" class="intro_left student_3">
+    <img src="http://2018.igem.org/wiki/images/c/c7/T--NCTU_Formosa--Alice.png" class="intro_right student_4">
+    <img src="http://2018.igem.org/wiki/images/b/bd/T--NCTU_Formosa--Bella.png" class="intro_left student_5">
+    <img src="http://2018.igem.org/wiki/images/d/dc/T--NCTU_Formosa--Celia.png" class="intro_right student_6">
+    <img src="http://2018.igem.org/wiki/images/0/07/T--NCTU_Formosa--Hank.png" class="intro_left student_7">
+    <img src="http://2018.igem.org/wiki/images/c/c4/T--NCTU_Formosa--Evelyn.png" class="intro_right student_8">
+    <img src="http://2018.igem.org/wiki/images/2/2f/T--NCTU_Formosa--Terry.png" class="intro_left student_9">
+    <img src="http://2018.igem.org/wiki/images/c/c0/T--NCTU_Formosa--James.png" class="intro_right student_10">
+    <img src="http://2018.igem.org/wiki/images/2/2e/T--NCTU_Formosa--Ku.png" class="intro_left student_11">
+    <img src="http://2018.igem.org/wiki/images/1/13/T--NCTU_Formosa--Daniel.png" class="intro_right student_12">
+    <img src="http://2018.igem.org/wiki/images/6/68/T--NCTU_Formosa--Lee.png" class="intro_left student_13">
+    <img src="http://2018.igem.org/wiki/images/b/bc/T--NCTU_Formosa--Jenny.png" class="intro_right student_14">
+    <img class="dec5" src="http://2018.igem.org/wiki/images/8/8b/T--NCTU_Formosa--team_dec5.png"/>
+  </div>
+  <div class="instructor">
+    <img class="title_3" src="http://2018.igem.org/wiki/images/1/10/T--NCTU_Formosa--team_instructor.png"/>
+    <img class="circle teacher1" src="http://2018.igem.org/wiki/images/archive/0/08/20180829030804%21T--NCTU_Formosa--PI.png"/>
+    <img class="outline1" src="http://2018.igem.org/wiki/images/a/ae/T--NCTU_Formosa--lg_intro.png"/>
+    <img class="circle teacher2" src="http://2018.igem.org/wiki/images/archive/e/ea/20180829031045%21T--NCTU_Formosa--SI.png"/>
+    <img class="outline2" src="http://2018.igem.org/wiki/images/b/bf/T--NCTU_Formosa--Hsiao-Ching_intro.png"/>
+    <img class="circle teacher1" src="http://2018.igem.org/wiki/images/2/20/T--NCTU_Formosa--TI.png"/>
+    <img class="outline1" src="http://2018.igem.org/wiki/images/1/17/T--NCTU_Formosa--lin_intro.png"/>
+  </div>
+  <div class="advisor">
+    <img class="title_4" src="http://2018.igem.org/wiki/images/4/49/T--NCTU_Formosa--team_advisor.png"/>
+    <img class="circle ta1" src="http://2018.igem.org/wiki/images/4/44/T--NCTU_Formosa--astrid.png"/>
+    <img class="circle ta1" src="http://2018.igem.org/wiki/images/e/e4/T--NCTU_Formosa--sean.png"/>
+    <img class="circle ta1" src="http://2018.igem.org/wiki/images/7/71/T--NCTU_Formosa--kevin.png"/>
+    <img class="circle ta1" src="http://2018.igem.org/wiki/images/1/1e/T--NCTU_Formosa--shining_boy.png"/>
+  <div class="text">
+    <p>&nbsp;&nbsp;Chen, Peng-Tzu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lee, Chao-Yu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chen, Kai-Wen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sean Liu</p>
+  </div>
+  </div>
+  </div>
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>
+
+  $(".circle.self_picture_1").click(function(){
+    $('.outline').toggleClass("people_1");
+  });
+
+  $(".circle.self_picture_4").click(function(){
+    $('.outline').toggleClass("people_2");
+  });
+
+
+</script>
+
+</html>
+
+{{NCTU_Formosa/Top_button}}
+{{NCTU_Formosa/Footer}}

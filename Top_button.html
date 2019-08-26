@@ -1,0 +1,103 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+  <script src="jQueryAssets/jquery.ui-1.10.4.dialog.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <style>
+
+
+    #globalWrapper{
+      padding-bottom: 0 !important;
+    }
+
+    body{
+      font-size: 0;
+      margin: 0;
+      padding: 0 !important;
+      width: 100%;
+    }
+
+    .top_button{
+      width: 5%;
+      cursor: pointer;
+      position: fixed;
+      right: 2%;
+      bottom: 30px;
+      display: none;
+      transition-duration: 0.4s;
+      z-index: 999;
+    }
+
+    .top_button:hover{
+      transform: scale(1.2);
+    }
+
+  </style>
+
+  <!----------------------------------------------------------------------------->
+
+  <script>
+  </script>
+
+  <!----------------------------------------------------------------------------->
+
+  <!-- Latex resourse code-->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+      MathJax.Hub.Config({
+          extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+              inlineMath: [
+                  ['$', '$'],
+                  ["\\(", "\\)"]
+              ],
+              displayMath: [
+                  ['$$', '$$'],
+                  ["\\[", "\\]"]
+              ],
+          },
+          "HTML-CSS": {
+              availableFonts: ["TeX"]
+          }
+      });
+  </script>
+
+  <!----------------------------------------------------------------------------->
+</head>
+
+<body>
+  <img class="top_button" id="tb" src="http://2018.igem.org/wiki/images/e/e8/T--NCTU_Formosa--top.png">
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script>
+$(function(){
+$('.top_button').click(function(){
+  $('html, body').animate({
+			scrollTop: 0
+		}, 1500, "easeOutCirc");
+  return false;
+});
+});
+
+
+window.onscroll = function() {
+var box = document.getElementById('tb');
+    var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+    // console.log(osTop)
+    if (osTop>700) {
+    box.style.display = "block"
+    }
+    if (osTop<200) {
+    box.style.display = "none"
+    }
+}
+
+</script>
+
+</html>
