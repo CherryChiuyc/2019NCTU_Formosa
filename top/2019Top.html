@@ -1,0 +1,63 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Top</title>
+  <!-- jquery cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- easing特效的library -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <style>
+
+  body{
+    font-size: 0;
+    margin: 0;
+    padding: 0 !important;
+    width: 100%;
+  }
+  .top_button{
+      width: 6%;
+      display: none;
+      /*游標移動上去的圖示*/
+      cursor: pointer;
+      /*fixed 針對視窗固定，abs針對上層容器*/
+      position: fixed;
+      right: 2%;
+      bottom: 5vh;
+      transition-duration: 0.3s;
+      /*要在最上層，否則會碰不到*/
+      z-index: 5;
+  }
+  .top_button:hover{
+    transform: scale(1.2);
+  }
+  </style>
+</head>
+
+<body>
+  <img class="top_button" id="tb" src="https://2019.igem.org/wiki/images/e/e8/T--NCTU_Formosa--top.png">
+  <script>
+  //回到頁面頂部的jquery
+  $(function(){
+  $('.top_button').click(function(){
+    $('html, body').animate(
+      {scrollTop: 0}, 1500, "easeOutCubic");
+    return false;
+  });
+  });
+
+  //偵測整個頁面位置拉多下面了
+  window.onscroll = function() {
+  var box = document.getElementById('tb');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      // console.log(osTop)
+      if (osTop>700) {
+      box.style.display = "block"
+      }
+      if (osTop<200) {
+      box.style.display = "none"
+      }
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<script >
+  //console crtl+shift+J
+  console.log("hello world");
+
+  //var for global
+  var myName = "Cherry";
+  myName = 8 ;
+  //let for area
+  let ourName = "free";
+  //const cannot change
+  const pi =3.14;
+
+  var a;
+  var b = 2;
+  a = 7;
+  b = a;
+  //console.log 有點像是 print
+  console.log(a);
+  var dec = 5.7;
+
+  //double quote in string
+  var str = `'I am a "hero".'`;
+  console.log(str);
+  var mystr = "FirstLine\n\t\\SecondLine\nThirdLine"
+  console.log(mystr);
+
+  var meow = "meow";
+  var meowlength;
+  meowlength = meow.length;
+  console.log(meowlength);
+
+  //fumction
+  function wordBlanks(mynoun, myAdjective, myVerb, myAdverb){
+    var result = ""; //一個空的string
+    result += "The " + myAdjective + " " +  mynoun + " " + myVerb + " to the store " + myAdverb;
+    return result;
+  }
+  console.log(wordBlanks("dog", "big", "ran", "quickly"));
+
+  //array can be any data type
+  var ourArray = ["John",23];
+  ourArray[2] = 40;
+
+  //push and pop
+  var myArray = ["a","b","c"];
+  myArray.push("happy","sad");
+  //shift 刪最前面，unshift 從最前面加
+  myArray.shift();
+  myArray.unshift("hello")
+  console.log(myArray);
+
+  //function
+  function hi(){
+    console.log("hello");
+  }
+  hi();
+
+  function count(a,b){
+    console.log(a-b);
+  }
+  count(10,5);
+
+  function fun1(){
+    //在區域含數裡，設定的變數若沒有+var，則為global
+    first = 10; //global
+    var second = 5; //local
+  }
+
+  function add(num){
+    num = num + 5;
+  }
+  console.log(add(5)); // undefined1，因為function沒有return值
+
+  //queue
+  function queue(arr, item){
+    arr.push(item);
+    return arr.shift();
+  }
+  var test = [1,2,3,4,5];
+  console.log("Before: " + test);
+  console.log(queue(test,6));
+  console.log("After: " + JSON.stringify(test));
+
+  //boolean
+  function trueornot(what){
+    if(what){
+      return "It's True";
+    }
+    return "It's False";
+  }
+  console.log(trueornot(false));
+
+  // 3 == 3 true
+  // 3 == '3' true
+  // 3 === '3' flase (strict)
+  // !== strict not equal sign
+
+  //golfscore
+  var names = ["Hole-in-one","Eagle","Birdie","Par","Bogey","Double Bogey","Go Home!"] ;
+  function golfscore(par, strokes){
+    if(strokes == 1){
+      return names[0];
+    } else if(strokes <= par - 2){
+      return names[1];
+    } else if(strokes == par - 1){
+      return names[2];
+    } else if(strokes == par){
+      return names[3];
+    } else if(strokes == par + 1){
+      return names[4];
+    } else if(strokes == par + 2){
+      return names[5];
+    } else if(strokes >= par + 3){
+      return names[6];
+    }
+  }
+  console.log(golfscore(5,8));
+
+  //black jack
+  //count is zero or negative, should bet low
+  //count is big, should bet high
+  var count = 0;
+  function cc(card){
+    switch (card) {
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+        count++;
+        break;
+      case 10:
+      case "J":
+      case "Q":
+      case "K":
+      case "A":
+        count --;
+        break;
+    }
+    var holdbet = "hold";
+    if(count>0){
+      holdbet = "bet"
+    }
+    return  count + " " + holdbet;
+  }
+  cc(2); cc("K"); cc(10); cc("K") ; cc("A");
+  console.log(cc(4));
+
+  //object
+  var dog = {
+    "name" : "Yuri",
+    "legs" : 4,
+    "tails": 1,
+    "Friends":["everyone"],
+    "oh la": 4
+  }
+  var legsvalue = dog.legs;
+  //property有空格時呼叫就要用中括號
+  var ohla = dog.["oh la"];
+
+</script>
