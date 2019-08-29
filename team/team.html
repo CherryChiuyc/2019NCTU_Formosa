@@ -29,18 +29,42 @@
     margin-left: 4%;
     margin-bottom: 4vh;
   }
-  .students{
+  .member_frame{
     width: 90%;
     margin-left: 8%;
     margin-bottom: 4vh;
   }
-
+  .person{
+    width: 100%;
+    height: auto;
+    display:inline-block;
+    box-sizing: border-box;
+    position: relative;
+  }
   .photo1{
-    width: 50%;
-    margin-left: 5%;
+    width: 24%;
+    position: absolute;
+    border-radius: 1.5vw;
+    box-shadow: 0 5px 13px rgba(0,0,0,0.3);
+    top: 18%;
+    left: 12%;
+    z-index: 2;
   }
   .photo2{
-
+    width: 24%;
+    position: absolute;
+    border-radius: 1.5vw;
+    box-shadow: 0 5px 13px rgba(0,0,0,0.3);
+    /*opacity透明度，一開始為透明*/
+    opacity: 0;
+    top: 18%;
+    left: 12%;
+    /*放在最上層*/
+    z-index: 3;
+  }
+  .photo2:hover{
+    opacity: 1;
+    transition-duration: 0.5s;
   }
   .title2{
     margin-left: 4%;
@@ -67,23 +91,64 @@
     <div class="content">
       <!-- Team Members -->
       <img class="title1" src="https://2019.igem.org/wiki/images/5/51/T--NCTU_Formosa--Team_Members.png">
-      <div>
-        <img class="students" src="https://2019.igem.org/wiki/images/d/d2/T--NCTU_Formosa--Ryan.png">
+      <div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/d/d2/T--NCTU_Formosa--Ryan.png">
         <img class="photo1" src="https://2019.igem.org/wiki/images/8/8f/T--NCTU_Formosa--Ryan1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/b/bd/T--NCTU_Formosa--Ryan2.jpg">
       </div>
-      <img class="students" src="https://2019.igem.org/wiki/images/8/8f/T--NCTU_Formosa--Amy.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/9/9c/T--NCTU_Formosa--Sammy.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/e/ef/T--NCTU_Formosa--Ariel.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/8/8b/T--NCTU_Formosa--Ring.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/2/28/T--NCTU_Formosa--Miya.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/0/0a/T--NCTU_Formosa--Lawrence.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/e/e6/T--NCTU_Formosa--Charles.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/1/1f/T--NCTU_Formosa--Yuyu.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/7/79/T--NCTU_Formosa--Jack.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/9/95/T--NCTU_Formosa--Cherry.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/6/68/T--NCTU_Formosa--Leo.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/9/93/T--NCTU_Formosa--Josh.png">
-      <img class="students" src="https://2019.igem.org/wiki/images/1/15/T--NCTU_Formosa--Atlas.png">
+      <div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/8/8f/T--NCTU_Formosa--Amy.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/8/81/T--NCTU_Formosa--Amy1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/e/ec/T--NCTU_Formosa--Amy2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/9/9c/T--NCTU_Formosa--Sammy.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/1/1b/T--NCTU_Formosa--Sammy1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/1/1a/T--NCTU_Formosa--Sammy2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/e/ef/T--NCTU_Formosa--Ariel.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/7/7f/T--NCTU_Formosa--Ariel1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/1/1d/T--NCTU_Formosa--Ariel2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/8/8b/T--NCTU_Formosa--Ring.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/2/22/T--NCTU_Formosa--Ring1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/1/17/T--NCTU_Formosa--Ring2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/2/28/T--NCTU_Formosa--Miya.png">
+        <img class="photo1" src="">
+        <img class="photo2" src="">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/0/0a/T--NCTU_Formosa--Lawrence.png">
+        <img class="photo1" src="">
+        <img class="photo2" src="">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/e/e6/T--NCTU_Formosa--Charles.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/3/36/T--NCTU_Formosa--Charles1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/6/6c/T--NCTU_Formosa--Charles2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/1/1f/T--NCTU_Formosa--Yuyu.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/c/cd/T--NCTU_Formosa--Yuyu1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/f/f2/T--NCTU_Formosa--Yuyu2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/7/79/T--NCTU_Formosa--Jack.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/b/bb/T--NCTU_Formosa--Jack1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/a/a5/T--NCTU_Formosa--Jack2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/9/95/T--NCTU_Formosa--Cherry.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/c/c8/T--NCTU_Formosa--Cherry1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/0/0b/T--NCTU_Formosa--Cherry2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/6/68/T--NCTU_Formosa--Leo.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/2/21/T--NCTU_Formosa--Leo1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/8/89/T--NCTU_Formosa--Leo2.jpg">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/9/93/T--NCTU_Formosa--Josh.png">
+        <img class="photo1" src="">
+        <img class="photo2" src="">
+      </div><div class="person">
+        <img class="member_frame" src="https://2019.igem.org/wiki/images/1/15/T--NCTU_Formosa--Atlas.png">
+        <img class="photo1" src="https://2019.igem.org/wiki/images/c/ce/T--NCTU_Formosa--Atlas1.jpg">
+        <img class="photo2" src="https://2019.igem.org/wiki/images/b/b7/T--NCTU_Formosa--Atlas2.jpg">
+      </div>
       <!-- instructors -->
       <img class="title2" src="https://2019.igem.org/wiki/images/9/96/T--NCTU_Formosa--Instructors.png">
       <img class="instructors" src="https://2019.igem.org/wiki/images/9/95/T--NCTU_Formosa--teachers.png">
