@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Team</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
   <style>
   body {
     margin: 0;
@@ -10,7 +12,29 @@
     font-family: Quenda;
     box-sizing: border-box;
   }
-
+  p{
+    margin: 0 !important;
+    padding: 0!important;
+    font-size: 1.5vw!important;
+    font-family: Quenda!important;
+    z-index: 5!important;
+    cursor: pointer !important;
+  }
+  .p1{
+    position: fixed;
+    top: 20%;
+    left: 3.5%;
+  }
+  .p2{
+    position: fixed;
+    top: 27%;
+    left: 3.5%;
+  }
+  .p3{
+    position: fixed;
+    top: 34%;
+    left: 3.5%;
+  }
   .wrapper{
     background-color: white;
     /* 上面留給照片空間*/
@@ -18,7 +42,6 @@
     /* 底下留給footer空間 */
     padding-bottom: 600px;
   }
-
   .content{
     width: 80%;
     margin-right: 8%;
@@ -28,6 +51,16 @@
     margin-left: 4%;
     margin-bottom: 4vh;
   }
+  #circle1{
+    width: 1.7%;
+    top: 20%;
+    left: 1.5%;
+    position: fixed;
+    z-index: 5;
+    cursor: pointer;
+  }
+  #circle1:hover{ transform: scale(1.1); }
+
   .member_frame{
     width: 90%;
     margin-left: 8%;
@@ -69,6 +102,16 @@
     margin-left: 4%;
     margin-bottom: 4vh;
   }
+  #circle2{
+    width: 1.7%;
+    top: 27%;
+    left: 1.5%;
+    position: fixed;
+    z-index: 5;
+    cursor: pointer;
+  }
+  #circle2:hover{ transform: scale(1.1); }
+
   .instructors{
     width: 95%;
     margin-left: 3%;
@@ -78,15 +121,39 @@
     margin-left: 4%;
     margin-bottom: 4vh;
   }
+  #circle3{
+    width: 1.7%;
+    top: 34%;
+    left: 1.5%;
+    position: fixed;
+    z-index: 5;
+    cursor: pointer;
+  }
+  #circle3:hover{ transform: scale(1.1); }
+
   .advisors{
 
   }
-
+  #line{
+    width:0.7%;
+    height:60%;
+    top: 10%;
+    left: 2%;
+    position: fixed;
+    z-index: 4;
+  }
   </style>
 </head>
 <body>
 
   <div class="wrapper">
+    <img id="line" src="https://2019.igem.org/wiki/images/1/15/T--NCTU_Formosa--line.png">
+    <p class="p1">Team Members</p>
+    <p class="p2">Instructors</p>
+    <p class="p3">Advisors</p>
+    <img id="circle1" src="https://2019.igem.org/wiki/images/5/5f/T--NCTU_Formosa--circle.png">
+    <img id="circle2" src="https://2019.igem.org/wiki/images/5/5f/T--NCTU_Formosa--circle.png">
+    <img id="circle3" src="https://2019.igem.org/wiki/images/5/5f/T--NCTU_Formosa--circle.png">
     <div class="content">
       <!-- Team Members -->
       <img class="title1" src="https://2019.igem.org/wiki/images/5/51/T--NCTU_Formosa--Team_Members.png">
@@ -148,12 +215,62 @@
         <img class="photo2" src="https://2019.igem.org/wiki/images/b/b7/T--NCTU_Formosa--Atlas2.jpg">
       </div>
       <!-- instructors -->
-      <img class="title2" src="https://2019.igem.org/wiki/images/9/96/T--NCTU_Formosa--Instructors.png">
+      <img class="title2"  src="https://2019.igem.org/wiki/images/9/96/T--NCTU_Formosa--Instructors.png">
       <img class="instructors" src="https://2019.igem.org/wiki/images/9/95/T--NCTU_Formosa--teachers.png">
       <!-- advisors -->
       <img class="title3" src="https://2019.igem.org/wiki/images/c/c2/T--NCTU_Formosa--Advisors.png">
     </div>
   </div>
+  <script>
+  $(function(){
+  $('#circle1').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('.title1').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('.p1').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('.title1').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#circle2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('.title2').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('.p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('.title2').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#circle3').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('.title3').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('.p3').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('.title3').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  </script>
 </body>
 </html>
 {{NCTU_Formosa/Top_button}}
