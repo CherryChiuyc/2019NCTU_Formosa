@@ -20,17 +20,17 @@
     z-index: 5!important;
     cursor: pointer !important;
   }
-  .p1{
+  #p1{
     position: fixed;
     top: 20%;
     left: 3.5%;
   }
-  .p2{
+  #p2{
     position: fixed;
     top: 27%;
     left: 3.5%;
   }
-  .p3{
+  #p3{
     position: fixed;
     top: 34%;
     left: 3.5%;
@@ -135,27 +135,30 @@
 
   }
   #line{
-    width:2.5%;
+    width:2%;
     height:25%;
     top: 20%;
     left: 1%;
     position: fixed;
     z-index: 4;
   }
+  #side{
+    width:10%;
+    height: auto;
+    display: none;
+  }
   </style>
 </head>
 <body>
   <img src="space.png">
   <div class="wrapper">
-      <!-- <img id="line" src="https://2019.igem.org/wiki/images/1/15/T--NCTU_Formosa--line.png"> -->
-      <img id = "line" src="lc.png">
-      <p class="p1">Team Members</p>
-      <p class="p2">Instructors</p>
-      <p class="p3">Advisors</p>
+    <div id="side">
+      <img  id = "line" src="lc.png">
+      <p id="p1">Team Members</p>
+      <p id="p2">Instructors</p>
+      <p id="p3">Advisors</p>
+    </div>
 
-      <!-- <img id="circle1" src="https://2019.igem.org/wiki/images/5/5f/T--NCTU_Formosa--circle.png">
-      <img id="circle2" src="https://2019.igem.org/wiki/images/5/5f/T--NCTU_Formosa--circle.png">
-      <img id="circle3" src="https://2019.igem.org/wiki/images/5/5f/T--NCTU_Formosa--circle.png"> -->
     <div class="content">
       <!-- Team Members -->
       <img class="title1" src="https://2019.igem.org/wiki/images/5/51/T--NCTU_Formosa--Team_Members.png">
@@ -233,7 +236,7 @@
   });
   });
   $(function(){
-  $('.p1').click(function(){
+  $('#p1').click(function(){
     $('html, body').animate(
       {scrollTop: $('.title1').offset().top-100},
        1500, "easeOutCubic");
@@ -249,7 +252,7 @@
   });
   });
   $(function(){
-  $('.p2').click(function(){
+  $('#p2').click(function(){
     $('html, body').animate(
       {scrollTop: $('.title2').offset().top-100},
        1500, "easeOutCubic");
@@ -265,13 +268,26 @@
   });
   });
   $(function(){
-  $('.p3').click(function(){
+  $('#p3').click(function(){
     $('html, body').animate(
       {scrollTop: $('.title3').offset().top-100},
        1500, "easeOutCubic");
     return false;
   });
   });
+
+  window.onscroll = function() {
+  var box = document.getElementById('side');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      // console.log(osTop)
+      if (osTop>750) {
+      box.style.display = "block"
+      }
+      if (osTop<750) {
+      box.style.display = "none"
+      }
+  }
+
   </script>
 </body>
 </html>

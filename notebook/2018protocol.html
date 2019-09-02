@@ -1,0 +1,326 @@
+{{NCTU_Formosa/test}}
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Protocol</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+  <script src="jQueryAssets/jquery.ui-1.10.4.dialog.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <style>
+
+
+    #globalWrapper{
+      padding-bottom: 0 !important;
+    }
+
+    body{
+      font-size: 0;
+      margin: 0;
+      padding: 0 !important;
+      width: 100%;
+    }
+
+    .wrapper{
+      width: 100%;
+      overflow: auto;
+      padding-bottom: 150px;
+      font-family: Levenim MT;
+    }
+
+    .cover{
+      width: 100%;
+    }
+
+    .title{
+      font-size: 7vmin;
+      margin: 50px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .title_1{
+      font-size: 6vmin;
+      width: 75%;
+      margin: 20px;
+      color: #fff;
+      transition-duration: 0.3s;
+    }
+
+    .title_2{
+      font-size: 5vmin;
+      width: 70%;
+      margin: 50px;
+      margin-left: 15%;
+    }
+
+    .title_3{
+      font-size: 3.5vmin;
+      width: 70%;
+      margin: 50px;
+      margin-left: 15%;
+    }
+
+    .text{
+      font-size: 3vmin;
+      width: 75%;
+      position: relative;
+      margin-left: 12.5%;
+      margin-right: 12.5%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .explanation{
+      font-size: 2.5vmin;
+      font-weight: bold;
+      color: #575656;
+      text-align: center;
+    }
+
+    p{
+      margin: 0;
+    }
+
+    table{
+      width: 55%;
+      border: solid 2px #e7eceb;
+      text-align: left;
+      margin: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      border-collapse: collapse;
+      background: #fefefe;
+    }
+
+    tr{
+      border: solid 1px #e7eceb;
+      margin: 15px;
+      padding: 10px;
+    }
+
+    td,th{
+      padding: 10px;
+    }
+
+    caption{
+      font-size: 3vmin;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #575656;
+      box-sizing: border-box;
+    }
+
+    thead{
+      background: #1182be;
+      color: #fefefe;
+      font-size: 3.5vmin;
+    }
+
+    tbody{
+      font-size: 3vmin;
+    }
+
+    .equation{
+      font-size: 3vmin;
+      margin: 40px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .icon{
+      width: 5vmin;
+      vertical-align: middle;
+      cursor: pointer;
+      transition-duration: 0.3s;
+    }
+
+    .icon:hover{
+      transform: scale(1.3);
+    }
+
+    .pic{
+      width: 100%;
+    }
+
+    .lab{
+      width: 15%;
+      position: absolute;
+      left: 73%;
+      top: 30vw;
+      transition-duration: 0.4s;
+    }
+
+    .protocol{
+      width: 15%;
+      position: absolute;
+      left: 73%;
+      top: 37vw;
+      transition-duration: 0.4s;
+    }
+
+    .lab:hover{
+      transform: scale(1.1);
+    }
+
+    .protocol:hover{
+      transform: scale(1.1);
+    }
+
+    .pdf{
+      display: none;
+    }
+
+    .general{
+      background-color: #041750;
+      width: 65%;
+      margin-left: 17.5%;
+      margin-top: 100px;
+      border: solid 5px #041750;
+    }
+
+    .expression{
+      background-color: #041750;
+      width: 65%;
+      margin-left: 17.5%;
+      margin-top: 20px;
+      border: solid 5px #041750;
+    }
+
+    .MIC{
+      background-color: #041750;
+      width: 65%;
+      margin-left: 17.5%;
+      margin-top: 20px;
+      border: solid 5px #041750;
+    }
+
+    .growth{
+      background-color: #041750;
+      width: 65%;
+      margin-left: 17.5%;
+      margin-top: 20px;
+      border: solid 5px #041750;
+    }
+
+    .curcumin{
+      background-color: #041750;
+      width: 65%;
+      margin-left: 17.5%;
+      margin-top: 20px;
+      border: solid 5px #041750;
+    }
+
+  </style>
+
+  <!----------------------------------------------------------------------------->
+
+  <script>
+  </script>
+
+  <!----------------------------------------------------------------------------->
+
+  <!-- Latex resourse code-->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+      MathJax.Hub.Config({
+          extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+              inlineMath: [
+                  ['$', '$'],
+                  ["\\(", "\\)"]
+              ],
+              displayMath: [
+                  ['$$', '$$'],
+                  ["\\[", "\\]"]
+              ],
+          },
+          "HTML-CSS": {
+              availableFonts: ["TeX"]
+          }
+      });
+  </script>
+
+  <!----------------------------------------------------------------------------->
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="banner">
+      <img class="cover" src="http://2018.igem.org/wiki/images/3/31/T--NCTU_Formosa--Notebook_cover.png" width="100%">
+      <a href="http://2018.igem.org/Team:NCTU_Formosa/Notebook"><img src="http://2018.igem.org/wiki/images/4/4c/T--NCTU_Formosa--Notebook_Lab_Note.png" class="lab"></a>
+      <a href="http://2018.igem.org/Team:NCTU_Formosa/Protocol"><img src="http://2018.igem.org/wiki/images/4/4f/T--NCTU_Formosa--Notebook_Lab_protocol.png" class="protocol"></a>
+    </div>
+    <div class="sec1">
+      <div class="general">
+        <div class="title_1">
+          General Protocols
+          <svg class="icon" id="general" aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-down" class="svg-inline--fa fa-chevron-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"></path></svg>
+        </div>
+        <iframe class="pdf" style="width:100%; height:500px;" src="http://2018.igem.org/wiki/images/3/3c/T--NCTU_Formosa--Protocols.pdf" frameborder="0"></iframe>
+      </div>
+      <div class="expression">
+        <div class="title_1">
+          Protein Expression
+          <svg class="icon" id="expression" aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-down" class="svg-inline--fa fa-chevron-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"></path></svg>
+        </div>
+        <iframe class="pdf" style="width:100%; height:500px;" src="http://2018.igem.org/wiki/images/0/0b/T--NCTU_Formosa--Protocol_express.pdf" frameborder="0"></iframe>
+      </div>
+      <div class="MIC">
+        <div class="title_1">
+          MIC Test
+          <svg class="icon" id="MIC" aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-down" class="svg-inline--fa fa-chevron-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"></path></svg>
+        </div>
+        <iframe class="pdf" style="width:100%; height:500px;" src="http://2018.igem.org/wiki/images/2/2f/T--NCTU_Formosa--MIC_protocol.pdf" frameborder="0"></iframe>
+      </div>
+      <div class="growth">
+        <div class="title_1">
+          Growth Curve
+          <svg class="icon" id="growth" aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-down" class="svg-inline--fa fa-chevron-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"></path></svg>
+        </div>
+        <iframe class="pdf" style="width:100%; height:500px;" src="http://2018.igem.org/wiki/images/1/1f/T--NCTU_Formosa--Growth_curve_protocol.pdf" frameborder="0"></iframe>
+      </div>
+      <div class="curcumin">
+        <div class="title_1">
+          Curcumin Bio-sensor
+          <svg class="icon" id="curcumin" aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-down" class="svg-inline--fa fa-chevron-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"></path></svg>
+        </div>
+        <iframe class="pdf" style="width:100%; height:500px;" src="http://2018.igem.org/wiki/images/7/75/T--NCTU_Formosa--biosensor_protocol.pdf" frameborder="0"></iframe>
+      </div>
+    </div>
+    </div>
+
+<!----------------------------------------------------------------------------->
+
+
+  </div>
+</body>
+
+<script>
+
+$("#general").click(function(){
+  $(".general>.pdf").slideToggle(500);
+});
+$("#expression").click(function(){
+  $(".expression>.pdf").slideToggle(500);
+});
+$("#MIC").click(function(){
+  $(".MIC>.pdf").slideToggle(500);
+});
+$("#growth").click(function(){
+  $(".growth>.pdf").slideToggle(500);
+});
+$("#curcumin").click(function(){
+  $(".curcumin>.pdf").slideToggle(500);
+});
+
+</script>
+
+</html>
+
+{{NCTU_Formosa/Footer}}
