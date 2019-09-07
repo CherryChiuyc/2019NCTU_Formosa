@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Composing</title>
+  <style>
+  body{
+    font-size:0;
+    padding: 0;
+    margin: 0;
+
+  }
+
+  div{
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+  }
+    #box1{
+      /* border: 3px solid #d12b1a; */
+      width:5%;
+      height:5vh;
+      display: inline-block;
+    }
+    #box2{
+      /* border: 3px solid #eb7800; */
+      width:5%;
+      height:5vh;
+      display: inline-block;
+    }
+    #box3{
+      /* border: 3px solid #fff300; */
+      width:5%;
+      height:5vh;
+      display: inline-block;
+    }
+    #box4{
+      /* border: 3px solid #00db3c; */
+      width:5%;
+      height:5vh;
+      display: inline-block;
+    }
+    #box5{
+      border: 3px solid #1a7ad1;
+      width:50%;
+      height:60vh;
+      display: inline-block;
+    }
+    #box6{
+      border: 3px solid #221ad1;
+      width:30%;
+      height:50vh;
+      float: left;
+    }
+    .calendar{
+      /* border: 3px solid #000; */
+      width:100%;
+    }
+    .but{
+      border: none;
+      background-color: #cc4932;
+      font-size: 4vh;
+      font-family: Quenda;
+      cursor: pointer;
+    }
+    .but:focus{
+      background-color: #6f6b65;
+      color: white;
+    }
+    a.active{
+      background-color: #6f6b65;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button class="but" id="box1">Jul</button>
+  <button class="but" id="box2">Aug</button>
+  <button class="but" id="box3">Sep</button>
+  <button class="but" id="box4">Oct</button>
+  <div class="calendar">
+    <div id="box5"></div>
+    <div id="box6"></div>
+  </div>
+</body>
+</html>

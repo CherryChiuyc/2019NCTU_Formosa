@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>boooook</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="turn.js"></script>
+  <script type="text/javascript" src="turn.min.js"></script>
+</head>
+<body>
+  <div id="flipbook">
+		<div class="hard"> Turn.js </div>
+		<div class="hard"></div>
+		<div> Page 1 sddsasdssddsd</div>
+		<div> Page 2 </div>
+		<div> Page 3 </div>
+		<div class="hard"></div>
+		<div class="hard"></div>
+  </div>
+  <script>
+    $("#flipbook").turn({
+          width: 400,
+          height: 300,
+          autoCenter: false,
+      });
+  </script>
+</body>
+</html>

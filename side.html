@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Side</title>
+  <!-- jquery cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- easing特效的library -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <style>
+    body{
+      font-size: 0;
+      margin: 0;
+      padding: 0 !important;
+      width: 100%;
+    }
+    p{
+      margin: 0 !important;
+      padding: 0!important;
+      font-size: 1.5vw!important;
+      font-family: Quenda!important;
+      z-index: 100!important;
+      cursor: pointer !important;
+    }
+    #p1{
+      position: fixed;
+      top: 20%;
+      left: 3.5%;
+      visibility: visible;
+    }
+    #p2{
+      position: fixed;
+      top: 27%;
+      left: 3.5%;
+    }
+    #p3{
+      position: fixed;
+      top: 34%;
+      left: 3.5%;
+    }
+    #line{
+      width:2%;
+      height:25%;
+      top: 20%;
+      left: 1%;
+      position: fixed;
+      z-index: 4;
+    }
+    #side{
+      width:10%;
+      height: auto;
+      visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+    <img id="line" src="https://2019.igem.org/wiki/images/6/67/T--NCTU_Formosa--lc.png">
+    <p id="p1">Team Members</p>
+    <p id="p2">Instructors</p>
+    <p id="p3">Advisors</p>
+
+  <script>
+  $(function(){
+  $('#p1').click(function(){
+    $('html, body').animate(
+      //scrollTop是指離底部的距離
+      {scrollTop: $('.title1').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('.title2').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p3').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('.title3').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+
+  window.onscroll = function() {
+  //要同時判斷，不能用class
+  var box = document.getElementById('p1');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(osTop)
+      if (osTop>580) {
+      box.style.visibility = "visible"
+      }
+      if (osTop<580) {
+      box.style.visibility = "hidden"
+      }
+  }
+  </script>
+</body>
+</html>
