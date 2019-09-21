@@ -1,0 +1,602 @@
+{{NCTU_Formosa/test}}
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+  <script src="jQueryAssets/jquery.ui-1.10.4.dialog.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <style>
+
+
+    #globalWrapper{
+      padding-bottom: 0 !important;
+    }
+
+    body{
+      font-size: 0;
+      margin: 0;
+      padding: 0 !important;
+      width: 100%;
+    }
+
+    .wrapper{
+      width: 100%;
+      overflow: hidden;
+      font-family: Levenim MT;
+      padding-bottom: 150px;
+    }
+
+    .cover{
+      width: 100%;
+    }
+
+    .sec1{
+      padding-top: 100px;
+      margin-bottom: 150px;
+    }
+
+    .title{
+      font-size: 7vmin;
+      margin: 50px;
+      margin-top: 0px;
+      text-align: center;
+    }
+
+    .title444{
+      font-size: 3.5vw;
+      text-align: center;
+    }
+
+    .title_1{
+      font-size: 3vw;
+      width: 100%;
+      margin: 30px;
+      margin-top: 6vw;
+      margin-bottom: 2vw;
+      margin-left: 7.5%;
+    }
+
+    .title_2{
+      font-size: 2vw;
+      width: 100%;
+      text-align: center;
+    }
+
+    .title_3{
+      font-size: 1.2vw;
+      width: 95%;
+      margin-left: 2.5%;
+      text-align: justify;
+    }
+
+    .title_4{
+      font-size: 1.5vw;
+      float: right;
+      font-weight: bold;
+      margin-top: 2px;
+      margin-bottom: -4px;
+      margin-right: 4px;
+      cursor: pointer;
+      color: #30c0d2;
+      transition-duration: 0.4s;
+    }
+
+    .title_4:hover{
+      color: #0e3178;
+      transform: scale(1.1);
+    }
+
+    .text{
+      font-size: 3vmin;
+      width: 75%;
+      position: relative;
+      margin-left: 12.5%;
+      margin-right: 12.5%;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .explanation{
+      font-size: 2.5vmin;
+      font-weight: bold;
+      color: #575656;
+      text-align: center;
+    }
+
+    p{
+      margin: 0;
+    }
+
+    table{
+      width: 55%;
+      border: solid 2px #e7eceb;
+      text-align: left;
+      margin: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      border-collapse: collapse;
+      background: #fefefe;
+    }
+
+    tr{
+      border: solid 1px #e7eceb;
+      margin: 15px;
+      padding: 10px;
+    }
+
+    td,th{
+      padding: 10px;
+    }
+
+    caption{
+      font-size: 3vmin;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #575656;
+      box-sizing: border-box;
+    }
+
+    thead{
+      background: #1182be;
+      color: #fefefe;
+      font-size: 3.5vmin;
+    }
+
+    tbody{
+      font-size: 3vmin;
+    }
+
+    .equation{
+      font-size: 3vmin;
+      margin: 40px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .icon{
+      width: 20px;
+      vertical-align: middle;
+    }
+
+    .picture{
+      width: 100%;
+      position: relative;
+    }
+
+    .bg {
+      width:40%;
+      margin-left: 30%;
+      position: relative;
+      margin-bottom: 100px;
+    }
+
+    .micro{
+      width: 14%;
+      position: absolute;
+      left: 42.9%;
+      top: 10.1vw;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .productivity{
+      width: 10.5%;
+      position: absolute;
+      left: 30.7%;
+      top: 17.9vw;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .correlation{
+      width: 10.5%;
+      position: absolute;
+      left: 58.85%;
+      top: 17.95vw;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .growth{
+      width: 10.5%;
+      position: absolute;
+      left: 34.3%;
+      top: 0.7vw;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .sc{
+      width: 10.5%;
+      position: absolute;
+      left: 54.4%;
+      top: 0.7vw;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .weka{
+      width: 10.5%;
+      position: absolute;
+      left: 44.9%;
+      top: 27vw;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .micro:hover{
+      transform: scale(1.1);
+    }
+
+    .weka:hover{
+      transform: scale(1.1);
+    }
+
+    .sc:hover{
+      transform: scale(1.1);
+    }
+
+    .productivity:hover{
+      transform: scale(1.1);
+    }
+
+    .correlation:hover{
+      transform: scale(1.1);
+    }
+
+    .growth:hover{
+      transform: scale(1.1);
+    }
+
+    .frame{
+      width: 24%;
+      border: solid 3px #5ccdc5;
+      border-radius: 2vw;
+      padding: 0.7vw;
+      position: absolute;
+      transition-duration: 0.4s;
+    }
+
+    hr{
+      width: 90%;
+      background-color: #5ccdc5;
+      border: solid 1px #5ccdc5;
+      margin-top: 0.2vw;
+      margin-bottom: 0.7vw;
+    }
+
+    #weka{
+      top: 39vw;
+      left: 37%;
+    }
+
+    #peptide{
+      top: -3vw;
+      left: 68%;
+    }
+
+    #NGS{
+      top: 17vw;
+      left: 72.5%;
+    }
+
+    #growth{
+      top: -3vw;
+      left: 5%;
+    }
+
+    #product{
+      top: 17vw;
+      left: 2%;
+    }
+
+    .frame>hr,.title_3,.title_4{
+      display: none;
+    }
+
+    .seemore{
+      width: 15%;
+      margin-left: 42.5%;
+      cursor: pointer;
+      transition-duration: 0.4s;
+    }
+
+    .seemore:hover{
+      transform: scale(1.1);
+    }
+
+    .close{
+      width: 15%;
+      margin-left: 42.5%;
+      cursor: pointer;
+      transition-duration: 0.4S;
+    }
+
+    .close:hover{
+      transform: scale(1.1);
+    }
+
+    .assumption_icon{
+      width: 8%;
+      position: absolute;
+      left: 18%;
+      top: 30vw;
+    }
+
+    .assumption{
+      border: solid 3px #5ccdc5;
+      border-radius: 2vw;
+      padding: 1vw;
+      padding-bottom: 3vw;
+      padding-top: 3vw;
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 10vw;
+    }
+
+    .show{
+      display: none;
+    }
+
+
+  </style>
+
+  <!----------------------------------------------------------------------------->
+
+  <script>
+  </script>
+
+  <!----------------------------------------------------------------------------->
+
+  <!-- Latex resourse code-->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+      MathJax.Hub.Config({
+          extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+              inlineMath: [
+                  ['$', '$'],
+                  ["\\(", "\\)"]
+              ],
+              displayMath: [
+                  ['$$', '$$'],
+                  ["\\[", "\\]"]
+              ],
+          },
+          "HTML-CSS": {
+              availableFonts: ["TeX"]
+          }
+      });
+  </script>
+
+  <!----------------------------------------------------------------------------->
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="banner">
+      <img class="cover" src="http://2018.igem.org/wiki/images/8/80/T--NCTU_Formosa--Dry_Lab.png">
+    </div>
+    <div class="sec1">
+      <div class="title"><p>Overview</p></div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The purpose of our smart farming system is to precisely regulate soil microbiota using bio-stimulators to achieve a desired effect. While microbiology and ecology drive the efficiency of our bio-stimulators, dry-lab analyses and models power the control center of our system. To truly achieve precise regulation, we designed a system of interconnected models, linked sensors together through our <a href="http://2018.igem.org/Team:NCTU_Formosa/Hardware">IoTtalk platform</a> and strengthened by continuous feedback of data. <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/NGS_Data_Analysis">NGS data</a> provides invaluable details of our bacterial regulation network. Machine learning software in the form of Weka processes these details, <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Microbiota_Prediciton">granting prediction</a> capabilities made more accurate through self-learning. An electrical conductivity sensor details levels of nitrogen, phosphorus and potassium present in soil and alerts farmers when another application is needed, and a <a href="http://2018.igem.org/Team:NCTU_Formosa/Wet_Lab/Curcumin_Biosensor">curcumin sensor</a> allows for consistent monitoring of curcumin concentrations without damaging plants. Both sensors transmit figures constantly through IoTtalk, providing steady data for calibration of their respective models through artificial intelligence. Finally, <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Growth_Model">inhibition modelling</a> of newly constructed bio-stimulators in the form of <a href="http://2018.igem.org/Team:NCTU_Formosa/Wet_Lab">bacteriocins</a> grants even greater precision, while <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Peptide_Prediction">peptide prediction</a> using the Scoring Card Method characterizes even more novel and efficient bio-stimulators. Click below to learn how we turn farming into a science!
+        </p>
+      </div>
+    </div>
+    <div class="picture">
+        <img src="http://2018.igem.org/wiki/images/9/98/T--NCTU_Formosa--model_overview.png" class="bg">
+        <img src="http://2018.igem.org/wiki/images/0/0d/T--NCTU_Formosa--microbiota.png" class="micro">
+        <img src="http://2018.igem.org/wiki/images/d/d3/T--NCTU_Formosa--weka2.0.png" class="weka">
+        <img src="http://2018.igem.org/wiki/images/f/f4/T--NCTU_Formosa--sc2.png" class="sc">
+        <img src="http://2018.igem.org/wiki/images/3/37/T--NCTU_Formosa--Productivity_model_icon.png" class="productivity">
+        <img src="http://2018.igem.org/wiki/images/1/14/T--NCTU_Formosa--correlation_icon.png" class="correlation">
+        <img src="http://2018.igem.org/wiki/images/5/59/T--NCTU_Formosa--growth2.0.png" class="growth">
+        <div class="frame" id="weka">
+          <div class="title_2"><p>Microbiota Prediction</p></div>
+          <hr>
+          <div class="title_3">
+            <p>
+              Predict how biostimulators effect bacterial distribution using Weka machine learning.
+            </p>
+          </div>
+          <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Microbiota_Prediciton"><span class="title_4"><p>See More>></p></span></a>
+        </div>
+        <div class="frame" id="peptide">
+          <div class="title_2"><p>Peptide Prediction</p></div>
+          <hr>
+          <div class="title_3">
+            <p>
+              Scoring Card Method predicts new antimicrobial peptides as new bio-stimulators.
+            </p>
+          </div>
+          <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Peptide_Prediction"><span class="title_4"><p>See More>></p></span></a>
+        </div>
+        <div class="frame" id="growth">
+          <div class="title_2"><p>Growth Model</p></div>
+          <hr>
+          <div class="title_3">
+            <p>
+              Relate soil factors and bacteriocins affect <i>B. subtilis</i> growth through Simulink.
+            </p>
+          </div>
+          <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Growth_Model"><span class="title_4"><p>See More>></p></span></a>
+        </div>
+        <div class="frame" id="product">
+          <div class="title_2"><p>Productivity Model</p></div>
+          <hr>
+          <div class="title_3">
+            <p>
+              Model the relationship between cumulative fertilizer use and final productivity.
+            </p>
+          </div>
+          <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Productivity_Model"><span class="title_4"><p>See More>></p></span></a>
+        </div>
+        <div class="frame" id="NGS">
+          <div class="title_2"><p>NGS Data Analysis</p></div>
+          <hr>
+          <div class="title_3">
+            <p>
+              Analyze the microbiota and ensure soil health with next generation sequencing.
+            </p>
+          </div>
+          <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/NGS_Data_Analysis"><span class="title_4"><p>See More>></p></span></a>
+        </div>
+
+    </div>
+    <div class="assumption">
+      <div class="title444"><p>Assumptions of Whole Model</p></div>
+      <div class="text" style="width: 85%; margin-left: 7.5%; margin-bottom: 2vw;">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The interactions in the nature is very complicated. If we take all the conditions into account in our models, they will be too complicated to compute. Thus, according to our human practices and researches, we set several assumptions to simplify our model. However, our models still achieved high accuracy with the power of machine learning. Please click the button below to see the assumptions!
+        </p>
+      </div>
+      <img src="http://2018.igem.org/wiki/images/2/24/T--NCTU_Formosa--Seemore2.png" class="seemore">
+      <div class="show">
+        <div class ="title_1">Microbiota Prediction</div>
+        <div class="text">
+        <p>1. The growth of the bacteria and the correlation between two different bacteria are only relative with N, P, and K fertilizer in soil.<BR></p>
+        <p>2. Soil organic carbon is constant.<BR></p>
+        <p>3. Unknown bacteria are not in the soil.<BR></p>
+        <p>4. N, P, K will not loss after spreading in the soil.<BR></p>
+        <p>5. The growth rate of all bacteria has same relationship with soil organic carbon.<BR></p>
+        <p>6. The function of bacteria will not change with the environment.<BR></p>
+        <p>7. If the spearman's rank correlation coefficient is lower than -0.7 or higher than 0.7, our model will take this correlationship into account.<BR></p>
+        </div>
+        <div class ="title_1">Growth Model</div>
+        <div class="text">
+        <p>1. Temperature, pH, EC is constant after we detect first time.<BR></p>
+        <p>2. The growth of <i>B. sub</i> only depends on the conditions of temperature, pH, EC, N, P, and K.<BR></p>
+        <p>3. The growth of <i>B. sub</i> doesn’t interfere with other bacteria.<BR></p>
+        <p>4. The degradation of bacteriocin doesn’t interfere with external factors.<BR></p>
+        <p>5. After the microbiota reaches the dynamic equilibrium, it will only affected by bio-stimulator.<BR></p>
+        </div>
+        <div class ="title_1">Productivity Model</div>
+        <div class="text">
+        <p>1. The growth of plant is only influence on N, P, and K in soil.<BR></p>
+        <p>2. After spreading fertilizer, plant will absorb all of it before we spread fertilizer next time.<BR></p>
+        </div>
+        <div class ="title_1">NGS Data Analysis</div>
+        <div class="text">
+        <p>1. The lower bacteria ratio is, the smaller influence it causes.<BR></p>
+        </div>
+        <img src="http://2018.igem.org/wiki/images/2/26/T--NCTU_Formosa--Close.png" class="close">
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</body>
+
+<script>
+
+/*  $(document).ready(function(){
+    $(".weka").hover(function(){
+      $("#weka>hr,#weka>.title_3").css("display","block");
+    },function(){
+      $(".frame>hr,.frame>.title_3").css("display","none");
+    });
+  }); */
+
+  $(".correlation").click(function(){
+    $("#NGS>hr,#NGS>.title_3,#NGS>a>.title_4").slideToggle(500);
+  });
+  $(".weka").click(function(){
+    $("#weka>hr,#weka>.title_3,#weka>a>.title_4").slideToggle(500);
+  });
+  $(".growth").click(function(){
+    $("#growth>hr,#growth>.title_3,#growth>a>.title_4").slideToggle(500);
+  });
+  $(".micro").click(function(){
+    $("#growth>hr,#growth>.title_3,#growth>a>.title_4,#weka>hr,#weka>.title_3,#weka>a>.title_4,#NGS>hr,#NGS>.title_3,#NGS>a>.title_4,#peptide>hr,#peptide>.title_3,#peptide>a>.title_4,#product>hr,#product>.title_3,#product>a>.title_4").slideToggle(500);
+  });
+  $(".sc").click(function(){
+    $("#peptide>hr,#peptide>.title_3,#peptide>a>.title_4").slideToggle(500);
+  });
+  $(".productivity").click(function(){
+    $("#product>hr,#product>.title_3,#product>a>.title_4").slideToggle(500);
+  });
+
+
+
+  $(".correlation").hover(function(){
+       $("#NGS").css("background-color", "#5ccdc5");
+       }, function(){
+       $("#NGS").css("background-color", "white");
+   });
+   $(".correlation").hover(function(){
+        $("#NGS,#NGS>hr,#NGS>a>.title_4").css("color", "white");
+        }, function(){
+        $("#NGS,#NGS>hr,#NGS>a>.title_4").css("color", "#080e44");
+    });
+
+    $(".weka").hover(function(){
+         $("#weka").css("background-color", "#5ccdc5");
+         }, function(){
+         $("#weka").css("background-color", "white");
+     });
+     $(".weka").hover(function(){
+          $("#weka,#weka>hr,#weka>a>.title_4").css("color", "white");
+          }, function(){
+          $("#weka,#weka>hr,#weka>a>.title_4").css("color", "#080e44");
+      });
+
+      $(".growth").hover(function(){
+           $("#growth").css("background-color", "#5ccdc5");
+           }, function(){
+           $("#growth").css("background-color", "white");
+       });
+      $(".growth").hover(function(){
+           $("#growth,#growth>hr,#growth>a>.title_4").css("color", "white");
+           }, function(){
+           $("#growth,#growth>hr,#growth>a>.title_4").css("color", "#080e44");
+       });
+
+      $(".sc").hover(function(){
+           $("#peptide").css("background-color", "#5ccdc5");
+           }, function(){
+           $("#peptide").css("background-color", "white");
+       });
+      $(".sc").hover(function(){
+           $("#peptide,#peptide>hr,#peptide>a>.title_4").css("color", "white");
+           }, function(){
+           $("#peptide,#peptide>hr,#peptide>a>.title_4").css("color", "#080e44");
+       });
+
+       $(".productivity").hover(function(){
+            $("#product").css("background-color", "#5ccdc5");
+            }, function(){
+            $("#product").css("background-color", "white");
+        });
+       $(".productivity").hover(function(){
+            $("#product,#product>hr,#product>a>.title_4").css("color", "white");
+            }, function(){
+            $("#product,#product>hr,#product>a>.title_4").css("color", "#080e44");
+        });
+
+
+        $(".seemore").click(function(){
+          $(".show").show(800);
+          $(".seemore").hide();
+        });
+        $(".close").click(function(){
+          $(".show").hide(800);
+          $(".seemore").show();
+        });
+
+</script>
+
+</html>
+
+{{NCTU_Formosa/Footer}}

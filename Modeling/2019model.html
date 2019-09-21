@@ -1,0 +1,87 @@
+{{NCTU_Formosa/test}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Model Overview</title>
+  <style media="screen">
+    #globalWrapper{
+      padding-bottom: 0 !important;
+    }
+    body{
+      font-size: 0 ;
+      margin: 0 ;
+      font-family: Quenda;
+      box-sizing: border-box;
+    }
+    p{
+      font-size: 4vh!important;
+      font-family: Quenda!important;
+      padding: 0!important;
+      margin: 0!important;
+    }
+    .text ul{
+      list-style-type: disc;
+      list-style-image:none !important;
+      margin: 2% 10% 2%;
+    }
+    .wrapper{
+      width: 100%;
+      overflow: hidden;
+      font-family: Quenda !important;
+    }
+    .bigpic img{
+      width: 100%;
+    }
+    .sec1{
+      margin-bottom: 150px;
+    }
+    .title p{
+      font-size: 7vh !important;
+      margin: 2%;
+      text-align: center!important;
+    }
+    .text{
+      font-size: 4vh !important;
+      width: 75%;
+      position: relative;
+      margin-left: 12.5%;
+      margin-right: 12.5%;
+      margin-top: 1%;
+      margin-bottom: 40px;
+      text-align: justify !important;
+    }
+  </style>
+  <!-- <link rel="stylesheet" type="text/css" href="modelcss.css"> -->
+</head>
+<body>
+  <div class="wrapper">
+    <div class="bigpic">
+      <img src="https://2019.igem.org/wiki/images/d/d1/T--NCTU_Formosa--modeling.jpg">
+    </div>
+    <div class="sec1">
+      <div class="title"><p>Overview</p></div>
+      <div class="text">
+        <p>
+          &emsp;&emsp; Modeling is calculating the physical phenomenon by using mathematical methods or logical algorithms. Our model aims at analyzing bacterial growth curve and finally turns it into quantified mutation force.	Our model can be divided into the following three parts:
+        </p>
+        <ul>
+          <li>Bacterial growth model</li>
+          <li>Quorum sensing model</li>
+          <li>Chemical structure prediction</li>
+        </ul>
+        <p>
+          &emsp;&emsp; First, bacterial growth model simulates the result of our experiment, and explains how we analyze our experiment data. We use the toolkit in Matlab which called Simbiology to model the genetic regulation and the bacterial growth model. Second, Quorum sensing model predicts the effect of mutagenicity to the time difference of red fluorescence.
+        </p>
+        <p>
+          &emsp;&emsp; Furthermore, we’re not satisfied with only calculate the mutagenicity. We want to predict the mutagenicity based on the chemical structure. Thus, we develop a database which includes 55943 kinds of chemicals with the result of AMES test. Take our database as training data for machine learning, and then we use support vector machine (SVM) algorithm and artificial neural network to train our model to accurately predict the mutagenicity.
+        </p>
+        <p>
+          &emsp;&emsp; All in all, for unknown chemical structure, we can measure it by our engineered E. coli, and calculate the time difference of red fluorescence to get our quantified mutagenicity. For known chemical structure, we can calculate the mutagenicity by using the result of machine learning and finally we also can get the quantified mutagenicity.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+{{NCTU_Formosa/Footer}}
