@@ -1,0 +1,121 @@
+body{
+  margin: 0;
+  font-size: 0;
+  font-family: Quenda;
+  box-sizing: border-box;
+  background-color: white;
+}
+.bigpic img{
+  width: 100%;
+}
+.calendar{
+  /* border: 3px solid #f28d00; */
+  border-collapse: separate;
+  width: 35vw;
+  table-layout:fixed;
+  font-family: Quenda;
+  font-size: 4vh;
+  background-color: #cc4932;
+  border-radius: 30px;
+  float: left;
+}
+.calendar th{
+  /* background-color: #953d20; */
+  color: white;
+  height: 10vh;
+}
+.calendar td{
+  text-align: center;
+  vertical-align: center;
+  empty-cells: hide;
+  border-radius: 50%;
+  height: 10vh;
+  /* font-size:80%; */
+  color: white;
+}
+.calendar td:active{
+    background-color: #6f6b65;
+    color: white;
+  }
+.calendar td:hover{
+  cursor: pointer;
+  border: #6f6b65;
+  background-color: #6f6b65;
+  color: white;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.month{
+  width: 7%;
+  height:4%;
+  margin-top: 0%;
+  display: inline-block;
+}
+.month p{
+  font-size: 6vh;
+  color: #a6a3a0;
+  background-color: #611614;
+  text-align: center;
+  margin-bottom: 0%;
+  margin-left: 5%;
+  border-radius: 20% 20% 0% 0%;
+}
+  .month p:hover{
+  cursor: pointer;
+  border: #cc4932;
+  background-color: #cc4932;
+  color: #fff;
+}
+
+#July{
+  z-index: 5;
+  position: absolute;
+  margin-left: 13%;
+  margin-bottom: 5%;
+}
+#August{
+  z-index: 4;
+  position: absolute;
+  margin-left: 13%;
+  margin-bottom: 5%;
+}
+#September{
+  z-index: 3;
+  position: absolute;
+  margin-left: 13%;
+  margin-bottom: 5%;
+}
+#October{
+  z-index: 2;
+  position: absolute;
+  margin-left: 13%;
+  margin-bottom: 5%;
+}
+
+.book{
+  border-collapse: separate;
+  width: 35vw;
+  height: 70%;
+  table-layout:fixed;
+  font-family: Quenda;
+  font-size: 4vh;
+  background-color: #e3d584;
+  border-radius: 30px;
+  float: left;
+  position: absolute;
+  margin-left: 50%;
+}
+.book th{
+  color: white;
+  height: 10%;
+}
+.book td{
+  text-align: center;
+  vertical-align: center;
+  height: 50%;
+  /* font-size:80%; */
+  color: white;
+}
