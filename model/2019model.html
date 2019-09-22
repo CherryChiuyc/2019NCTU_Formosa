@@ -1,0 +1,43 @@
+{{NCTU_Formosa/test}}
+{{NCTU_Formosa/modelingcss}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Model Overview</title>
+  <link rel="stylesheet" type="text/css" href="modelcss.css">
+</head>
+<body>
+  <div class="wrapper">
+    <video width="100%" muted autoplay>
+      <source src="https://2019.igem.org/wiki/images/2/26/T--NCTU_Formosa--model.mp4" type="video/mp4">
+      <!-- <source src="notebookv.ogg" type="video/ogg"> -->
+      Your browser does not support the video tag.
+    </video>
+    <div class="sec1">
+      <div class="title"><p>Overview</p></div>
+      <div class="text">
+        <p>
+          &emsp;&emsp; Modeling is calculating the physical phenomenon by using mathematical methods or logical algorithms. Our model aims at predicting bacterial growth and quorum sensing. Besides, we also develop an AI which can accurately predict the mutagenicity of chemicals. Our model can divide into the following parts:
+        </p>
+        <img src="https://2019.igem.org/wiki/images/3/33/T--NCTU_Formosa--easymodel.png">
+        <!-- <ul>
+          <li>Bacterial growth model</li>
+          <li>Quorum sensing model</li>
+          <li>Chemical structure prediction</li>
+        </ul> -->
+        <p>
+          &emsp;&emsp; First, the bacterial growth model simulates the result of our experiment. Mainly focusing on the function of suicide protein and nutrient limit. Second, the quorum-sensing model predicts the effect of mutagenicity on the time difference of red fluorescence.
+        </p>
+        <p>
+          &emsp;&emsp; Furthermore, we develop an AI to predict the mutagenicity by analyzing the chemical structure. Taking our database of SMILES and AMES test result as training data for machine learning, and combining with the support vector machine (SVM) algorithm, we can train our AI to predict the mutagenicity accurately.
+        </p>
+        <p>
+          &emsp;&emsp; All in all, for unknown chemical structure or unknown testing complex, we can measure it by our engineered E. coli, and calculate the time difference of red fluorescence to get our quantified mutagenicity. For a known chemical structure, we can calculate the mutagenicity by using the result of machine learning, and finally, we can also get the quantified mutagenicity.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+{{NCTU_Formosa/Footer}}
