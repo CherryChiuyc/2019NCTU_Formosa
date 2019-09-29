@@ -1,0 +1,223 @@
+{{NCTU_Formosa/test}}
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Parts</title>
+
+  <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+  <script src="jQueryAssets/jquery.ui-1.10.4.dialog.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+    $(".part_button").click(function(){
+    $(".basic_parts").slideToggle();
+      });
+    });
+  </script>
+
+  <style>
+
+
+    #globalWrapper{
+      padding-bottom: 0 !important;
+    }
+
+    body{
+      font-size: 0;
+      margin: 0;
+      padding: 0 !important;
+      width: 100%;
+      font-family: Levenim MT;
+    }
+
+    .wrapper{
+      width: 100%;
+      overflow: hidden;
+      background-color: white;
+      padding-bottom: 150px;
+    }
+
+    .cover{
+      width: 100%;
+    }
+
+
+    .title{
+      font-size: 7vmin;
+      margin: 50px;
+      margin-top: 0px;
+      text-align: center;
+    }
+
+    .text{
+      font-size: 3vmin;
+      width: 70%;
+      position: relative;
+      margin-left: 15%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .title_1 {
+      font-size: 7vmin;
+      margin: 50px;
+      margin-top: 70px;
+      text-align: center;
+    }
+
+    .basic_title {
+      width: 30%;
+      margin-left: 35%;
+      margin-top: 100px;
+    }
+
+    .name {
+      font-size: 3.5vmin;
+      text-decoration: none;
+      color: rgb(9, 19, 111);
+      transition-duration: 0.4s;
+      position: relative;
+      left: 12.5%;
+      margin: 30px;
+    }
+
+    .name:hover {
+      color: rgb(251, 185, 24)
+    }
+
+    .bac {
+      width: 20%;
+      margin: 50px;
+      margin-left: 40%;
+      margin-bottom: 70px;
+    }
+
+    .dec_1 {
+      width: 50%;
+      margin-left: 25%;
+      margin-top: 70px;
+    }
+
+    .dec_2 {
+      width: 50%;
+      margin-left: 25%;
+      margin-bottom: 150px;
+    }
+
+
+    .part_button {
+      width: 5%;
+      margin-left: 47.5%;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition-duration: 0.4s;
+    }
+
+    .part_button:hover {
+      transform: scale(1.2);
+    }
+
+    .part_button:active {
+      transform: scale(0.8);
+    }
+
+    .composite {
+      width: 20%;
+      margin-left: 40%;
+      transition-duration: 0.4s;
+    }
+
+    .composite:hover{
+      transform: scale(1.2);
+    }
+
+
+
+  </style>
+
+  <!----------------------------------------------------------------------------->
+
+  <script>
+  </script>
+
+  <!----------------------------------------------------------------------------->
+
+  <!-- Latex resourse code-->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+      MathJax.Hub.Config({
+          extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+              inlineMath: [
+                  ['$', '$'],
+                  ["\\(", "\\)"]
+              ],
+              displayMath: [
+                  ['$$', '$$'],
+                  ["\\[", "\\]"]
+              ],
+          },
+          "HTML-CSS": {
+              availableFonts: ["TeX"]
+          }
+      });
+  </script>
+
+  <!----------------------------------------------------------------------------->
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="banner">
+      <img class="cover" src="http://2018.igem.org/wiki/images/6/63/T--NCTU_Formosa--Parts2.0.png">
+    </div>
+    <div class="sec1">
+      <img src="http://2018.igem.org/wiki/images/a/a5/T--NCTU_Formosa--Basic_parts.png" class="basic_title">
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This year we decided to design six basic parts. These parts contain the single sequence of each antimicrobial peptide. They all show the inhibition function against <i>Bacillus subtilis</i>, which is one of the example of our system. We listed all the basic parts we constructed below.
+        </p>
+      </div>
+
+
+<!--------------------------------------------------------------------->
+      <div class="basic_parts">
+        <div class="title_1"><p>Bacteriocins</p></div>
+        <a href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K2599001" class="name" target="_blank" style="text-decoration: none;"><p>Bovicin HJ50(BBa_K2599001)</p></a>
+        <img src="http://2018.igem.org/wiki/images/f/f2/T--NCTU_Formosa--Bov.png" class="bac">
+        <a href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K2599003" class="name" target="_blank" style="text-decoration: none;"><p>Enterocin B(BBa_K2599003)</p></a>
+        <img src="http://2018.igem.org/wiki/images/4/4a/T--NCTU_Formosa--Ent_B.png" class="bac">
+        <a href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K2599004" class="name" target="_blank" style="text-decoration: none;"><p>Enterocin 96(BBa_K2599004)</p></a>
+        <img src="http://2018.igem.org/wiki/images/3/35/T--NCTU_Formosa--Ent_96.png" class="bac">
+        <a href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K2599005" class="name" target="_blank" style="text-decoration: none;"><p>Lacticin Z(BBa_K2599005)</p></a>
+        <img src="http://2018.igem.org/wiki/images/d/de/T--NCTU_Formosa--Lac.png" class="bac">
+        <a href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K2599006" class="name" target="_blank" style="text-decoration: none;"><p>Leucocyclicin Q(BBa_K2599006)</p></a>
+        <img src="http://2018.igem.org/wiki/images/d/d5/T--NCTU_Formosa--Leu.png" class="bac">
+        <a href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K2599007" class="name" target="_blank" style="text-decoration: none;"><p>Durancin TW-49M(BBa_K2599007)</p></a>
+        <img src="http://2018.igem.org/wiki/images/a/a3/T--NCTU_Formosa--Dur.png" class="bac" style="margin-bottom: 50px;" >
+      </div>
+      <div class="text"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To check out our composite parts containing genes of bacteriocins, curcumin biosensor, and improvements, please click the button below to learn more! </p></div>
+      <a href="http://2018.igem.org/Team:NCTU_Formosa/Composite_Part"><img src="http://2018.igem.org/wiki/images/f/f8/T--NCTU_Formosa--Composite_parts.png" class="composite"></a>
+
+    </div>
+
+  </div>
+</body>
+
+<script>
+  function mouseUp() {
+  document.getElementById("pb").style.transform = "rotate(180deg)";
+  document.getElementById("pb").style.transform = "rotate(-180deg)";
+}
+</script>
+</html>
+{{NCTU_Formosa/Footer}}
+{{NCTU_Formosa/Top_button}}

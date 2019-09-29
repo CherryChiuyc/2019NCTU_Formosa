@@ -1,0 +1,57 @@
+#globalWrapper{
+  padding-bottom: 0 !important;
+}
+body{
+  font-size: 0 !important;
+  margin: 0 ;
+  padding: 0;
+  font-family: Quenda;
+  box-sizing: border-box;
+}
+p{
+  font-family: Quenda!important;
+  padding: 0!important;
+  font-size: 3.5vh;
+  margin: 0;
+}
+.wrapper{
+  width: 100%;
+  font-family: Quenda !important;
+}
+.title_1 {
+  font-family: Quenda !important;
+  text-align: center !important;
+  font-size: 9vh !important;
+}
+.title_2 {
+  font-family: Quenda !important;
+  text-align: center !important;
+  font-size: 7vh !important;
+}
+.sec1 p{
+  font-size: 3.5vh;
+  width: 70%;
+  position: relative;
+  margin-left: 15%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: justify;
+}
+.parts {
+  font-size: 3.5vh;
+  text-decoration: none;
+  color: #cc4932;
+  transition-duration: 0.4s;
+  position: relative;
+  left: 12.5%;
+  margin: 30px;
+}
+.parts:hover {
+  color: #f48810;
+}
+.basic {
+  width: 20%;
+  margin: 2%;
+  margin-left: 40%;
+  margin-bottom:2.5%;
+}
