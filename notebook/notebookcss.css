@@ -96,7 +96,18 @@ a{
   margin-bottom: 5%;
 }
 
-.book{
+menu menu
+menu__tabs month
+#item1 mJul
+menu__wrapper month_wrapper
+menu_item month_item
+notebook notebook
+notebook_wrapper notebook_wrapper
+note-title
+note-item
+
+
+/* .book{
   border-collapse: separate;
   width: 35vw;
   height: 70%;
@@ -119,4 +130,4 @@ a{
   height: 50%;
   /* font-size:80%; */
   color: white;
-}
+} */

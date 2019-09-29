@@ -1,11 +1,13 @@
 {{NCTU_Formosa/test}}
-<!DOCTYPE html>
-<html lang="en">
+{{NCTU_Formosa/notebookcss}}
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Notebook</title>
-  <link rel="stylesheet" type="text/css" href="notebookcss.css">
+  <link rel="stylesheet" type="text/css" href="note.css">
   <script src="notebookjs.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 </head>
 
 <body>
@@ -16,247 +18,355 @@
   </video>
 
   <div class="menu">
-
-    <div class="month" style="margin-left:15%;"><p>Jul</p></div>
-    <div class="month"><p>Aug</p></div>
-    <div class="month"><p>Sep</p></div>
-    <div class="month"><p>Oct</p></div>
-
-  <table class="calendar" id = "July">
-    <tr>
-      <th style="color:#f28d00">SUN</th>
-      <th>MON</th>
-      <th>TUE</th>
-      <th>WED</th>
-      <th>THU</th>
-      <th>FRI</th>
-      <th style="color:#f28d00">SAT</th>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="#ha">1</a></td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>8</td>
-      <td>9</td>
-      <td>10</td>
-      <td>11</td>
-      <td>12</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>15</td>
-      <td>16</td>
-      <td>17</td>
-      <td>18</td>
-      <td>19</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>22</td>
-      <td>23</td>
-      <td>24</td>
-      <td>25</td>
-      <td>26</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>29</td>
-      <td>30</td>
-      <td>31</td>
-    </tr>
-  </table>
-
-  <table class="calendar" id = "August">
-    <tr>
-      <th style="color:#f28d00">SUN</th>
-      <th>MON</th>
-      <th>TUE</th>
-      <th>WED</th>
-      <th>THU</th>
-      <th>FRI</th>
-      <th style="color:#f28d00">SAT</th>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>5</td>
-      <td>6</td>
-      <td>7</td>
-      <td>8</td>
-      <td>9</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>12</td>
-      <td>13</td>
-      <td>14</td>
-      <td>15</td>
-      <td>16</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td>19</td>
-      <td>20</td>
-      <td>21</td>
-      <td>22</td>
-      <td>23</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <td>25</td>
-      <td>26</td>
-      <td>27</td>
-      <td>28</td>
-      <td>29</td>
-      <td>30</td>
-      <td>31</td>
-    </tr>
-  </table>
-
-  <table class="calendar" id="September">
-    <tr>
-      <th style="color:#f28d00">SUN</th>
-      <th>MON</th>
-      <th>TUE</th>
-      <th>WED</th>
-      <th>THU</th>
-      <th>FRI</th>
-      <th style="color:#f28d00">SAT</th>
-    </tr>
-    <tr>
-      <td><a href="#ha">1</a></td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-      <td>6</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>9</td>
-      <td>10</td>
-      <td>11</td>
-      <td>12</td>
-      <td>13</td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>16</td>
-      <td>17</td>
-      <td>18</td>
-      <td>19</td>
-      <td>20</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>23</td>
-      <td>24</td>
-      <td>25</td>
-      <td>26</td>
-      <td>27</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <td>29</td>
-      <td>30</td>
-    </tr>
-  </table>
-
-  <table class="calendar" id="October">
-    <tr>
-      <th style="color:#f28d00">SUN</th>
-      <th>MON</th>
-      <th>TUE</th>
-      <th>WED</th>
-      <th>THU</th>
-      <th>FRI</th>
-      <th style="color:#f28d00">SAT</th>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td><a href="#ha">1</a></td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>7</td>
-      <td>8</td>
-      <td>9</td>
-      <td>10</td>
-      <td>11</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>14</td>
-      <td>15</td>
-      <td>16</td>
-      <td>17</td>
-      <td>18</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>21</td>
-      <td>22</td>
-      <td>23</td>
-      <td>24</td>
-      <td>25</td>
-      <td>26</td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>28</td>
-      <td>29</td>
-      <td>30</td>
-      <td>31</td>
-    </tr>
-  </table>
-  <table class="book" id = "wet">
-    <tr>
-      <th>July 1st</th>
-    </tr>
-    <tr>
-      <td>nothing</td>
-    </tr>
-  </table>
-
-  <table class="book" id = "dry">
-    <tr>
-      <th></th>
-    </tr>
-    <tr>
-      <td></td>
-    </tr>
-  </table>
+    <div class="month">
+      <div style="margin-left:15%;"><a class="active"  id="J"href="#mJul">Jul</a></div>
+      <div><a href="#mAug" id="A">Aug</a></div>
+      <div><a href="#mSep" id="S">Sep</a></div>
+      <div><a href="#mOct" id="O">Oct</a></div>
+    </div>
+    <div class="month_wrapper">
+      <!-- calender July -->
+      <div class="month_item item-active" id="mJul">
+        <table class="calendar" id = "July">
+          <tr>
+            <th style="color:#f28d00">SUN</th>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th style="color:#f28d00">SAT</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="td-item td-active"><a href="#July1">1</a></td>
+            <td class="td-item"><a href="#July2">2</a></td>
+            <td class="td-item"><a href="#July3">3</a></td>
+            <td class="td-item"><a href="#July4">4</a></td>
+            <td class="td-item"><a href="#July5">5</a></td>
+            <td class="td-item"><a href="#July6">6</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#July7">7</a></td>
+            <td class="td-item"><a href="#July8">8</a></td>
+            <td class="td-item"><a href="#July9">9</a></td>
+            <td class="td-item"><a href="#July10">10</a></td>
+            <td class="td-item"><a href="#July11">11</a></td>
+            <td class="td-item"><a href="#July12">12</a></td>
+            <td class="td-item"><a href="#July13">13</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#July14">14</a></td>
+            <td class="td-item"><a href="#July15">15</a></td>
+            <td class="td-item"><a href="#July16">16</a></td>
+            <td class="td-item"><a href="#July17">17</a></td>
+            <td class="td-item"><a href="#July18">18</a></td>
+            <td class="td-item"><a href="#July19">19</a></td>
+            <td class="td-item"><a href="#July20">20</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#July21">21</a></td>
+            <td class="td-item"><a href="#July22">22</a></td>
+            <td class="td-item"><a href="#July23">23</a></td>
+            <td class="td-item"><a href="#July24">24</a></td>
+            <td class="td-item"><a href="#July25">25</a></td>
+            <td class="td-item"><a href="#July26">26</a></td>
+            <td class="td-item"><a href="#July27">27</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#July28">28</a></td>
+            <td class="td-item"><a href="#July29">29</a></td>
+            <td class="td-item"><a href="#July30">30</a></td>
+            <td class="td-item"><a href="#July31">31</a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- calender August -->
+      <div class="month_item" id="mAug">
+        <table class="calendar" id = "August">
+          <tr>
+            <th style="color:#f28d00">SUN</th>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th style="color:#f28d00">SAT</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="td-item"><a href="#August1">1</a></td>
+            <td class="td-item"><a href="#August2">2</a></td>
+            <td class="td-item"><a href="#August3">3</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#August4">4</a></td>
+            <td class="td-item"><a href="#August5">5</a></td>
+            <td class="td-item"><a href="#August6">6</a></td>
+            <td class="td-item"><a href="#August7">7</a></td>
+            <td class="td-item"><a href="#August8">8</a></td>
+            <td class="td-item"><a href="#August9">9</a></td>
+            <td class="td-item"><a href="#August10">10</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#August11">11</a></td>
+            <td class="td-item"><a href="#August12">12</a></td>
+            <td class="td-item"><a href="#August13">13</a></td>
+            <td class="td-item"><a href="#August14">14</a></td>
+            <td class="td-item"><a href="#August15">15</a></td>
+            <td class="td-item"><a href="#August16">16</a></td>
+            <td class="td-item"><a href="#August17">17</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#August18">18</a></td>
+            <td class="td-item"><a href="#August19">19</a></td>
+            <td class="td-item"><a href="#August20">20</a></td>
+            <td class="td-item"><a href="#August21">21</a></td>
+            <td class="td-item"><a href="#August22">22</a></td>
+            <td class="td-item"><a href="#August23">23</a></td>
+            <td class="td-item"><a href="#August24">24</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#August25">25</a></td>
+            <td class="td-item"><a href="#August26">26</a></td>
+            <td class="td-item"><a href="#August27">27</a></td>
+            <td class="td-item"><a href="#August28">28</a></td>
+            <td class="td-item"><a href="#August29">29</a></td>
+            <td class="td-item"><a href="#August30">30</a></td>
+            <td class="td-item"><a href="#August31">31</a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- calender September -->
+      <div class="month_item" id="mSep">
+        <table class="calendar" id="September">
+          <tr>
+            <th style="color:#f28d00">SUN</th>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th style="color:#f28d00">SAT</th>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#September1">1</a></td>
+            <td class="td-item"><a href="#September2">2</a></td>
+            <td class="td-item"><a href="#September3">3</a></td>
+            <td class="td-item"><a href="#September4">4</a></td>
+            <td class="td-item"><a href="#September5">5</a></td>
+            <td class="td-item"><a href="#September6">6</a></td>
+            <td class="td-item"><a href="#September7">7</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#September8">8</a></td>
+            <td class="td-item"><a href="#September9">9</a></td>
+            <td class="td-item"><a href="#September10">10</a></td>
+            <td class="td-item"><a href="#September11">11</a></td>
+            <td class="td-item"><a href="#September12">12</a></td>
+            <td class="td-item"><a href="#September13">13</a></td>
+            <td class="td-item"><a href="#September14">14</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#September15">15</a></td>
+            <td class="td-item"><a href="#September16">16</a></td>
+            <td class="td-item"><a href="#September17">17</a></td>
+            <td class="td-item"><a href="#September18">18</a></td>
+            <td class="td-item"><a href="#September19">19</a></td>
+            <td class="td-item"><a href="#September20">20</a></td>
+            <td class="td-item"><a href="#September21">21</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#September22">22</a></td>
+            <td class="td-item"><a href="#September23">23</a></td>
+            <td class="td-item"><a href="#September24">24</a></td>
+            <td class="td-item"><a href="#September25">25</a></td>
+            <td class="td-item"><a href="#September26">26</a></td>
+            <td class="td-item"><a href="#September27">27</a></td>
+            <td class="td-item"><a href="#September28">28</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#September29">29</a></td>
+            <td class="td-item"><a href="#September30">30</a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- calender October -->
+      <div class="month_item" id="mOct">
+        <table class="calendar" id="October">
+          <tr>
+            <th style="color:#f28d00">SUN</th>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th style="color:#f28d00">SAT</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="td-item"><a href="#October1">1</a></td>
+            <td class="td-item"><a href="#October2">2</a></td>
+            <td class="td-item"><a href="#October3">3</a></td>
+            <td class="td-item"><a href="#October4">4</a></td>
+            <td class="td-item"><a href="#October5">5</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#October6">6</a></td>
+            <td class="td-item"><a href="#October7">7</a></td>
+            <td class="td-item"><a href="#October8">8</a></td>
+            <td class="td-item"><a href="#October9">9</a></td>
+            <td class="td-item"><a href="#October10">10</a></td>
+            <td class="td-item"><a href="#October11">11</a></td>
+            <td class="td-item"><a href="#October12">12</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#October13">13</a></td>
+            <td class="td-item"><a href="#October14">14</a></td>
+            <td class="td-item"><a href="#October15">15</a></td>
+            <td class="td-item"><a href="#October16">16</a></td>
+            <td class="td-item"><a href="#October17">17</a></td>
+            <td class="td-item"><a href="#October18">18</a></td>
+            <td class="td-item"><a href="#October19">19</a></td>
+          </tr>
+          <tr>
+            <td class="td-item"><a href="#October20">20</a></td>
+            <td class="td-item"><a href="#October21">21</a></td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
+  <div class="notebook">
+    <div class="notebook_wrapper">
+      <!-- July -->
+      <div class="note-item note_active" id="July1">
+        <h2>July 1</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July2">
+        <h2>July 2</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July3">
+        <h2>July 3</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July4">
+        <h2>July 4</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July5">
+        <h2>July 5</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July6">
+        <h2>July 6</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July7">
+        <h2>July 7</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July8">
+        <h2>July 8</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July9">
+        <h2>July 9</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July10">
+        <h2>July 10</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July11">
+        <h2>July 11</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July12">
+        <h2>July 12</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July13">
+        <h2>July 13</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July14">
+        <h2>July 14</h2><hr>
+        <p class="note-title">None</p>
+      </div>
+      <div class="note-item" id="July15">
+        <h2>July 15</h2><hr>
+        <p class="note-title">IDT gblock resuspend</p>
+        <p class="note-title">IDT Taq PCR</p>
+        <ul style="list-style-image:none;list-style-type: disc;padding-left:12px;">
+          <li class="list">Check the annealing temperature of each part before doing Pfu PCR</li>
+        </ul>
+      </div>
+      <div class="note-item" id="July16">
+        <h2>July 16</h2><hr>
+        <p class="note-title">Dilute IDT solutions</p>
+        <ul style="list-style-image:none;list-style-type: disc;padding-left:12px;">
+          <li class="list">Part 445 & 446 & 437 & 438 time set: 95°C-5mins, 95°C-30secs, 55°C-30secs, 72°C-143secs, 25cycles, 72°C-10mins</li>
+          <li class="list">Part 440 & 441 & 442 & 443 & 444 & 445 time set: 95°C-5mins, 95°C-30secs, 55°C-30secs, 72°C-91secs, 25cycles, 72°C-10mins</li>
+        </ul>
+        <p class="note-title">IDT dilution</p>
+        <ul style="list-style-image:none;list-style-type: disc;padding-left:12px;">
+          <li class="list">Dilute the gblock solution 50-fold</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+<!-- jquery -->
+  <script>
+  $(function() {
+  	var $menu_tabs = $('.month div a');
+  	$menu_tabs.on('click', function(e) {
+  		e.preventDefault();
+  		$menu_tabs.removeClass('active');
+  		$(this).addClass('active');
+
+  		$('.month_item').fadeOut(300);
+  		$(this.hash).delay(300).fadeIn();
+  	});
+  });
+
+  $(function() {
+  	// Menu Tabular
+  	var $td_tabs = $('tr .td-item a');
+  	$td_tabs.on('click', function(e) {
+  		e.preventDefault();
+  		$td_tabs.removeClass('active');
+  		$(this).addClass('active');
+
+  		$('.note-item').fadeOut(300);
+  		$(this.hash).delay(300).fadeIn();
+
+          $('.td-item').removeClass('td-active');
+          $(this).parent('.td-item').addClass('td-active');
+  	});
+
+  });
+  </script>
 </body>
 </html>
 {{NCTU_Formosa/Footer}}
