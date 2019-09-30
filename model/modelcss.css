@@ -8,7 +8,7 @@ body{
   box-sizing: border-box;
 }
 p{
-  font-size: 3.5vh!important;
+  font-size: 1.7vw!important;
   font-family: Quenda!important;
   padding: 0!important;
   margin: 0;
@@ -30,7 +30,7 @@ p{
   margin-bottom: 150px;
 }
 .title p{
-  font-size: 7vh !important;
+  font-size: 3vw !important;
   margin-top: 3%!important;
   text-align: center!important;
 }
