@@ -1,0 +1,293 @@
+{{NCTU_Formosa/test}}
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>HP-homepage2</title>
+
+  <style>
+  @keyframes ani {
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+}
+
+
+body {
+padding: 0px;
+margin: 0px;
+font-size: 0;
+}
+
+.wrapper {
+width: 100%;
+margin: 0px;
+padding: 0px;
+background: #fff;
+font-family: Levenim MT;
+padding-bottom: 150px;
+}
+
+.cover {
+width: 100%;
+position: relative;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 100px;
+/*animation: ani 5s 1;
+animation-fill-mode: forwards;*/
+}
+
+.nav_bg {
+background-color: #4F9FB7;
+height: 60px;
+}
+
+.title_1 {
+  text-align: center;
+  font-size: 8vmin;
+}
+
+.text{
+  font-size: 3vmin;
+  width: 70%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: justify;
+}
+
+.edu {
+width: 100%;
+max-width: 1150px;
+position: relative;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 100px;
+margin-top: 100px;
+text-align: center;
+overflow: hidden;
+}
+
+.bg_edu {
+width: 85%;
+}
+
+.silver {
+position: relative;
+max-width: 1150px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 100px;
+text-align: center;
+overflow: hidden;
+}
+
+.bg_silver {
+width: 85%;
+}
+
+.gold {
+position: relative;
+max-width: 1150px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 100px;
+text-align: center;
+overflow: hidden;
+}
+
+.bg_gold {
+width: 85%;
+}
+
+.col {
+width: 100%;
+max-width: 1150px;
+position: relative;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+overflow: hidden;
+}
+
+.bg_col {
+width: 85%;
+}
+
+.button {
+position: absolute;
+width: 100%;
+left: 38%;
+bottom: 6%;
+}
+
+.button img {
+width: 23%;
+position: relative;
+/* 淡出淡入效果0.5秒 */
+transition: opacity 0.5s ease-in-out;
+cursor: pointer;
+}
+
+.button img:last-child:hover {
+ /* 滑入時第一張透明度設0 */
+  opacity:0;
+}
+
+.button_2{
+left: -23%;
+}
+
+h1 {
+position: absolute;
+left: 12%;
+top: 4%;
+margin: 0;
+font-size: 9vmin;
+}
+
+
+.coverflow_1>a>img{
+      width: 39% !important;
+      position: absolute;
+      top: 28%;
+      left: 45%;
+      border-radius: 10px;
+      border: solid 3px rgb(211, 241, 238);
+  }
+
+.coverflow_2>a>img{
+      width: 37%;
+      height: auto;
+      position: absolute;
+      top: 27%;
+      left: 50%;
+      border-radius: 10px;
+      border: solid 3px rgb(211, 241, 238);
+    }
+
+.coverflow_3>a>img{
+      width: 39% !important;
+      position: absolute;
+      top: 26%;
+      left: 45%;
+      border-radius: 10px;
+      border: solid 3px rgb(211, 241, 238);
+  }
+
+  .coverflow>a{
+      display: block;
+      position: absolute;
+      top:0;
+      left:0;
+      opacity: 0;
+  filter: alpha(opacity=0);
+  /*當圖片數量增加，影片長度需更改，變為5s*圖片數量*/
+  -webkit-animation: silder 15s linear infinite;
+                  animation: silder 15s linear infinite;
+  }
+  .coverflow>a>img{
+      max-width: 100%;
+  }
+
+/*動畫關鍵影格*/
+  @-webkit-keyframes silder {
+      3% {
+          opacity: 1;
+          filter: alpha(opacity=100);
+      }
+      27% {
+          opacity: 1;
+          filter: alpha(opacity=100);
+      }
+      30% {
+          opacity: 0;
+          filter: alpha(opacity=0);
+      }
+  }
+  @keyframes silder {
+      3% {
+          opacity: 1;
+          filter: alpha(opacity=100);
+      }
+      27% {
+          opacity: 1;
+          filter: alpha(opacity=100);
+      }
+      30% {
+          opacity: 0;
+          filter: alpha(opacity=0);
+      }
+  }
+
+/*每個圖片各延遲5秒*/
+  .coverflow>a:nth-child(3) {
+      -webkit-animation-delay: 10s;
+              animation-delay: 10s;
+  }
+
+  .coverflow>a:nth-child(2) {
+      -webkit-animation-delay: 5s;
+              animation-delay: 5s;
+  }
+
+  .coverflow>a:nth-child(1) {
+      -webkit-animation-delay: 0s;
+              animation-delay: 0s;
+  }
+/*滑入時停止播放*/
+  .coverflow:hover>a{
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+
+  </style>
+
+
+</head>
+
+<body>
+
+
+<div class="wrapper">
+  <div class="title"><img class="cover" src="http://2018.igem.org/wiki/images/2/2e/T--NCTU_Formosa--HP_cover_cover.png"/></div>
+  <div class="title_1"><p>Overview</p></div>
+  <div class="text"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Human practices serve as a means of communicating our goals with the public and are vital to the success of only our project but also synthetic biology as an industry. To spread awareness about synthetic biology and iGEM, we hosted and participated in several events to educate people and spark interest in the field. In addition to education and public engagement, we also investigated expert opinion regarding our project as well as consult authorities on both soil microbiota and the agriculture industry as part of our integrated human practices.</p></div>
+
+  <div class="edu"><img class="bg_edu" src="http://2018.igem.org/wiki/images/f/f4/T--NCTU_Formosa--Education.png"/>
+    <div class="coverflow_1"><a><img src="http://2018.igem.org/wiki/images/3/32/T--NCTU_Formosa--TCFSH7.JPG"/></a></div>
+    <div class="button"><img class="button_1" src="http://2018.igem.org/wiki/images/9/9a/T--NCTU_Formosa--button_yellow.png"/><a href="http://2018.igem.org/Team:NCTU_Formosa/Public_Engagement"><img class="button_2" src="http://2018.igem.org/wiki/images/c/c3/T--NCTU_Formosa--button_white.png"/></a></div>
+  </div>
+
+  <div class="gold"><img class="bg_gold" src="http://2018.igem.org/wiki/images/5/55/T--NCTU_Formosa--Integrated_hp.png"/>
+    <div class="coverflow_2"><a><img src="http://2018.igem.org/wiki/images/e/e6/T--NCTU_Formosa--NCHUprof1.jpg"/></a></div>
+    <div class="button"><img class="button_1" src="http://2018.igem.org/wiki/images/9/9a/T--NCTU_Formosa--button_yellow.png"/><a href="http://2018.igem.org/Team:NCTU_Formosa/Human_Practices/Integrated"><img class="button_2" src="http://2018.igem.org/wiki/images/c/c3/T--NCTU_Formosa--button_white.png"/></a></div>
+  </div>
+
+  <div class="col"><img class="bg_col" src="http://2018.igem.org/wiki/images/2/24/T--NCTU_Formosa--HP_collaboration.png"/>
+    <div class="coverflow_3"><a><img src="http://2018.igem.org/wiki/images/9/9f/T--NCTU_Formosa--NTHU_3.png"/></a></div>
+    <div class="button"><img class="button_1" src="http://2018.igem.org/wiki/images/9/9a/T--NCTU_Formosa--button_yellow.png"/><a href="http://2018.igem.org/Team:NCTU_Formosa/Collaborations"><img class="button_2" src="http://2018.igem.org/wiki/images/c/c3/T--NCTU_Formosa--button_white.png"/></a></div>
+  </div>
+
+</div>
+
+
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
+
+{{NCTU_Formosa/Top_button}}
+{{NCTU_Formosa/Footer}}
