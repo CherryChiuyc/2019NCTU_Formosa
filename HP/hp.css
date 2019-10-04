@@ -55,4 +55,5 @@ p{
 .seemore:hover{
   cursor: pointer;
   color: #f48810!important;
+  text-decoration: none!important;
 }
