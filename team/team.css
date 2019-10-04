@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  font-size: 0;
+  font-family: Quenda;
+  box-sizing: border-box;
+}
+div{
+  display: block;
+}
+p{
+  margin: 0 !important;
+  padding: 0!important;
+  font-size: 1.5vw!important;
+  font-family: Quenda!important;
+  z-index: 2!important;
+  cursor: pointer !important;
+}
+#p1{
+  position: fixed;
+  top: 19.5%;
+  left: 3.5%;
+}
+#p2{
+  position: fixed;
+  top: 26.5%;
+  left: 3.5%;
+}
+#p3{
+  position: fixed;
+  top: 34%;
+  left: 3.5%;
+}
+.wrapper{
+  background-color: white;
+  /* 上面留給照片空間*/
+  /* padding-top: 900px; */
+  /* 底下留給footer空間 */
+  /* padding-bottom: 300px; */
+}
+.content{
+  width: 80%;
+  margin-right: 8%;
+  margin-left: 12%;
+}
+.title1{
+  margin-left: 5%;
+  margin-bottom: 4vh;
+  margin-top: 2%;
+}
+.member_frame{
+  width: 90%;
+  margin-left: 8%;
+  margin-bottom: 4vh;
+}
+.person{
+  width: 100%;
+  height: auto;
+  display:inline-block;
+  box-sizing: border-box;
+  position: relative;
+}
+.photo1{
+  width: 24%;
+  position: absolute;
+  border-radius: 1.5vw;
+  box-shadow: 0 5px 13px rgba(0,0,0,0.3);
+  top: 18%;
+  left: 12%;
+  z-index: 2;
+}
+.photo2{
+  width: 24%;
+  position: absolute;
+  border-radius: 1.5vw;
+  box-shadow: 0 5px 13px rgba(0,0,0,0.3);
+  /*opacity透明度，一開始為透明*/
+  opacity: 0;
+  top: 18%;
+  left: 12%;
+  /*放在最上層*/
+  z-index: 3;
+}
+.photo2:hover{
+  opacity: 1;
+  transition-duration: 0.5s;
+}
+.title2{
+  margin-left: 5%;
+  margin-bottom: 4vh;
+}
+.instructors{
+  width: 95%;
+  margin-left: 3%;
+  margin-bottom: 4vh;
+}
+.title3{
+  margin-left: 5%;
+  margin-bottom: 4vh;
+}
+.advisors{
+  width: 95%;
+  margin-left: 3%;
+  margin-bottom: 4vh;
+}
+#line{
+  width:2%;
+  height:25%;
+  top: 20%;
+  left: 1%;
+  position: fixed;
+  z-index: 4;
+}
+#side{
+  width: 10%;
+  height: auto;
+  visibility: hidden;
+}

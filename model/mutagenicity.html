@@ -1,0 +1,295 @@
+{{NCTU_Formosa/test}}
+{{NCTU_Formosa/mutagenicitycss}}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mutagenicity Prediction</title>
+  <link rel="stylesheet" type="text/css" href="mutagenicity.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+      MathJax.Hub.Config({
+          extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+              inlineMath: [
+                  ['$', '$'],
+                  ["\\(", "\\)"]
+              ],
+              displayMath: [
+                  ['$$', '$$'],
+                  ["\\[", "\\]"]
+              ],
+          },
+          "HTML-CSS": {
+              availableFonts: ["TeX"]
+          }
+      });
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <video width="100%" muted autoplay>
+      <source src="" type="video/mp4">
+      <!-- <source src="notebookv.ogg" type="video/ogg"> -->
+      Your browser does not support the video tag.
+    </video>
+    <div class="sec1">
+      <div class="title_1"><p>Mutagenicity Prediction</p></div>
+      <div class="title_2"><p>Introduction</p></div>
+        <p>&emsp;&emsp; In our integrated human practice, we have an interview with Professor Lan in NCTU. He told us that mutagenicity is highly related to chemical substructure. We are inspired, so we come up with an idea: how about we use machine learning to predict the mutagenicity on the basis of chemical substructures? Before training our model, it’s important to preprocess the training data. After dealing with the input data, we do the feature extraction of substructures with mutagen
+        potential. We use support vector machine (SVM) and its scoring function to quantify the mutagenicity. For our validation part, we compare the mutagenicity which calculated by our artificial intelligence and the number of bacterial colonies from Ames test to prove the score is reliable.</p>
+      <div class="title_2"><p>Introduction to machine learning</p></div>
+        <p>&emsp;&emsp; With the popularity of artificial intelligence, more and more experts in different field start to use it as researching tool. Machine learning is a branch of artificial intelligence, concisely, it processes input data to generate useful predictions. Unlike normal programming methods, machine learning use “statistics” instead of “logics” to solve problems. This contributes to machine learning can solve complicated tasks with easier programming.</p>
+      <div class="title_2"><p>Basic Concept of Machine Learning</p></div>
+        <p>&emsp;&emsp; In general, training a machine learning model can be represented by the following flow chart: </p>
+        <img id="f1" src="ML_FLOW.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 1: Flow chart of machine learning</p>
+        <div class="comment">
+          <p><b>Label:</b> The thing we are predicting. In our model, the label is “mutagen” or “non-<br>&emsp;&emsp;&emsp;mutagen.”</p>
+          <p><b>Features:</b> Features in machine learning are input variables. In our model, the features<br>&emsp;&emsp;&emsp;&emsp;&thinsp; are the substructures.</p>
+          <p><b>Loss:</b> Loss is the mean square error of label and model prediction.</p>
+          <p><b>Model:</b> The thing we are predicting. In our model, the label is “mutagen” or “non-<br>&emsp;&emsp;&emsp;&thinsp; mutagen.”</p>
+        </div>
+        <p>&emsp;&emsp; In supervised machine learning progress, training data can be divided into features and label. For features, the model will compute the input vector and make predictions to compare with the label. Initially, the loss will be large, so we have loss function and optimizer to adjust the parameters in the model to make the prediction be more accurate. Once the training data is sufficient and the training progress achieve certain iteration, the loss score will converge to a stable value, which means the training is over.</p>
+        <div class="title_2"><p>Database Preprocessing</p></div>
+        <img id="f2" src="ML_FLOW2.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 2: Database preprocessing</p>
+        <div class="title_3"><p>1. Database source</p></div>
+        <p>&emsp;&emsp; For trustworthy machine learning, sufficient data is crucial. We use QSAR toolbox which is an open software that offers transparent chemical hazard assessment. We collect the chemical structure in the data form of SMILES as training data and the result of Ames test as target data for machine learning.</p>
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 1: Database Source</p>
+        <table id="t1">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <div class="title_3"><p>2. SMILES</p></div>
+        <p>&emsp;&emsp; Simplified Molecular Input Line Entry System (SMILES) is kind of chemical notation which is commonly used in molecular database. The feature is that SMILES can easily use 1-dimensional syntax to represent a 3-dimensional chemical structure. In other words, once we have the SMILES of the chemical, we can get the chemical structure in 1-dimensional syntax.</p>
+        <img id="f3" src="smiles.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 3: SMILES notation transition</p>
+        <div class="title_3"><p>3. Feature extraction</p></div>
+        <p>&emsp;&emsp; In our human practice, we have an interview about machine learning with the doctoral student in computer science laboratory. He suggests that we can’t just put the SMILES as input data directly. Instead, we have to extract the features. We find a paper which suggests that 67 kinds of substructures with mutagen potential. Because one kind of chemical structure can be written in multiple ways in SMILES so we can’t just catch the substring in SMILES. We use RDKit in python API which is an open-source library commonly used in the field of cheminformatics to catch the substructures. After catching the substructures, we can take it as input features for machine learning.</p>
+        <div class="title_3"><p>4. Labeling</p></div>
+        <p>&emsp;&emsp; The result of Ames test is “Positive” or “Negative”. However, it’s hard for machine to understand what is “Positive” or “Negative”, so we label “Positive” and “Negative” with “1” and “0.”</p>
+        <div class="title_2"><p>Support Vector Machine</p></div>
+        <p>&emsp;&emsp; SVM model is built for quantifying the mutagenicity of chemical compounds. To do so, we use machine learning algorithm which called support vector machine (SVM). SVM is mainly featured for data classification in pattern recognition. Simply speaking, this kind of method simulates a plane equation to sperate the data into two classes. Because of the plane might classify a multi-dimensional data in machine learning, we name it “hyperplane”. To divide a 3-D space, we need to use a 2-D plane, so we can deduce that in N-dimensional space, we need a (N-1)-D hyperplane to spilt. There are some data points which will determine the optimal hyperplane, and those critical point called “support vector.”</p>
+        <div class="title_2"><p>SVM Scoring Function</p></div>
+        <p class="equations">$$f(x) = \sum_{i=1}^{m}\alpha _{i}y^{(i)}K(x^{(i)},x)+b $$</p>
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 2: The parameters of SVM scoring function</p>
+        <table id="t2">
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <p>&emsp;&emsp; SVM scoring function can compute a score to a new input. If the output score in this function is positive then the input is belonged to the class y = 1; if is negative then the input is belonged to the class y = -1. It seems that, in the table we will find out a training data corresponding to a parameter α which is too complicated to calculate whole score function. In fact, only the support vector will have value of α to decide the hyperplane, others will be zero.</p>
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 3: The instances of SVM score</p>
+        <table id="t3">
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <div class="title_2"><p>Kernel Function</p></div>
+        <p>&emsp;&emsp; The kernel function in this score system is to apply on each data point to map the original non-linear classification results into higher-dimensional space in which they become separable. It also transfers high-dimensional space into a matrix to simplify calculation and reduce time in machine learning.</p>
+        <p>&emsp;&emsp; The following figure shows the input and the output data point of kernel function in different dimension.</p>
+        <img id="f4" src="kernel.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 4: The examples of input and output of kernel function</p>
+        <div class="title_2"><p>Results</p></div>
+        <p>We train our model with many kinds of algorithms, such as decision tree, KNN, ANN and so on, and finally we found that quadratic SVM has the highest accuracy.</p>
+        <p class="equations">$$Accuracy = \frac{TP+TF}{TP+TN+FP+FN} = 0.834 $$</p>
+        <div class="comment">
+          <p><b>TP:</b>True positive</p>
+          <p><b>TN:</b>True negative</p>
+          <p><b>FP:</b>False Positive</p>
+          <p><b>FN:</b>False negative</p>
+          <p><b>Validation:</b>k-folds cross validation (k = 5)</p>
+          <p><b>Training data:</b>7231 mutagens and 13769 non-mutagens</p>
+        </div>
+        <div class="title_2"><p>Confusion Matrix</p></div>
+        <img id="f5" src="Quadratic_SVM.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 5: The confusion matrix of predicted class and true class</p>
+        <div class="title_2"><p>ROC Curve</p></div>
+        <p>&emsp;&emsp; A receiver operating characteristic (ROC) curve is one of the most important evaluation metrics for checking performance of classifiers. It compares two operating characteristics, true positive rate (TPR) and false positive rate (FPR), to diagnosis the ability of model also known as relative operating characteristic curve.</p>
+        <img id="f6" src="ROC_Quadratic_SVM.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 6: The ROC curve analysis of Support vector machine (SVM)</p>
+        <p>&emsp;&emsp; The area under the curve (AUC) of ROC is the standard to judge model’s ability. The score will between 0 and 1, and the higher the score, the higher the accuracy. If AUC > 0.5, it means that the model has predictive value.</p>
+        <div class="title_2"><p>Statistical Histogram</p></div>
+        <p>&emsp;&emsp; We are not satisfied with the result of 83.4% accuracy, so we ask expert who has abundant experience in Ames test and pharmacology. He told us that the reason why our model has such false negative rate. That’s result in Ames test has high false positive rate so that the false negative rate will increase when we use it as statistical data.</p>
+        <p>&emsp;&emsp; In order to check if the problem caused by statistical data, we use ISSTOX database (not in our training data) and we collect the more reliable data, which shows the same result from more than one experiment.</p>
+        <p>&emsp;&emsp; As we can see below, the false negative rate (FNR) lower than before. Thus, we can prove that our model is trustworthy.</p>
+        <img id="f7" src="statistical data of SVM.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 7: Statistical data of SVM score</p>
+        <div class="title_2"><p>Comparison of Ames Test Colonies and SVM scores</p></div>
+        <p>&emsp;&emsp; The result of Ames test can be referred to be the comparison of mutagenicity. In order to prove that our artificial intelligence is trustworthy, we plot the linear regression of the result of Ames test and our model prediction.</p>
+        <img id="f8" src="regression.jpg">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 8: Regression of Ames test and model prediction</p>
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 4: Parameters of Regression</p>
+        <table id="t4">
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+        </table>
+        <div class="title_2"><p>Demonstration</p></div>
+        <p>&emsp;&emsp; We design an UI for the public and you. Click the website below to experience our artificial intelligence!</p>
+
+    </div>
+  </div>
+</body>
+</html>
+{{NCTU_Formosa/Footer}}

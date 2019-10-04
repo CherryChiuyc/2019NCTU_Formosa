@@ -6,25 +6,30 @@
   <meta charset="UTF-8">
   <title>Composite Parts</title>
   <link rel="stylesheet" type="text/css" href="composite.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 </head>
 <body>
   <div class="wrapper">
     <video width="100%" muted autoplay>
-      <source src="" type="video/mp4">
+      <source src="https://2019.igem.org/wiki/images/e/e8/T--NCTU_Formosa--comp.mp4" type="video/mp4">
       <!-- <source src="notebookv.ogg" type="video/ogg"> -->
       Your browser does not support the video tag.
     </video>
+    <div id="side">
+      <img id="line" src="https://2019.igem.org/wiki/images/0/03/T--NCTU_Formosa--circle2.png">
+      <p id="p1">QS System</p>
+      <p id="p2">Toxin Gene</p>
+    </div>
     <div class="sec1">
       <div class="title_1"><p>Composite Parts</p></div>
       <p>&emsp;&emsp; We hoped to apply quorum sensing system as the indicator of <i>E. coli</i> ’s population. Therefore, we summited a composite part containing constitutive promoter, RBS, LuxI gene, LuxR gene, GFP with LVA tag and Ampicillin as a part of the system.	Other composite parts contain lactose promoter, RBS and toxin gene.</p>
-    </div>
-    <div class="com">
-      <div class="title_2"><p>Quorum sensing System</p></div>
+      <div class="title_2" id="QS"><p>Quorum Sensing System</p></div>
       <a class="parts" target="_blank" href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K3256437" style="text-decoration:none;"><p>LuxI-LuxR(BBa_K3256437)</p></a>
       <img class="composite" src="https://2019.igem.org/wiki/images/b/b5/T--NCTU_Formosa--Lux_biobrick.png">
       <a class="parts" target="_blank" href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K3256439" style="text-decoration:none;"><p>RFP(BBa_K3256439)</p></a>
       <img class="composite" src="https://2019.igem.org/wiki/images/1/13/T--NCTU_Formosa--RFPc.png">
-      <div class="title_2"><p>Toxin Gene</p></div>
+      <div class="title_2" id="TX"><p>Toxin Gene</p></div>
       <a class="parts" target="_blank" href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K3256005" style="text-decoration:none;"><p>ccdB(BBa_K3256005)</p></a>
       <img class="composite" src="https://2019.igem.org/wiki/images/6/6f/T--NCTU_Formosa--ccdBc.png">
       <a class="parts" target="_blank" href="http://parts.igem.org/wiki/index.php?title=Part:BBa_K3256006" style="text-decoration:none;"><p>MazF(BBa_K3256006)</p></a>
@@ -39,6 +44,38 @@
       <img class="composite" src="https://2019.igem.org/wiki/images/8/88/T--NCTU_Formosa--hipAc.png">
     </div>
   </div>
+  <script type="text/javascript">
+  $(function(){
+  $('#p1').click(function(){
+    $('html, body').animate(
+      //scrollTop是指離底部的距離
+      {scrollTop: $('#QS').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#TX').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+
+  window.onscroll = function() {
+  //要同時判斷，不能用class
+  var box = document.getElementById('side');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(osTop)
+      if (osTop>620) {
+      box.style.visibility = "visible"
+      }
+      if (osTop<620) {
+      box.style.visibility = "hidden"
+      }
+  }
+  </script>
 </body>
 </html>
 {{NCTU_Formosa/Footer}}

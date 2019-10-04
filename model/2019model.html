@@ -16,27 +16,24 @@
     </video>
     <div class="sec1">
       <div class="title"><p>Overview</p></div>
-      <div class="text">
-        <p>
-          &emsp;&emsp; Modeling is calculating the physical phenomenon by using mathematical methods or logical algorithms. Our model aims at predicting bacterial growth and quorum sensing. Besides, we also develop an AI which can accurately predict the mutagenicity of chemicals. Our model can divide into the following parts:
-        </p>
-        <img src="https://2019.igem.org/wiki/images/3/33/T--NCTU_Formosa--easymodel.png">
-        <!-- <ul>
-          <li>Bacterial growth model</li>
-          <li>Quorum sensing model</li>
-          <li>Chemical structure prediction</li>
-        </ul> -->
-        <p>
-          &emsp;&emsp; First, the bacterial growth model simulates the result of our experiment. Mainly focusing on the function of suicide protein and nutrient limit. Second, the quorum-sensing model predicts the effect of mutagenicity on the time difference of red fluorescence.
-        </p>
-        <p>
-          &emsp;&emsp; Furthermore, we develop an AI to predict the mutagenicity by analyzing the chemical structure. Taking our database of SMILES and AMES test result as training data for machine learning, and combining with the support vector machine (SVM) algorithm, we can train our AI to predict the mutagenicity accurately.
-        </p>
-        <p>
-          &emsp;&emsp; All in all, for unknown chemical structure or unknown testing complex, we can measure it by our engineered E. coli, and calculate the time difference of red fluorescence to get our quantified mutagenicity. For a known chemical structure, we can calculate the mutagenicity by using the result of machine learning, and finally, we can also get the quantified mutagenicity.
-        </p>
-      </div>
+        <p>&emsp;&emsp; Modeling is calculating the physical phenomenon by using mathematical methods or logical algorithms. Our model aims at predicting bacterial growth and quorum sensing. Besides, we also develop an AI which can accurately predict the mutagenicity. Our model can be divided into the following three parts:</p>
+        <img id="e1"src="https://2019.igem.org/wiki/images/a/ae/T--NCTU_Formosa--easymodel1.png">
+        <img src="https://2019.igem.org/wiki/images/e/e7/T--NCTU_Formosa--easymodel2.png">
+        <img src="https://2019.igem.org/wiki/images/6/65/T--NCTU_Formosa--easymodel3.png">
+        <div class="connect">
+          <div class="but"><a href="https://2019.igem.org/Team:NCTU_Formosa/Growth_Model"><p>Bacterial Growth<br>&thinsp; Analytic Model</p></a></div>
+          <div class="but"><a href="https://2019.igem.org/Team:NCTU_Formosa/QS_Model"><p>QS System Model</p></a></div>
+          <div class="but"><a href="https://2019.igem.org/Team:NCTU_Formosa/Mutagenicity_Prediction"><p>&emsp; Mutagenicity<br>&emsp;&thinsp;&thinsp;&thinsp; Prediction</p></a></div>
+        </div>
+        <p>&emsp;&emsp; First, bacterial growth analytic model simulates the result of our experiment. Mainly focusing on the function of substance toxicity, nutrient limit, and mutation rate.</p>
+        <p>&emsp;&emsp; On top of that, quorum sensing model predicts the effect of mutagenicity to the time of red fluorescence.</p>
+        <p>&emsp;&emsp; Furthermore, we develop an AI to predict the mutagenicity by analyzing the chemical structure. Take our database of SMILES and Ames test result as training data for machine learning, and then we use support vector machine (SVM) algorithm to train our model to accurately predict the mutagenicity.</p>
+        <p>&emsp;&emsp; All in all, for unknown chemical structure, we can measure it by our engineered E. coli, and calculate the time of red fluorescence to get our quantified mutagenicity. For known chemical structure, we can quickly get the mutagenicity by using the result of machine learning.</p>
     </div>
+    <img id="flow" src="https://2019.igem.org/wiki/images/6/6c/T--NCTU_Formosa--model_flow.png">
+    <p class="explanation">
+    <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+    Figure 1: The workflow of our model</p>
   </div>
 </body>
 </html>

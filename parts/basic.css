@@ -36,7 +36,6 @@ p{
   position: relative;
   margin-left: 15%;
   margin-top: 2%;
-  margin-bottom: 2%;
   text-align: justify;
 }
 .parts {
@@ -44,7 +43,10 @@ p{
   text-decoration: none;
   transition-duration: 0.4s;
   position: relative;
-  left: 15%;
+}
+.parts p{
+  width: 70%!important;
+  margin-left: 15%!important;
 }
 .parts{
   color: #cc4932 !important;

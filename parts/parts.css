@@ -23,6 +23,7 @@ body{
 }
 p{
   font-family: Quenda!important;
+  font-size: 1.7vw!important;
   padding: 0!important;
   margin: 0;
 }
@@ -45,9 +46,10 @@ p{
   font-family: Quenda !important;
   text-align: center !important;
   font-size: 3vw !important;
+  margin-top: 2%;
 }
 .icon{
-  width: 20px;
+  width: 1.5vw;
   vertical-align: middle;
   color: #7e392e;
 }
@@ -63,7 +65,7 @@ p{
   width: 70% !important;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
 }
 table.pgrouptable {
   font-family: Quenda;

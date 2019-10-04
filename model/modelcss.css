@@ -13,11 +13,6 @@ p{
   padding: 0!important;
   margin: 0;
 }
-/* .text ul{
-  list-style-type: disc;
-  list-style-image:none !important;
-  margin: 2% 10% 2%;
-} */
 .wrapper{
   width: 100%;
   overflow: hidden;
@@ -26,28 +21,68 @@ p{
 .bigpic img{
   width: 100%;
 }
-.sec1{
-  margin-bottom: 150px;
+.sec1 p{
+  font-size: 1.7vw;
+  width: 70%;
+  position: relative;
+  margin-left: 15%;
+  /* margin-top: 2%;
+  margin-bottom: 2%; */
+  text-align: justify;
 }
+
 .title p{
   font-size: 3vw !important;
   margin-top: 3%!important;
   text-align: center!important;
 }
-.text{
-  width: 75%;
-  position: relative;
-  margin-left: 12.5%;
-  margin-right: 12.5%;
+
+.sec1 img{
+  width: 17%;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  margin-right: 7%;
+}
+#e1{
+  margin-left: 18%;
+}
+.connect {
+  width: 70%!important;
+  margin-left: 17%!important;
+  margin-bottom: 2%!important;
+}
+.but {
+  width: 33% !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+.but a:link{
+  color: black;
+  text-decoration:none;
+}
+.but a:visited{
+  color: black;
+  text-decoration:none;
+}
+.but a:hover{
+  color:#7e392e ;
+}
+
+#flow{
+  width:70%;
+  margin-left: 15%;
+  margin-top: 2%;
+}
+.explanation {
+  font-size: 1.5vw !important;
+  font-weight: bold;
+  color: #7e392e;
+  text-align: center !important;
+  margin-bottom: 2%;
   margin-top: 1%;
-  margin-bottom: 40px;
-  text-align: justify !important;
 }
-.text p{
-  margin-bottom: 1.5%;
-}
-.text img{
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 100%;
+.icon{
+  width: 1.5vw;
+  vertical-align: middle;
+  color: #7e392e;
 }

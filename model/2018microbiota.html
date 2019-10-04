@@ -1,0 +1,653 @@
+{{NCTU_Formosa/test}}
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Microbiota Prediction</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+  <script src="jQueryAssets/jquery.ui-1.10.4.dialog.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <style>
+
+
+    #globalWrapper{
+      padding-bottom: 0 !important;
+    }
+
+    body{
+      font-size: 0;
+      margin: 0;
+      padding: 0 !important;
+      width: 100%;
+    }
+
+    .wrapper{
+      width: 100%;
+      overflow: auto;
+      font-family: Levenim MT;
+      margin-bottom: 150px;
+    }
+
+    .cover{
+      width: 100%;
+    }
+
+    .title_title{
+      width: 40%;
+      margin-left: 30%;
+      margin-top: 10vw;
+      margin-bottom: 3vw;
+    }
+
+    .title{
+      font-size: 7vmin;
+      margin: 50px;
+      margin-top: 0px;
+      text-align: center;
+    }
+
+    .title_1{
+      font-size: 6vmin;
+      width: 75%;
+      margin: 50px;
+      margin-top: 100px;
+      margin-left: 12.5%;
+    }
+
+    .title_2{
+      font-size: 5vmin;
+      width: 70%;
+      margin: 50px;
+      margin-left: 15%;
+    }
+
+    .title_3{
+      font-size: 3.5vmin;
+      width: 70%;
+      margin: 50px;
+      margin-left: 15%;
+    }
+
+    .text{
+      font-size: 3vmin;
+      width: 70%;
+      position: relative;
+      margin-left: 15%;
+      margin-right: 15%;
+      margin-top: 2.5vw;
+      margin-bottom: 2.5vw;
+      text-align: justify;
+    }
+
+    .explanation{
+      font-size: 2.5vmin;
+      font-weight: bold;
+      color: #575656;
+      text-align: center;
+    }
+
+    p{
+      margin: 0;
+    }
+
+    table{
+      width: 50%;
+      height: 30vw;
+      overflow-y: auto;
+      border: solid 2px #e7eceb;
+      text-align: left;
+      margin: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      border-collapse: collapse;
+      background: #fefefe;
+    }
+
+    tr{
+      border: solid 1px #e7eceb;
+      margin: 15px;
+      padding: 10px;
+    }
+
+    td,th{
+      padding: 10px;
+    }
+
+    caption{
+      font-size: 3vmin;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #575656;
+      box-sizing: border-box;
+    }
+
+    thead{
+      background: #142968;
+      color: #fefefe;
+      font-size: 3.5vmin;
+    }
+
+    tbody{
+      font-size: 3vmin;
+    }
+
+    .equation{
+      font-size: 3vmin;
+      margin: 40px;
+      text-align: left;
+      width: 80%;
+      margin-left: 10%;
+
+    }
+
+    .icon{
+      width: 20px;
+      vertical-align: middle;
+    }
+
+    .cover_icon{
+      position: absolute;
+      transition-duration: 0.4s;
+    }
+
+    .cover_icon:hover{
+      transform: scale(1.2);
+    }
+
+    .productivity{
+      width: 7.5%;
+      top: 34.15vw;
+      left: 49.37%;
+    }
+
+    .NGS{
+      width: 7%;
+      top: 12.7vw;
+      left: 55.9%;
+    }
+
+    .weka{
+      width: 8%;
+      top: 22.85vw;
+      left: 55.8%;
+    }
+
+    .growth{
+      width: 7.5%;
+      top: 22.8vw;
+      left: 74.7%;
+    }
+
+    .scoring{
+      width: 7%;
+      top: 32.2vw;
+      left: 80.8%;
+    }
+
+    .process{
+      width: 60%;
+      margin-left: 17%;
+    }
+
+    .heatmap{
+      width: 40%;
+      margin-left: 27%;
+    }
+
+    .ex{
+      width: 35%;
+      margin-left: 5%;
+      display: inline-block;
+    }
+
+    .positive, .negative{
+      width: 100%;
+    }
+
+    .exp2{
+      width: 30%;
+      margin-left: 35%;
+    }
+
+    .real{
+      width: 25.3%;
+      display: inline-block;
+      margin-left: 19%;
+    }
+
+    .predictive{
+      width: 30%;
+      display: inline-block;
+      margin-left: 10%;
+    }
+
+    .regression{
+      width: 50%;
+      margin-left: 25%;
+      margin-bottom: 1vw;
+    }
+
+    .example{
+      width: 45%;
+      margin-left: 27.5%;
+    }
+
+    .accuracy{
+      width: 50%;
+      margin-left: 25%;
+      margin-top: 2vw;
+    }
+
+    .result{
+      width: 40%;
+      margin-left: 30%;
+    }
+
+    .equations{
+      width: 70%;
+      margin-left: 15%;
+      overflow: auto;
+    }
+
+    .cross_result, .cross{
+      width: 40%;
+      margin-left: 30%;
+      margin-bottom: 1vw;
+    }
+
+    .pie{
+      width: 75%;
+      margin-left: 12.5%;
+      margin-bottom: 15px;
+    }
+
+    .GitHub:hover{
+      transform: scale(1.2);
+      transition-duration: 0.5s;
+    }
+
+    .pic{
+      width: 50%;
+      margin-left: 25%;
+    }
+
+    .plot{
+      width: 40%;
+      margin-left: 30%;
+    }
+
+  </style>
+
+  <!----------------------------------------------------------------------------->
+
+  <script>
+  </script>
+
+  <!----------------------------------------------------------------------------->
+
+  <!-- Latex resourse code-->
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+      MathJax.Hub.Config({
+          extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+              inlineMath: [
+                  ['$', '$'],
+                  ["\\(", "\\)"]
+              ],
+              displayMath: [
+                  ['$$', '$$'],
+                  ["\\[", "\\]"]
+              ],
+          },
+          "HTML-CSS": {
+              availableFonts: ["TeX"]
+          }
+      });
+  </script>
+
+  <!----------------------------------------------------------------------------->
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="banner">
+      <img class="cover" src="http://2018.igem.org/wiki/images/f/f6/T--NCTU_Formosa--Drylab2.png">
+      <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Productivity_Model"><img src="http://2018.igem.org/wiki/images/4/4d/T--NCTU_Formosa--Productivity5.png" class="cover_icon productivity"></a>
+      <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/NGS_Data_Analysis"><img src="http://2018.igem.org/wiki/images/a/a9/T--NCTU_Formosa--NGS_icon.png" class="cover_icon NGS"></a>
+      <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Microbiota_Prediciton"><img src="http://2018.igem.org/wiki/images/f/f3/T--NCTU_Formosa--weka_icon.png" class="cover_icon weka"></a>
+      <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Growth_Model"><img src="http://2018.igem.org/wiki/images/5/58/T--NCTU_Formosa--growth_icon.png" class="cover_icon growth"></a>
+      <a href="http://2018.igem.org/Team:NCTU_Formosa/Dry_Lab/Peptide_Prediction"><img src="http://2018.igem.org/wiki/images/8/84/T--NCTU_Formosa--scoring_card_icon.png" class="cover_icon scoring"></a>
+    </div>
+    <div class="sec1">
+      <img src="http://2018.igem.org/wiki/images/1/17/T--NCTU_Formosa--Microbiota_Prediciton.png" class="title_title">
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Artificial intelligence and machine learning allow us to realize the seemingly insurmountable goal of predicting the fluctuations of entire microbiotas due to the specific effects of bio-stimulators. While traditional ecologists may find it too difficult to consider every unique microbial relationship in an ecosystem, machine learning programs use numerical analysis to not only quickly determine these associations but also use them to predict overall population shifts caused by stimuli. For our modelling purposes we choose Weka, a software with strong classification capabilities, to establish accurate connections between every genera of bacteria in our soil.
+        </p>
+      </div>
+      <div class="title_1">Considering General Factors</div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To begin modelling the relationship between bio-stimulators and microbiota, we first determine the most important factors that affect bacterial growth in soil. Three conditions immediately came to mind: temperature, pH and salinity, whose effects are modelled through the respective equations below:
+        </p>
+      </div>
+      <div class="equation">
+        $$Ratkowsky\ Equation:\ <br>R_{temp}(T)=a\cdot[(T-T_{min})\cdot(1-e^{(b\cdot(T-T_{max}))})]^2$$<br>
+        $$Cardinal\ pH\ Equation:\ <br>R_{pH}(pH)=\frac{c\cdot(pH-pH_{min})\cdot(pH-pH_{max})}{d\cdot((pH-pH_{min})\cdot(pH-pH_{max})-e\cdot(pH-pH_{opt})^2)}$$<br>
+        $$Salinity\ Equation:\ <br>R_{sal}(sal)=(f\cdot sal^2)+(g\cdot sal)+h$$
+      </div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These factors heavily influence bacterial fluctuation in any environment and are especially important in determining soil microbiota, according to soil expert, Professor Young from National Chung Hsing University. Professor Young also suggested that we should consider the relationship between nitrogen, phosphorus and potassium and soil bacteria, because farm soil is regularly applied with fertilizers containing these vital macronutrients. To take these elements into account, we collected literature discussing their impact on bacterial levels and found the following functions:
+        </p>
+      </div>
+      <div class="equations">
+      <div class="equation"><p>$$N=A*(Arthrobacter citreus)+B*(Arthrobacter globiformis)+C*(Arthrobacter terregens)+D*(Bacillus brevis)+E*(Bacillus cereus)+F*(Bacillus cereusvar. Mycoides)+G*(Bacillus circulans)+H*(Bacillus firmus)+I*(Bacillus globisporus)+.....$$</p></div>
+      <div class="equation"><p>$$P=Gammaproteobacteria (56 isolates)+Firmicutes (28 isolates)+<br>Actinobacteria(8isolates)+
+Alphaproteobacteria (2 isolates).$$
+</p></div>
+      <div class="equation"><p>$$K=A*(Bacillus sp)+ B*(Pseudomonas sp)+ C*(Sinorhizobium metallidans)$$</p></div>
+      </div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These equations model the direct relationship between levels of the elements and levels of bacteria in soil – specifically, the levels of bacteria that metabolize said elements.
+        </p>
+      </div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Combining these general equations together gives a method of obtaining a rough estimation of how our microbiota will change, based on fluctuation of these factors; our universal factors temperature, pH and salinity assist in modeling general fluctuations in the microbiota, while the more specific factors nitrogen, phosphorus and potassium are quite helpful in predicting how amount of nutrient metabolizing bacteria oscillates when dealing with the effects of fertilizers. But how do we deduce the change in level of bacteria that are unaffected by said nutrients?  We turn to our NGS analysis to find missing link.
+        </p>
+      </div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From our NGS report we calculate the Spearman correlation value of each pair of genera in our soil. This coefficient, assigned a value between -1 and +1, describes the degree of correlation between each pair, with values closer to -1 representing stronger negative correlation and values closer to +1 representing stronger positive correlation. Correlation values between the 20 most abundant bacterial genera in our soil samples are shown in the following heat map.
+        </p>
+      </div>
+      <img src="http://2018.igem.org/wiki/images/9/9a/T--NCTU_Formosa--June_heatmap.png" class="heatmap">
+      <div class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 1: Correlation heat map of top-20 bacteria in June
+      </div>
+      <div class="title_1">Weka</div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once we have our 6 general equations and our correlation values we’re ready to begin using Weka to construct a prediction model. Weka is split into two parts: regression analysis to filter out the non-correlated pairs of bacteria, and cross validation to determine the weighting each bacterial relationship has under different conditions.
+      </div>
+
+      <div class="title_1">Regression Analysis</div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We first take advantage of the machine learning software’s classification ability, using the built-in regression analysis module to determine which pairs of bacteria are heavily affected by correlation. To do this we define coefficient values below -0.7 to be truly negatively correlated and coefficient values above +0.7 to be truly positively correlated; pairs assigned a value in between are ignored. Weka then separates truly correlated pairs from the rest; these are the bacteria that will change as an indirect effect of bio-stimulator application. We start with one genus of bacteria and assess the correlation coefficient it has with each other genus in soil. Any pairs with significant correlation are collected into a fold belonging to that bacteria. Once all pairs are assessed, the resulting fold should contain all the bacteria that are correlated with our starting genus.
+        </p>
+      </div>
+      <img src="http://2018.igem.org/wiki/images/1/11/T--NCTU_Formosa--regression_analysis.png" class="regression">
+      <div class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 2: Weka determines correlation between bacteria in soil.
+      </div>
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For every pair in any particular fold, Weka plots that pair’s data on a graph to find a curve of regression to describe their relationship. For example:
+        </p>
+      </div>
+      <img src="http://2018.igem.org/wiki/images/2/23/T--NCTU_Formosa--exp2.png" class="example">
+      <div class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 3: Spearman's correlation example between <i>Mesorhizobium</i> and <i>Xylanimicrobium</i>.
+      </div>
+      <div class="title_1">Cross Validation</div>
+      <div class="text"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The resulting curve is the theoretical relationship between the two bacteria; however, the wide range of soil conditions that vary between different samples may alter the relationship. To account for this, Weka assigns weights to each correlation regression curve by performing cross validation, in this case with three folds. The steps are as follows:</p></div>
+      <img src="http://2018.igem.org/wiki/images/7/76/T--NCTU_Formosa--cross_validation.png" class="cross">
+      <div class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 4: Three fold cross validation.
+      </div>
+      <div class="text" style="margin-top: 1vw; margin-bottom: 1vw;"><p>(1) Three folds of three different genera of bacteria are compared in pairs to determine the accuracy of each pair’s correlational relationship.</p></div>
+      <div class="text" style="margin-top: 1vw; margin-bottom: 1vw;"><p>(2) If they exhibit a relationship in line with Weka’s initial assessment, nothing changes and the pair keeps its assigned weight.</p></div>
+      <div class="text" style="margin-top: 1vw; margin-bottom: 1vw;"><p>(3) If they show unexpected associations, they are said to exhibit paradox. Paradox alerts Weka to the discrepancy between prediction and reality, causing it to adjust waiting accordingly.</p></div>
+      <div class="text" style="margin-top: 1vw; margin-bottom: 1vw;"><p>(4) Through this cross validation Weka calibrates weighting of each pair and can predict how an entire microbiota is related after analyzing all folds. The result can be expressed in a pie chart describing predicted microbial ratios</p></div>
+      <img src="http://2018.igem.org/wiki/images/8/81/T--NCTU_Formosa--cross_validation_result.png" class="cross_result">
+      <div class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 5: Resulting correlational values used to predict microbiota ratios.
+      </div>
+      <div class="title_1">Artificial Intelligence</div>
+      <div class="text"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once our initial model is complete we can begin to make rough predictions about microbiota changes based on a volume of bio-stimulator. The basic rules we established regarding different soil conditions point us in the right direction in terms of bacteria shifts, but to achieve true precise control over soil we must improve our prediction accuracy through artificial intelligence. Artificial intelligence feeds actual data back into our system; more data allows for more calibration and more cross validations, adapting our predictions to the specific nature of our soil sample and improving the accuracy of subsequent predictions.</p></div>
+      <div class="title_1">Model Learning</div>
+      <div class="text"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We began by generating our model using NGS data from April through June. We entered a volume of bio-stimulator as well NGS data from before and after application, thus generating an initial prediction model. The accuracy of our model with only one month of data was approximately 21%, while inclusion of a second month’s data increased accuracy to 51% - at this point if we were to predict results for June, we would get about 51% of the total microbiota correct. Again, we applied bio-stimulator to our soil and waited for our data. Using June data to calibrate our model increased the prediction accuracy of our model by over another 25%, resulting in a microbiota prediction model with 78% accuracy. </p></div>
+      <img src="http://2018.igem.org/wiki/images/5/58/T--NCTU_Formosa--pie_chart.png" class="pie">
+      <div class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 6: Pie charts of microbiota.<br>
+        <p>This picture shows the microbiota of July(reality), 1<sup>st</sup> prediction, and 2<sup>nd</sup> prediction.<br>
+          Obviously, the predictive results become more accurate with more training data.</p>
+      </div>
+      <img src="http://2018.igem.org/wiki/images/7/77/T--NCTU_Formosa--lc_accuracy.png" class="accuracy">
+      <div class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 7: The learing curve of accuracy.<p>The accuracy significantly clime up with the increasing amount of dataset fed to our model.</p>
+      </div>
+      <div class="title_1">Result</div>
+      <div class="table">
+        <table>
+        <caption>
+          <p class="explanation">
+            <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+            Table 1: The comparison of top-20 bacteria between real July data and predictive data.
+          </p>
+        </caption>
+        <thead>
+          <tr>
+            <th><p>Taxon (Genus)</p></th>
+            <th style="text-align: center;"><p>July</p></th>
+            <th style="text-align: center;"><p>Prediction</p></th>
+            <th style="text-align: center;"><p>Error</p></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Nitrospira</i></p></td>
+            <td style="text-align: center;"><p>18.67%</p></td>
+            <td style="text-align: center;"><p>16.93%</p></td>
+            <td style="text-align: center;"><p>-1.74%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Flavobacterium</i></p></td>
+            <td style="text-align: center;"><p>11.94%</p></td>
+            <td style="text-align: center;"><p>10.18%</p></td>
+            <td style="text-align: center;"><p>-1.76%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Kaistobacter</i></p></td>
+            <td style="text-align: center;"><p>11.82%</p></td>
+            <td style="text-align: center;"><p>14.70%</p></td>
+            <td style="text-align: center;"><p>2.88%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Pseudomonas</i></p></td>
+            <td style="text-align: center;"><p>5.18%</p></td>
+            <td style="text-align: center;"><p>0.76%</p></td>
+            <td style="text-align: center;"><p>-4.42%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Candidatus Koribacter</i></p></td>
+            <td style="text-align: center;"><p>4.55%</p></td>
+            <td style="text-align: center;"><p>11.64%</p></td>
+            <td style="text-align: center;"><p>7.09%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Rhodoplanes</i></p></td>
+            <td style="text-align: center;"><p>4.40%</p></td>
+            <td style="text-align: center;"><p>9.84%</p></td>
+            <td style="text-align: center;"><p>5.44%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Candidatus Solibacter</i></p></td>
+            <td style="text-align: center;"><p>3.77%</p></td>
+            <td style="text-align: center;"><p>7.64%</p></td>
+            <td style="text-align: center;"><p>3.87%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Steroidobacter</i></p></td>
+            <td style="text-align: center;"><p>3.17%</p></td>
+            <td style="text-align: center;"><p>3.16%</p></td>
+            <td style="text-align: center;"><p>-0.01%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Flavisolibacter</i></p></td>
+            <td style="text-align: center;"><p>2.82%</p></td>
+            <td style="text-align: center;"><p>3.53%</p></td>
+            <td style="text-align: center;"><p>0.71%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Bdellovibrio</i></p></td>
+            <td style="text-align: center;"><p>2.15%</p></td>
+            <td style="text-align: center;"><p>1.77%</p></td>
+            <td style="text-align: center;"><p>-0.38%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Cellvibrio</i></p></td>
+            <td style="text-align: center;"><p>1.92%</p></td>
+            <td style="text-align: center;"><p>5.17%</p></td>
+            <td style="text-align: center;"><p>3.25%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Opitutus</i></p></td>
+            <td style="text-align: center;"><p>1.01%</p></td>
+            <td style="text-align: center;"><p>0.50%</p></td>
+            <td style="text-align: center;"><p>-0.51%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Hyphomicrobium</i></p></td>
+            <td style="text-align: center;"><p>0.99%</p></td>
+            <td style="text-align: center;"><p>0.96%</p></td>
+            <td style="text-align: center;"><p>-0.03%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Perlucidibaca</i></p></td>
+            <td style="text-align: center;"><p>0.95%</p></td>
+            <td style="text-align: center;"><p>5.18%</p></td>
+            <td style="text-align: center;"><p>4.23%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Phenylobacterium</i></p></td>
+            <td style="text-align: center;"><p>0.87%</p></td>
+            <td style="text-align: center;"><p>0.08%</p></td>
+            <td style="text-align: center;"><p>-0.79%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Bacillus</i></p></td>
+            <td style="text-align: center;"><p>0.85%</p></td>
+            <td style="text-align: center;"><p>0.92%</p></td>
+            <td style="text-align: center;"><p>0.07%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Fluviicola</i></p></td>
+            <td style="text-align: center;"><p>0.80%</p></td>
+            <td style="text-align: center;"><p>0.00%</p></td>
+            <td style="text-align: center;"><p>-0.80</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Plesiocystis</i></p></td>
+            <td style="text-align: center;"><p>0.79%</p></td>
+            <td style="text-align: center;"><p>0.24%</p></td>
+            <td style="text-align: center;"><p>-0.55%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Lutibacterium</i></p></td>
+            <td style="text-align: center;"><p>0.75%</p></td>
+            <td style="text-align: center;"><p>0.00%</p></td>
+            <td style="text-align: center;"><p>-0.75%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Dechloromonas</i></p></td>
+            <td style="text-align: center;"><p>0.74%</p></td>
+            <td style="text-align: center;"><p>0.41%</p></td>
+            <td style="text-align: center;"><p>-0.33%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Devosia</i></p></td>
+            <td style="text-align: center;"><p>0.72%</p></td>
+            <td style="text-align: center;"><p>0.56%</p></td>
+            <td style="text-align: center;"><p>-0.16%</p></td>
+          </tr>
+          <tr>
+            <td style="white-space: nowrap;"><p><i>Sphingomonas</i></p></td>
+            <td style="text-align: center;"><p>0.64%</p></td>
+            <td style="text-align: center;"><p>0.75%</p></td>
+            <td style="text-align: center;"><p>0.11%</p></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="text"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;According to our previous assumption: bacteria with a bacteria ratio of less than 1% will not affect soil conditions. We can infer that the bacteria with less than 1% change in actual and predicted data are still within acceptable limits. Then we predicted that the results were mainly different from the actual results of <i>Candidatus Koribacter, Rhodoplanes, Perlucidibaca, Candidatus Solibacter, Cellvibrio, Kaistobacter, Nitrospira, Flavobacterium</i>, and <i>Pseudomonas</i>. We analyzed these nine bacteria and soil functions and found that the soil nitrate and pollutant content are higher than the actual value, which may be related to the part of the soil loss that we did not consider. Of course, the error of this part will decrease as the number of data increases. After the microanalysis, we will then evaluate the overall composition and the fungus according to the functional classification.</p>
+      </div>
+      <img src="http://2018.igem.org/wiki/images/e/e6/T--NCTU_Formosa--blabla.png" class="pic">
+      <div class="explanation"><p>
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 8: The ratio amount of bacteria with different functions within different data.<br>(PGPB stands for plant growth-promoting bacteria. NB stands for nitrifying bacteria.)</p>
+      </div>
+      <p class="explanation" style="margin-top: 2vw;">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 2: Eveness of different samples.
+      </p>
+      <img src="http://2018.igem.org/wiki/images/4/4f/T--NCTU_Formosa--plot.png" class="plot">
+      <div class="text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After sampling the NGS data of these three months, we classified the top 20 bacteria in those data to get the function table in Fig 8. We can see that the ratio of plant growth-promoting bacteria (PGPB) is rising, and the ratio of plant pathogenic bacteria is fluctuating in a small amount, which means that we can achieve the purpose of raising good bacteria in the case of controlling the proportion of plant pathogenic bacteria by using the biostimulator. Nitrifying bacteria and phosphate solubilizing bacteria rise. These bacteria produce nutrients plants need, so their increament can reduce the amount of fertilizer applied. The decline in pollution indicator bacteria indicates that the proportion of pollutants in the soil components has decreased. That is, we have not applied pollutants such as pesticides, herbicides, etc., and the soil is slowly repairing by itself over time. Finally, the data shows that the denitrifying bacteria decline. Denitrifying bacteria can represent the nitrate content, and the high nitrate content will cause environmental pollution. All information shows us that every month after spreading the biostimulator, the soil gets healthier. It is worth that the evenness of this three months is improving. Therefore, we confirmed that biostimulator can control bacterial changes and make the soil healthier, and evenness can be used as a criterion for segmental soil health.
+        </p>
+      </div>
+      <div class="title_1">Conclusion</div>
+      <div class="text">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increasingly accurate prediction of microbial shifts due to bio-stimulators is a vital element of our smart farming system. Our goal is to regulate soil microbiota precisely, and we need accurate models to do so. Luckily, machine learning and artificial intelligence can provide just that. A general model formed using established relationships between key environmental factors and bacterial growth is supported by correlation values calculated from NGS data to allow for rough initial predictions of microbial shifts. Raw data obtained after subsequent applications of bio-stimulators is reintroduced into our models through a feedback system, calibrating the weightings of each bacteria correlational relationship to improve accuracy with each cycle. With increasingly precise regulation we can manipulate soil microbiota to produce any desired effect. Visit our real farm <a href="http://2018.igem.org/Team:NCTU_Formosa/Demonstrate">demonstration</a> to find out how we use artificial intelligence to increase curcumin concentration in turmeric while maintaining soil health.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you are interesting in our model, please click the icon to find out how them work in GitHub!
+        </p>
+      </div>
+      <a href="https://github.com/terrychan999/NCTU_Formosa-igem2018" target="_blank"><img src="http://2018.igem.org/wiki/images/1/11/T--NCTU_Formosa--Git_Hub.png" class="GitHub" style="width: 5%; margin-left: 47.5%;"></a>
+
+      <div class="title_1">Reference</div>
+      <div class="text">
+        <p>
+        1. Bouckaert, R. R., et al. (2013). "WEKA Manual for Version 3-7-8, 2013."  21.<br>
+        2. WI, H., et al. (2011). "Practical machine learning tools and techniques."<br>
+        3. Barabasz, W. and J. J. P. J. o. E. S. Lipiec (2002). "Biological effects of mineral nitrogen fertilization on soil microorganisms."  11(3): 193-198.<br>
+        4. KUMAR, A. and L. C. J. P. RAI (2017). "Soil Organic Carbon and Availability of Soil Phosphorus Regulate Abundance of Culturable Phosphate Solubilizing Bacteria in Paddy Fields of the Indo-Gangetic Plain."<br>
+        5. Lambert, R. J. J. J. o. a. m. (2011). "A new model for the effect of pH on microbial growth: An extension of the Gamma hypothesis."  110(1): 61-68.<br>
+        6. Nihala Jabin, P. (2017). Screening of potash solubilizing bacteria for plant growth promotional activity and nutrient uptake of brinjal, Vasantrao Naik Marathwada Krishi Vidyapeeth, Parbhani.<br>
+        7. Ratkowsky, D. A., et al. (1983). "Model for bacterial culture growth rate throughout the entire biokinetic temperature range." J Bacteriol 154(3): 1222-1226.<br>
+        8. Rousk, J., et al. (2011). "Bacterial salt tolerance is unrelated to soil salinity across an arid agroecosystem salinity gradient."  43(9): 1881-1887.<br>
+        9. Wikipedia contributors. (2018, October 12). Bacillus. In Wikipedia, The Free Encyclopedia. Retrieved 18:17, October 16, 2018, from https://en.wikipedia.org/w/index.php?title=Bacillus&oldid=863696818<br>
+        10. Wikipedia contributors. (2018, March 23). Geobacter. In Wikipedia, The Free Encyclopedia. Retrieved 18:34, October 16, 2018, from https://en.wikipedia.org/w/index.php?title=Geobacter&oldid=831990733<br>
+        11. Espenberg, M., et al. (2018). "Differences in microbial community structure and nitrogen cycling in natural and drained tropical peatland soils." Scientific Reports 8(1): 4742.<br>
+        12. Hou, J., et al. (2015). "PGPR enhanced phytoremediation of petroleum contaminated soil and rhizosphere microbial community response." Chemosphere 138: 592-598.<br>
+        13. Hruska, K., Vyzkumny Ustav Veterinarniho Lekarstvi, Brno (Czech Republic) and M. Kaevska, Vyzkumny Ustav Veterinarniho Lekarstvi, Brno (Czech Republic) (dec2012). "Mycobacteria in water, soil, plants and air: a review."  v. 57.<br>
+        14. Jiao, S., et al. (2016). "Microbial succession in response to pollutants in batch-enrichment culture." Scientific Reports 6: 21791.<br>
+        15. Leys, N. M. E. J., et al. (2004). "Occurrence and Phylogenetic Diversity of Sphingomonas Strains in Soils Contaminated with Polycyclic Aromatic Hydrocarbons." Applied and Environmental Microbiology 70(4): 1944-1955.<br>
+        16. Ma, M., et al. (2018). "Effect of long-term fertilization strategies on bacterial community composition in a 35-year field experiment of Chinese Mollisols." AMB Express 8(1): 20.<br>
+        17. Martineau, C., et al. (2015). "Comparative analysis of denitrifying activity in Hyphomicrobium nitrativorans, Hyphomicrobium denitrificans and Hyphomicrobium zavarzinii." AEM. 00848-00815.<br>
+        18. Rodgers-Vieira, E. A., et al. (2015). "Identification of Anthraquinone-Degrading Bacteria in Soil Contaminated with Polycyclic Aromatic Hydrocarbons." Applied and Environmental Microbiology.<br>
+        19. Sangwan, P., et al. (2005). "Detection and cultivation of soil verrucomicrobia." Appl Environ Microbiol 71(12): 8402-8410.<br>
+        20. Sorensen, J. and O. Nybroe (2004). Pseudomonas in the Soil Environment. Pseudomonas: Volume 1 Genomics, Life Style and Molecular Architecture. J.-L. Ramos. Boston, MA, Springer US: 369-401.<br>
+        21. Umadevi, P., et al. (2018). "Trichoderma harzianum MTCC 5179 impacts the population and functional dynamics of microbial community in the rhizosphere of black pepper (Piper nigrum L.)." Brazilian Journal of Microbiology 49(3): 463-470.<br>
+        22. van Dijl, J. M. and M. Hecker (2013). "Bacillus subtilis: from soil bacterium to super-secreting cell factory." Microb Cell Fact 12: 3.<br>
+        23. Wang, R., et al. (2017). "Microbial community composition is related to soil biological and chemical properties and bacterial wilt outbreak." Scientific Reports 7(1): 343.<br>
+        24. Winston, M. E., et al. (2014). "Understanding Cultivar-Specificity and Soil Determinants of the Cannabis Microbiome." PLOS ONE 9(6): e99641.<br>
+        25. Yan, G., et al. (2017). "Effects of different nitrogen additions on soil microbial communities in different seasons in a boreal forest."  8(7): e01879.<br>
+        </p>
+      </div>
+    </div>
+
+<!----------------------------------------------------------------------------->
+
+
+  </div>
+</body>
+
+</html>
+
+{{NCTU_Formosa/Footer}}
+{{NCTU_Formosa/Top_button}}

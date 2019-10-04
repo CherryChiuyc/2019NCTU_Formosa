@@ -1,0 +1,44 @@
+#globalWrapper{
+  padding-bottom: 0 !important;
+}
+body{
+  font-size: 0 !important;
+  margin: 0 ;
+  padding: 0;
+  font-family: Quenda;
+  box-sizing: border-box;
+}
+p{
+  font-family: Quenda!important;
+  padding: 0!important;
+  font-size: 1.7vw !important;
+  margin: 0;
+}
+.wrapper{
+  width: 100%;
+  font-family: Quenda !important;
+}
+.title_1 p{
+  font-family: Quenda !important;
+  text-align: center !important;
+  font-size: 4vw !important;
+}
+.title_2{
+  margin: 0;
+}
+.title_2 p{
+  font-family: Quenda !important;
+  text-align: center !important;
+  font-size: 3vw !important;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.sec1 p{
+  font-size: 1.7vw;
+  width: 70%;
+  position: relative;
+  margin-left: 15%;
+  /* margin-top: 2%;
+  margin-bottom: 2%; */
+  text-align: justify;
+}
