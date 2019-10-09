@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <title>Mutagenicity Prediction</title>
   <link rel="stylesheet" type="text/css" href="mutagenicity.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+	<script src="jQueryAssets/jquery.ui-1.10.4.dialog.min.js"></script>
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
       MathJax.Hub.Config({
           extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -28,20 +31,20 @@
 <body>
   <div class="wrapper">
     <video width="100%" muted autoplay>
-      <source src="" type="video/mp4">
+      <source src="https://2019.igem.org/wiki/images/c/c8/T--NCTU_Formosa--muta.mp4" type="video/mp4">
       <!-- <source src="notebookv.ogg" type="video/ogg"> -->
       Your browser does not support the video tag.
     </video>
     <div class="sec1">
       <div class="title_1"><p>Mutagenicity Prediction</p></div>
       <div class="title_2"><p>Introduction</p></div>
-        <p>&emsp;&emsp; In our integrated human practice, we have an interview with Professor Lan in NCTU. He told us that mutagenicity is highly related to chemical substructure. We are inspired, so we come up with an idea: how about we use machine learning to predict the mutagenicity on the basis of chemical substructures? Before training our model, it’s important to preprocess the training data. After dealing with the input data, we do the feature extraction of substructures with mutagen
-        potential. We use support vector machine (SVM) and its scoring function to quantify the mutagenicity. For our validation part, we compare the mutagenicity which calculated by our artificial intelligence and the number of bacterial colonies from Ames test to prove the score is reliable.</p>
+        <p>&emsp;&emsp; In an interview with Professor Lan in NCTU, he told us that mutagenicity is highly related to its chemical substructure. Thoroughly inspired, we come up with an idea: how about using machine learning to predict mutagenicity based on chemical substructures?</p>
+        <p>&emsp;&emsp; Afterward, we extract 67 features based on different chemical substructures. Moreover, we train our data with Support Vector Machine (SVM), and scoring function and quantify mutagenicity. To validate our model, we compare the mutagenicity computed by our AI and the number of bacterial colonies from Ames test results to prove the score’s reliability.</p>
       <div class="title_2"><p>Introduction to machine learning</p></div>
-        <p>&emsp;&emsp; With the popularity of artificial intelligence, more and more experts in different field start to use it as researching tool. Machine learning is a branch of artificial intelligence, concisely, it processes input data to generate useful predictions. Unlike normal programming methods, machine learning use “statistics” instead of “logics” to solve problems. This contributes to machine learning can solve complicated tasks with easier programming.</p>
+        <p>&emsp;&emsp; Artificial intelligence is a prevalent technique now trending all over the world. More and more experts in all different fields start to use it as an essential tool to extend their research. Moreover, Machine learning is a branch of artificial intelligence; concisely, it processes input data to generate useful predictions. Unlike typical programming methods, machine learning use “statistics” instead of “logics” to solve problems, which allows machine learning to solve complicated tasks with accessible programming.</p>
       <div class="title_2"><p>Basic Concept of Machine Learning</p></div>
         <p>&emsp;&emsp; In general, training a machine learning model can be represented by the following flow chart: </p>
-        <img id="f1" src="ML_FLOW.png">
+        <img id="f1" src="https://2019.igem.org/wiki/images/2/25/T--NCTU_Formosa--ML_FLOW.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 1: Flow chart of machine learning</p>
@@ -49,196 +52,202 @@
           <p><b>Label:</b> The thing we are predicting. In our model, the label is “mutagen” or “non-<br>&emsp;&emsp;&emsp;mutagen.”</p>
           <p><b>Features:</b> Features in machine learning are input variables. In our model, the features<br>&emsp;&emsp;&emsp;&emsp;&thinsp; are the substructures.</p>
           <p><b>Loss:</b> Loss is the mean square error of label and model prediction.</p>
-          <p><b>Model:</b> The thing we are predicting. In our model, the label is “mutagen” or “non-<br>&emsp;&emsp;&emsp;&thinsp; mutagen.”</p>
+          <p><b>Model:</b> The function to predict the label. We choose support vector machine (SVM) as a classification algorithm.</p>
         </div>
-        <p>&emsp;&emsp; In supervised machine learning progress, training data can be divided into features and label. For features, the model will compute the input vector and make predictions to compare with the label. Initially, the loss will be large, so we have loss function and optimizer to adjust the parameters in the model to make the prediction be more accurate. Once the training data is sufficient and the training progress achieve certain iteration, the loss score will converge to a stable value, which means the training is over.</p>
-        <div class="title_2"><p>Database Preprocessing</p></div>
-        <img id="f2" src="ML_FLOW2.png">
+        <p>&emsp;&emsp; In supervised machine learning progress, we divide training data into features and labels. For extracted features, the model will compute the input vectors and make predictions to compare it with the label. Initially, the loss will be significant, so we have loss function and optimizer to adjust the parameters in the model to make the prediction more accurate. Once the training data is sufficient, which the training progress reaches specific iterations, the loss score will converge to a stable value indicating the training is over.</p>
+        <div class="title_2"><p>Data Preprocess</p></div>
+        <img id="f2" src="https://2019.igem.org/wiki/images/a/a9/T--NCTU_Formosa--ML_FLOW2.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 2: Database preprocessing</p>
         <div class="title_3"><p>1. Database source</p></div>
-        <p>&emsp;&emsp; For trustworthy machine learning, sufficient data is crucial. We use QSAR toolbox which is an open software that offers transparent chemical hazard assessment. We collect the chemical structure in the data form of SMILES as training data and the result of Ames test as target data for machine learning.</p>
+        <p>&emsp;&emsp; For trustworthy machine learning, sufficient data is crucial. We use QSAR toolbox, which is an open software that offers transparent chemical hazard assessment. We collect the chemical structure in the data form of SMILES as training data and the result of Ames test as target data for machine learning.</p>
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
         Table 1: Database Source</p>
         <table id="t1">
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Chemical reactivity COLIPA</td>
+            <td>Experimental pKa</td>
+            <td>GSH Experimental RC50</td>
+            <td>Phys-chem EPISUITE</td>
+            <td>pKa OASIS</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>ECHA CHEM</td>
+            <td>Bioconcentration NITE</td>
+            <td>Bioaccumulation Canada</td>
+            <td>Biota-Sediment Accumulation Factor US-EPA</td>
+            <td>Biodegradation in soul OASIS</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>REACH Bioaccumulation database (normalised)</td>
+            <td>kM database Environment Canada</td>
+            <td>Hydrolysis rate constant OASIS</td>
+            <td>Bioaccumulation fish CEFIC LRI</td>
+            <td>ECOTOX</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Biodegradation NITE</td>
+            <td>Aquatic ECETOC</td>
+            <td>Food TOX Hazard EFSA</td>
+            <td>Aquatic Japan MoE</td>
+            <td>Aquatic OASIS</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Micronuleus ISSMIC</td>
+            <td>ToxRdfDB US-EPA</td>
+            <td>Micronucleus OASIS</td>
+            <td>Skin irritation</td>
+            <td>Receptor Mediated Effects</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Rep Dose Tox Fraunhofer ITEM</td>
+            <td>Dendritic cells COLIPA</td>
+            <td>Biocides and plant protection ISSBIOC</td>
+            <td>Skin sensitization ECETOC</td>
+            <td>Rodent Inhalation Toxicity Database</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Acute Oral toxicity</td>
+            <td>ToxCastDB</td>
+            <td>Cell transformation Assay ISSCTA</td>
+            <td>Repeated Dose Toxicity HESS</td>
+            <td>Keratinacyte gene expression LuSens</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Genotoxicity pesticides EFSA</td>
+            <td>ZEBET database</td>
+            <td>Developmental & Reproductive Toxicity (DART)</td>
+            <td>Human Half-Life</td>
+            <td>Skin Sensitization</td>
+          </tr>
+          <tr>
+            <td>REACH Skin Sensitisation database (normalised)</td>
+            <td>GARD Skin sensitization</td>
+            <td>Yeast estrogen assay database</td>
+            <td>Transgenic Rodent Database</td>
+            <td>Genotoxicity & Carcinogenicity ECVAM</td>
+          </tr>
+          <tr>
+            <td>Carcinogenic Potency Databse (CPDB)</td>
+            <td>Carcinagenicity ISSCAN</td>
+            <td>Toxicity Japan MHLW</td>
+            <td>Genotoxicity OASIS</td>
+            <td>Keratinacyte gene expression Givaudan</td>
+          </tr>
+          <tr>
+            <td>Eye irritation ECETOC</td>
+            <td>Toxicity to reproduction (ER)</td>
+            <td>Developmental toxicity ILSI</td>
+            <td>MUNRO non-canceer EFSA</td>
+            <td>Bacterial mutagenicity ISSSTY</td>
+          </tr>
+          <tr>
+            <td>Developmental toxicity databse (CAESAR)</td>
+            <td>ADME database</td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
         </table>
         <div class="title_3"><p>2. SMILES</p></div>
-        <p>&emsp;&emsp; Simplified Molecular Input Line Entry System (SMILES) is kind of chemical notation which is commonly used in molecular database. The feature is that SMILES can easily use 1-dimensional syntax to represent a 3-dimensional chemical structure. In other words, once we have the SMILES of the chemical, we can get the chemical structure in 1-dimensional syntax.</p>
-        <img id="f3" src="smiles.png">
+        <p>&emsp;&emsp; Simplified Molecular Input Line Entry System (SMILES) is a set of chemical notations which commonly uses in molecular databases. The characteristic of SMILES is that it can easily use 1-dimensional syntax to represent a 3-dimensional chemical structure. In other words, once we have the SMILES of the chemical, we can get the chemical structure in 1-dimensional syntax.</p>
+        <img id="f3" src="https://2019.igem.org/wiki/images/6/62/T--NCTU_Formosa--smiles.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 3: SMILES notation transition</p>
         <div class="title_3"><p>3. Feature extraction</p></div>
-        <p>&emsp;&emsp; In our human practice, we have an interview about machine learning with the doctoral student in computer science laboratory. He suggests that we can’t just put the SMILES as input data directly. Instead, we have to extract the features. We find a paper which suggests that 67 kinds of substructures with mutagen potential. Because one kind of chemical structure can be written in multiple ways in SMILES so we can’t just catch the substring in SMILES. We use RDKit in python API which is an open-source library commonly used in the field of cheminformatics to catch the substructures. After catching the substructures, we can take it as input features for machine learning.</p>
+        <p>&emsp;&emsp; During human practice, we have an interview about machine learning with a postdoctoral student in the computer science laboratory at NCTU. He suggests that we should not put SMILES as input data directly without any preprocessing. Instead, we should extract features of different substructures. After doing a lot of paper research, we finally discover a paper suggesting 67 kinds of substructures with mutagen potential. Since one chemical structure can address in multiple ways in SMILES, we cannot merely catch the substring from SMILES. We use RDKit in python API, which is an open-source library commonly used in cheminformatics to catch substructures. After catching all the substructures, we can take it as input features for machine learning.</p>
         <div class="title_3"><p>4. Labeling</p></div>
-        <p>&emsp;&emsp; The result of Ames test is “Positive” or “Negative”. However, it’s hard for machine to understand what is “Positive” or “Negative”, so we label “Positive” and “Negative” with “1” and “0.”</p>
+        <p>&emsp;&emsp; The result of Ames test is “Positive” or “Negative.” However, it is hard for the machine to understand the meaning of “Positive” or “Negative,” so we label “Positive” and “Negative” with “1” and “0.”</p>
         <div class="title_2"><p>Support Vector Machine</p></div>
-        <p>&emsp;&emsp; SVM model is built for quantifying the mutagenicity of chemical compounds. To do so, we use machine learning algorithm which called support vector machine (SVM). SVM is mainly featured for data classification in pattern recognition. Simply speaking, this kind of method simulates a plane equation to sperate the data into two classes. Because of the plane might classify a multi-dimensional data in machine learning, we name it “hyperplane”. To divide a 3-D space, we need to use a 2-D plane, so we can deduce that in N-dimensional space, we need a (N-1)-D hyperplane to spilt. There are some data points which will determine the optimal hyperplane, and those critical point called “support vector.”</p>
+        <p>&emsp;&emsp; Support Vector Machine model is built for quantifying mutagenicity of chemical compounds. To achieve this goal, we choose a machine learning algorithm called Support Vector Machine (SVM). SVM mainly emphasizes data classification in pattern recognition. Generally speaking, this kind of method simulates a plane equation to operate data into two classes. Because of the plane might equation classify a multi-dimensional data in machine learning, we name it “hyperplane.” For example, to divide a 3-D space, we need to use a 2-D plane. Therefore, we can deduce that in N-dimensional space, we can split it with an (N-1)-D hyperplane. Among all data, some data points will determine the optimal hyperplane, and those critical points are called “support vectors.”</p>
+        <p>&emsp;&emsp;Practically, we use the classification learner toolbox from MATLAB to build up our SVM model. We choose the quadratic SVM algorithm in the toolbox to train our data. The result of SVM model was shown below. Also, we further analyze our result through Confusion Matrix and ROC Curve.</p>
         <div class="title_2"><p>SVM Scoring Function</p></div>
+        <p>Now, with SVM model, we can classify whether a chemical is mutagen or not base on its structure. However, we are looking forward to our ultimate goal of quantifying mutagenicity. To achieve our target, we have to compute the intensity of each data point precisely, which refers to its mutagenicity. After doing further research, we finally figure out a solution from the SVM scoring function. This unique function can calculate the relative distance between the input data point and each support vector then sum them into a score. Furthermore, this score can be considered as a standard to quantify mutagenicity.</p>
         <p class="equations">$$f(x) = \sum_{i=1}^{m}\alpha _{i}y^{(i)}K(x^{(i)},x)+b $$</p>
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
         Table 2: The parameters of SVM scoring function</p>
         <table id="t2">
           <tr>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Parameter</th>
+            <th>Meaning</th>
+            <th>Value</th>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>$$\alpha_i$$</td>
+            <td>The coefficient associated with the \left(i\right)th training data point.</td>
+            <td>variable</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>$$y^{\left(i\right)}$$</td>
+            <td>The class label to divide into two groups, which has only one of two values.</td>
+            <td>1 or -1</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>$$K\left(x^{\left(i\right)},x\right)$$</td>
+            <td>Kernel function</td>
+            <td>variable</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>$$b$$</td>
+            <td>Scalar value</td>
+            <td>-0.544</td>
           </tr>
         </table>
-        <p>&emsp;&emsp; SVM scoring function can compute a score to a new input. If the output score in this function is positive then the input is belonged to the class y = 1; if is negative then the input is belonged to the class y = -1. It seems that, in the table we will find out a training data corresponding to a parameter α which is too complicated to calculate whole score function. In fact, only the support vector will have value of α to decide the hyperplane, others will be zero.</p>
+        <p>&emsp;&emsp; In the table above, we can observe that every data point corresponds to a parameter α. α served as a critical variable, showing the data points' coefficient to the support vectors that determine the hyperplane.</p>
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
         Table 3: The instances of SVM score</p>
         <table id="t3">
           <tr>
-            <th></th>
-            <th></th>
+            <th>Chemical</th>
+            <th>Score</th>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
+            <td>MNNG</td>
+            <td>10.57323</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
+            <td>MMS</td>
+            <td>-1.08074</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
+            <td>EMS</td>
+            <td>-1.08074</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
+            <td>Diazouracil</td>
+            <td>0.585388</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
+            <td>Azacytidine</td>
+            <td>0.585388</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
+            <td>Glyoxal</td>
+            <td>-0.91738</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
+            <td>Captan</td>
+            <td>6.31457</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
+            <td>Phosmet</td>
+            <td>0.556026</td>
           </tr>
         </table>
         <div class="title_2"><p>Kernel Function</p></div>
-        <p>&emsp;&emsp; The kernel function in this score system is to apply on each data point to map the original non-linear classification results into higher-dimensional space in which they become separable. It also transfers high-dimensional space into a matrix to simplify calculation and reduce time in machine learning.</p>
-        <p>&emsp;&emsp; The following figure shows the input and the output data point of kernel function in different dimension.</p>
-        <img id="f4" src="kernel.png">
+        <p>&emsp;&emsp; Kernel function in the SVM scoring system can map each data point's initial non-linear classification results in high-dimensional space. Hence, data can be separated and be further analyzed. Also, it transfers high-dimensional space into a matrix format and therefore simplifies the calculation and reduces time in machine learning.</p>
+        <p>&emsp;&emsp; The following figure shows the input and the output data point of the kernel function in different dimensions.</p>
+        <p>&emsp;&emsp; While a new chemical introduces to our model, its coordinates will be decided first based on 67 features. The coordinates will then turn into a matrix, and the SVM scoring function will come in and generate its score. The higher the value of the score, the higher the chemical compound’s mutagenicity. On the other hand, if the score has a negative value, the chemical compound is a non-mutagen.</p>
+        <img id="f4" src="https://2019.igem.org/wiki/images/4/42/T--NCTU_Formosa--kernel.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 4: The examples of input and output of kernel function</p>
         <div class="title_2"><p>Results</p></div>
-        <p>We train our model with many kinds of algorithms, such as decision tree, KNN, ANN and so on, and finally we found that quadratic SVM has the highest accuracy.</p>
         <p class="equations">$$Accuracy = \frac{TP+TF}{TP+TN+FP+FN} = 0.834 $$</p>
         <div class="comment">
           <p><b>TP:</b>True positive</p>
@@ -249,28 +258,27 @@
           <p><b>Training data:</b>7231 mutagens and 13769 non-mutagens</p>
         </div>
         <div class="title_2"><p>Confusion Matrix</p></div>
-        <img id="f5" src="Quadratic_SVM.png">
+        <img id="f5" src="https://2019.igem.org/wiki/images/4/43/T--NCTU_Formosa--Quadratic_SVM.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 5: The confusion matrix of predicted class and true class</p>
+        <p>&emsp;&emsp;The confusion matrix shows the data amount of true class and predicted class. The "0" and "1" are the labels in our model. The X-axis is the prediction of our model, and the Y-axis is the label.</p>
         <div class="title_2"><p>ROC Curve</p></div>
         <p>&emsp;&emsp; A receiver operating characteristic (ROC) curve is one of the most important evaluation metrics for checking performance of classifiers. It compares two operating characteristics, true positive rate (TPR) and false positive rate (FPR), to diagnosis the ability of model also known as relative operating characteristic curve.</p>
-        <img id="f6" src="ROC_Quadratic_SVM.png">
+        <img id="f6" src="https://2019.igem.org/wiki/images/thumb/a/a1/T--NCTU_Formosa--ROC_Quadratic_SVM.png/858px-T--NCTU_Formosa--ROC_Quadratic_SVM.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 6: The ROC curve analysis of Support vector machine (SVM)</p>
-        <p>&emsp;&emsp; The area under the curve (AUC) of ROC is the standard to judge model’s ability. The score will between 0 and 1, and the higher the score, the higher the accuracy. If AUC > 0.5, it means that the model has predictive value.</p>
+        <p>&emsp;&emsp; The area under the curve (AUC) of ROC is the standard to judge the model’s ability. The score will be between 0 and 1, and the higher the score, the higher the accuracy. If AUC > 0.5, it means that the model has predictive value.</p>
         <div class="title_2"><p>Statistical Histogram</p></div>
-        <p>&emsp;&emsp; We are not satisfied with the result of 83.4% accuracy, so we ask expert who has abundant experience in Ames test and pharmacology. He told us that the reason why our model has such false negative rate. That’s result in Ames test has high false positive rate so that the false negative rate will increase when we use it as statistical data.</p>
-        <p>&emsp;&emsp; In order to check if the problem caused by statistical data, we use ISSTOX database (not in our training data) and we collect the more reliable data, which shows the same result from more than one experiment.</p>
-        <p>&emsp;&emsp; As we can see below, the false negative rate (FNR) lower than before. Thus, we can prove that our model is trustworthy.</p>
-        <img id="f7" src="statistical data of SVM.png">
+        <p>&emsp;&emsp; Frankly speaking, we are not satisfied with the result we have got. So, we started to figure out ways to increase our accuracy. Finally, during an interview with Ms. ZHAO, SHU-RU, a postdoctoral research fellow at the Disaster Prevention & Water Environment Research Center in NCTU, we find out the problem. She told us the reason why our model's accuracy could not reach higher is because of our data source, Ames test results, which owns a high false positive rate. Therefore, incorrect data will accumulate errors and brought down the accuracy.  In order to solve this problem, we use the ISSTOX database (not in our training data), and we collect the data that have been verified by other methods. As we can see below, now, the false negative rate (FNR) is lower than before. Most importantly, our model is now more reliable and accurate.</p>
+        <img id="f7" src="https://2019.igem.org/wiki/images/8/8a/T--NCTU_Formosa--histogram.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 7: Statistical data of SVM score</p>
         <div class="title_2"><p>Comparison of Ames Test Colonies and SVM scores</p></div>
-        <p>&emsp;&emsp; The result of Ames test can be referred to be the comparison of mutagenicity. In order to prove that our artificial intelligence is trustworthy, we plot the linear regression of the result of Ames test and our model prediction.</p>
-        <img id="f8" src="regression.jpg">
+        <p>&emsp;&emsp; The result of Ames test can refer to quantified mutagenicity. To prove our artificial intelligence is trustworthy, we import the linear regression of the result of Ames test to our model prediction. The result shows that the two has a R2 of 0.9206, which indicates their high relativeness.</p>
+        <img id="f8" src="https://2019.igem.org/wiki/images/f/f7/T--NCTU_Formosa--regression.jpg">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 8: Regression of Ames test and model prediction</p>
@@ -279,15 +287,16 @@
         Table 4: Parameters of Regression</p>
         <table id="t4">
           <tr>
-            <td></td>
+            <td>$$y = 0.0066871 \cdot x - 0.60941$$</td>
+            <td>$$Norm\,of\,residuals = 3.3056$$</td>
           </tr>
           <tr>
-            <td></td>
+            <td>$$Average\,error: -5.9%$$</td>
+            <td>$$R^{2} = 0.9206$$</td>
           </tr>
         </table>
         <div class="title_2"><p>Demonstration</p></div>
-        <p>&emsp;&emsp; We design an UI for the public and you. Click the website below to experience our artificial intelligence!</p>
-
+        <p>&emsp;&emsp; We design a UI for the public and you. Click the website below to experience our artificial intelligence!</p>
     </div>
   </div>
 </body>
