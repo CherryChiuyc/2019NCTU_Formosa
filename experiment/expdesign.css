@@ -1,0 +1,104 @@
+#globalWrapper{
+  padding-bottom: 0 !important;
+}
+body{
+  font-size: 0 !important;
+  margin: 0 ;
+  padding: 0;
+  font-family: Quenda;
+  box-sizing: border-box;
+}
+p{
+  font-family: Quenda!important;
+  padding: 0!important;
+  font-size: 1.7vw !important;
+  margin: 0;
+}
+#line{
+  width:2%;
+  height:25%;
+  top: 20%;
+  left: 1%;
+  position: fixed;
+  z-index: 4;
+}
+#side{
+  width: 10%;
+  height: auto;
+  visibility: hidden;
+}
+#p1{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 19.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p2{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 26.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p3{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 34%;
+  left: 3.5%;
+	cursor: pointer;
+}
+.wrapper{
+  width: 100%;
+  font-family: Quenda !important;
+}
+.sec1 p{
+  font-size: 1.7vw;
+  width: 70%;
+  position: relative;
+  margin-left: 18%;
+  /* margin-top: 2%;*/
+  margin-bottom: 2%;
+  text-align: justify;
+}
+.title_1 p{
+  font-family: Quenda !important;
+  text-align: center !important;
+  font-size: 4vw !important;
+	margin-top: 2%!important;
+}
+.title_2 p{
+  font-family: Quenda !important;
+  text-align: center !important;
+  font-size: 3vw !important;
+  margin-top: 2%;
+  margin-bottom: 0.5%;
+}
+.title_3 p{
+  font-family: Quenda !important;
+  font-size: 2.2vw !important;
+  margin-top: 1%;
+}
+.equations{
+  width: 70%;
+  margin-left: 15%;
+  overflow: auto;
+  margin: 2%;
+}
+.explanation {
+  font-size: 1.5vw !important;
+  font-weight: bold;
+  color: #7e392e;
+  text-align: center !important;
+  margin-bottom: 10px;
+  margin-top: 1%;
+}
+.icon{
+  width: 1.5vw;
+  vertical-align: middle;
+  color: #7e392e;
+}
+#f1{
+	width:50%;
+	margin-left: 30%;
+}
