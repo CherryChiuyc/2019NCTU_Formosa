@@ -74,11 +74,6 @@ p{
   margin-top: 2%;
   margin-bottom: 0.5%;
 }
-.title_3 p{
-  font-family: Quenda !important;
-  font-size: 2.2vw !important;
-  margin-top: 1%;
-}
 .equations{
   width: 70%;
   margin-left: 15%;
@@ -101,4 +96,16 @@ p{
 #f1{
 	width:50%;
 	margin-left: 30%;
+}
+#f2{
+	width:50%;
+	margin-left: 30%;
+}
+.type1{
+	width:33%;
+	margin-left: 18%;
+}
+.type2{
+	width: 33%;
+	margin-left: 3%;
 }
