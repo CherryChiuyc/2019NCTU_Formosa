@@ -27,6 +27,47 @@ p{
   font-size: 1.7vw !important;
   margin: 0;
 }
+#line{
+  width:2%;
+  height:35%;
+  top: 20%;
+  left: 1%;
+  position: fixed;
+  z-index: 4;
+}
+#side{
+  width: 10%;
+  height: auto;
+  visibility: hidden;
+}
+#p1{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 19.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p2{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 26.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p3{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 34.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p4{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 42.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
 .wrapper{
   width: 100%;
   font-family: Quenda !important;
@@ -35,7 +76,7 @@ p{
   font-size: 1.7vw;
   width: 70%;
   position: relative;
-  margin-left: 15%;
+  margin-left: 18%;
   /* margin-top: 2%;
   margin-bottom: 2%; */
   text-align: justify;
@@ -98,4 +139,28 @@ table td {
   width: 1.5vw;
   vertical-align: middle;
   color: #7e392e;
+}
+#t1{
+	width: 45%!important;
+	margin-left: 28%!important;
+}
+#f1{
+	width: 30%;
+	margin-left: 35%;
+}
+#f2{
+	width: 30%;
+	margin-left: 35%;
+}
+#f3{
+	width: 30%;
+	margin-left: 35%;
+}
+#f4{
+	width: 60%;
+	margin-left: 20%;
+}
+#f5{
+	width: 60%;
+	margin-left: 20%;
 }
