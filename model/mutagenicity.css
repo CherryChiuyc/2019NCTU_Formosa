@@ -1,3 +1,25 @@
+@-webkit-keyframes rotation {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(90deg);}
+  50% {transform: rotate(180deg);}
+  75% {transform: rotate(270deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes rotation {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(270deg);}
+		100% {transform: rotate(360deg);}
+}
+@keyframes subtitle {
+    0% {opacity: 0; top: 2vw;}
+    30% {opacity: 0; top: 2vw;}
+    50% {opacity: 0.4; top: 1vw;}
+    75% {opacity: 0.7; top: 0.4vw;}
+    100% {opacity: 1; top: 0;}
+}
 #globalWrapper{
   padding-bottom: 0 !important;
 }
@@ -27,15 +49,64 @@ p{
   font-size: 1.7vw !important;
   margin: 0;
 }
+#line{
+  width:1.8%;
+  height:40%;
+  top: 20%;
+  left: 1%;
+  position: fixed;
+  z-index: 4;
+}
+#side{
+  width: 10%;
+  height: auto;
+  visibility: hidden;
+}
+#p1{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 19.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p2{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 27%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p3{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 34.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p4{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 42%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p5{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 49%;
+  left: 3.5%;
+	cursor: pointer;
+}
 .wrapper{
   width: 100%;
   font-family: Quenda !important;
+	margin-bottom: 5%;
 }
 .sec1 p{
   font-size: 1.7vw;
   width: 70%;
   position: relative;
-  margin-left: 15%;
+  margin-left: 18%;
   /* margin-top: 2%;
   margin-bottom: 2%; */
   text-align: justify;
@@ -60,15 +131,15 @@ p{
 }
 .equations{
   width: 70%;
-  margin-left: 15%;
+  margin-left: 18%;
   overflow: auto;
-  margin: 2%;
+  margin: 1%;
 }
 table {
   font-family: Quenda;
   color: #000;
   width: 70%;
-	margin-left: 15%!important;
+	margin-left: 18%!important;
   text-align:left;
   border: 2px solid #611614;
   border-collapse: collapse;
@@ -88,11 +159,11 @@ table td {
 }
 #t3{
 	width: 30%!important;
-	margin-left: 35%!important;
+	margin-left: 38%!important;
 }
 #t4{
 	width: 50%!important;
-	margin-left: 25%!important;
+	margin-left: 28%!important;
 }
 #f1{
   width:65%;
@@ -124,34 +195,58 @@ table td {
 }
 #f3{
   width:75%;
-  margin-left: 13%;
+  margin-left: 16%;
   margin-top: 2%;
 }
 #f4{
-  width: 75%;
-  margin-left: 13%;
+  width: 70%;
+  margin-left: 18%;
   margin-top: 2%;
 }
 .latex{
   font-family: Quenda;
   width:70%;
-  margin-left: 15%;
+  margin-left: 18%;
 }
 #f5{
-  margin-left: 35%;
+  margin-left: 38%;
 }
 #f6{
   width:35%;
-  margin-left: 33%;
+  margin-left: 36%;
   margin-top: 2%;
 }
 #f7{
   width: 70%;
   margin-top: 2%;
-  margin-left: 16%;
+  margin-left: 18%;
 }
 #f8{
   width: 48%;
-  margin-left: 27%;
+  margin-left: 30%;
   margin-top: 1%;
+}
+.try{
+	width: 10%;
+	position: relative;
+	left: 48%;
+	z-index: 2;
+	transition-duration: 0.4;
+	cursor: pointer;
+}
+.try:hover{
+	-webkit-animation: rotation 4s infinite linear;
+	animation: rotation 4s infinite linear;
+}
+#try_it{
+	font-size: 3vw!important;
+	width: 8vw;
+	color: #B07540;
+	border-radius: 1vw;
+	position: relative;
+	opacity: 0;
+	margin-top: 1%;
+	margin-left: 49.5%;
+	bottom: 0px;
+	animation-fill-mode: forwards!important;
 }

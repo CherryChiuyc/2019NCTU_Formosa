@@ -3,8 +3,8 @@
 }
 #HQ_page table{
   border: 2px solid #611614 !important;
-  margin: 0 important;
-
+  margin-left: 35%!important;
+	text-align: center!important;
 }
 #HQ_page th{
   border: 1px solid #611614 !important;
@@ -27,6 +27,47 @@ p{
   font-size: 1.7vw !important;
   margin: 0;
 }
+#line{
+  width:2%;
+  height:35%;
+  top: 20%;
+  left: 1%;
+  position: fixed;
+  z-index: 4;
+}
+#side{
+  width: 10%;
+  height: auto;
+  visibility: hidden;
+}
+#p1{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 19.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p2{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 27.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p3{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 35%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p4{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 43%;
+  left: 3.5%;
+	cursor: pointer;
+}
 .wrapper{
   width: 100%;
   font-family: Quenda !important;
@@ -35,7 +76,7 @@ p{
   font-size: 1.7vw;
   width: 70%;
   position: relative;
-  margin-left: 15%;
+  margin-left: 18%;
   /* margin-top: 2%;
   margin-bottom: 2%; */
   text-align: justify;
@@ -98,4 +139,39 @@ table td {
   width: 1.5vw;
   vertical-align: middle;
   color: #7e392e;
+}
+.equations{
+  width: 70%;
+  margin-left: 18%;
+  overflow: auto;
+  margin: 1%;
+}
+.parameter{
+	width: 35%!important;
+	margin-left: 35%!important;
+	text-align: center!important;
+}
+#f1{
+	width: 70%;
+	margin-left: 18%;
+}
+#f2{
+	width: 50%;
+	margin-left: 28%;
+}
+#f3{
+	width: 50%;
+	margin-left: 28%;
+}
+#f4{
+	width: 50%;
+	margin-left: 28%;
+}
+#f5{
+	width: 50%;
+	margin-left: 28%;
+}
+#f6{
+	width: 50%;
+	margin-left: 28%;
 }

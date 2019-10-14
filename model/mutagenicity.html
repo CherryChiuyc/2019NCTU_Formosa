@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Mutagenicity Prediction</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
   <link rel="stylesheet" type="text/css" href="mutagenicity.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
-	<script src="jQueryAssets/jquery.ui-1.10.4.dialog.min.js"></script>
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
       MathJax.Hub.Config({
           extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
           jax: ["input/TeX", "output/HTML-CSS"],
@@ -31,16 +30,24 @@
 <body>
   <div class="wrapper">
     <video width="100%" muted autoplay>
-      <source src="https://2019.igem.org/wiki/images/c/c8/T--NCTU_Formosa--muta.mp4" type="video/mp4">
+      <source src="https://2019.igem.org/wiki/images/c/cc/T--NCTU_Formosa--ML.mp4" type="video/mp4">
       <!-- <source src="notebookv.ogg" type="video/ogg"> -->
       Your browser does not support the video tag.
     </video>
+		<div id="side">
+      <img id="line" src="https://2019.igem.org/wiki/images/a/aa/T--NCTU_Formosa--circle5.png">
+      <p id="p1">Machine Learning</p>
+      <p id="p2">SVM</p>
+      <p id="p3">Results</p>
+			<p id="p4">Summary</p>
+			<p id="p5">Demonstration</p>
+    </div>
     <div class="sec1">
       <div class="title_1"><p>Mutagenicity Prediction</p></div>
       <div class="title_2"><p>Introduction</p></div>
         <p>&emsp;&emsp; In an interview with Professor Lan in NCTU, he told us that mutagenicity is highly related to its chemical substructure. Thoroughly inspired, we come up with an idea: how about using machine learning to predict mutagenicity based on chemical substructures?</p>
         <p>&emsp;&emsp; Afterward, we extract 67 features based on different chemical substructures. Moreover, we train our data with Support Vector Machine (SVM), and scoring function and quantify mutagenicity. To validate our model, we compare the mutagenicity computed by our AI and the number of bacterial colonies from Ames test results to prove the score’s reliability.</p>
-      <div class="title_2"><p>Introduction to machine learning</p></div>
+      <div class="title_2" id="ML"><p>Introduction to machine learning</p></div>
         <p>&emsp;&emsp; Artificial intelligence is a prevalent technique now trending all over the world. More and more experts in all different fields start to use it as an essential tool to extend their research. Moreover, Machine learning is a branch of artificial intelligence; concisely, it processes input data to generate useful predictions. Unlike typical programming methods, machine learning use “statistics” instead of “logics” to solve problems, which allows machine learning to solve complicated tasks with accessible programming.</p>
       <div class="title_2"><p>Basic Concept of Machine Learning</p></div>
         <p>&emsp;&emsp; In general, training a machine learning model can be represented by the following flow chart: </p>
@@ -52,7 +59,7 @@
           <p><b>Label:</b> The thing we are predicting. In our model, the label is “mutagen” or “non-<br>&emsp;&emsp;&emsp;mutagen.”</p>
           <p><b>Features:</b> Features in machine learning are input variables. In our model, the features<br>&emsp;&emsp;&emsp;&emsp;&thinsp; are the substructures.</p>
           <p><b>Loss:</b> Loss is the mean square error of label and model prediction.</p>
-          <p><b>Model:</b> The function to predict the label. We choose support vector machine (SVM) as a classification algorithm.</p>
+          <p><b>Model:</b> The function to predict the label. We choose support vector machine as <br>&emsp;&emsp;&emsp;&emsp;a classification algorithm.</p>
         </div>
         <p>&emsp;&emsp; In supervised machine learning progress, we divide training data into features and labels. For extracted features, the model will compute the input vectors and make predictions to compare it with the label. Initially, the loss will be significant, so we have loss function and optimizer to adjust the parameters in the model to make the prediction more accurate. Once the training data is sufficient, which the training progress reaches specific iterations, the loss score will converge to a stable value indicating the training is over.</p>
         <div class="title_2"><p>Data Preprocess</p></div>
@@ -62,95 +69,95 @@
         Figure 2: Database preprocessing</p>
         <div class="title_3"><p>1. Database source</p></div>
         <p>&emsp;&emsp; For trustworthy machine learning, sufficient data is crucial. We use QSAR toolbox, which is an open software that offers transparent chemical hazard assessment. We collect the chemical structure in the data form of SMILES as training data and the result of Ames test as target data for machine learning.</p>
-        <p class="explanation">
-        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
-        Table 1: Database Source</p>
-        <table id="t1">
-          <tr>
-            <td>Chemical reactivity COLIPA</td>
-            <td>Experimental pKa</td>
-            <td>GSH Experimental RC50</td>
-            <td>Phys-chem EPISUITE</td>
-            <td>pKa OASIS</td>
-          </tr>
-          <tr>
-            <td>ECHA CHEM</td>
-            <td>Bioconcentration NITE</td>
-            <td>Bioaccumulation Canada</td>
-            <td>Biota-Sediment Accumulation Factor US-EPA</td>
-            <td>Biodegradation in soul OASIS</td>
-          </tr>
-          <tr>
-            <td>REACH Bioaccumulation database (normalised)</td>
-            <td>kM database Environment Canada</td>
-            <td>Hydrolysis rate constant OASIS</td>
-            <td>Bioaccumulation fish CEFIC LRI</td>
-            <td>ECOTOX</td>
-          </tr>
-          <tr>
-            <td>Biodegradation NITE</td>
-            <td>Aquatic ECETOC</td>
-            <td>Food TOX Hazard EFSA</td>
-            <td>Aquatic Japan MoE</td>
-            <td>Aquatic OASIS</td>
-          </tr>
-          <tr>
-            <td>Micronuleus ISSMIC</td>
-            <td>ToxRdfDB US-EPA</td>
-            <td>Micronucleus OASIS</td>
-            <td>Skin irritation</td>
-            <td>Receptor Mediated Effects</td>
-          </tr>
-          <tr>
-            <td>Rep Dose Tox Fraunhofer ITEM</td>
-            <td>Dendritic cells COLIPA</td>
-            <td>Biocides and plant protection ISSBIOC</td>
-            <td>Skin sensitization ECETOC</td>
-            <td>Rodent Inhalation Toxicity Database</td>
-          </tr>
-          <tr>
-            <td>Acute Oral toxicity</td>
-            <td>ToxCastDB</td>
-            <td>Cell transformation Assay ISSCTA</td>
-            <td>Repeated Dose Toxicity HESS</td>
-            <td>Keratinacyte gene expression LuSens</td>
-          </tr>
-          <tr>
-            <td>Genotoxicity pesticides EFSA</td>
-            <td>ZEBET database</td>
-            <td>Developmental & Reproductive Toxicity (DART)</td>
-            <td>Human Half-Life</td>
-            <td>Skin Sensitization</td>
-          </tr>
-          <tr>
-            <td>REACH Skin Sensitisation database (normalised)</td>
-            <td>GARD Skin sensitization</td>
-            <td>Yeast estrogen assay database</td>
-            <td>Transgenic Rodent Database</td>
-            <td>Genotoxicity & Carcinogenicity ECVAM</td>
-          </tr>
-          <tr>
-            <td>Carcinogenic Potency Databse (CPDB)</td>
-            <td>Carcinagenicity ISSCAN</td>
-            <td>Toxicity Japan MHLW</td>
-            <td>Genotoxicity OASIS</td>
-            <td>Keratinacyte gene expression Givaudan</td>
-          </tr>
-          <tr>
-            <td>Eye irritation ECETOC</td>
-            <td>Toxicity to reproduction (ER)</td>
-            <td>Developmental toxicity ILSI</td>
-            <td>MUNRO non-canceer EFSA</td>
-            <td>Bacterial mutagenicity ISSSTY</td>
-          </tr>
-          <tr>
-            <td>Developmental toxicity databse (CAESAR)</td>
-            <td>ADME database</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </table>
+					<p class="explanation">
+	        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+	        Table 1: Database Source</p>
+	        <table id="t1">
+	          <tr>
+	            <td>Chemical reactivity COLIPA</td>
+	            <td>Experimental pKa</td>
+	            <td>GSH Experimental RC50</td>
+	            <td>Phys-chem EPISUITE</td>
+	            <td>pKa OASIS</td>
+	          </tr>
+	          <tr>
+	            <td>ECHA CHEM</td>
+	            <td>Bioconcentration NITE</td>
+	            <td>Bioaccumulation Canada</td>
+	            <td>Biota-Sediment Accumulation Factor US-EPA</td>
+	            <td>Biodegradation in soul OASIS</td>
+	          </tr>
+	          <tr>
+	            <td>REACH Bioaccumulation database (normalised)</td>
+	            <td>kM database Environment Canada</td>
+	            <td>Hydrolysis rate constant OASIS</td>
+	            <td>Bioaccumulation fish CEFIC LRI</td>
+	            <td>ECOTOX</td>
+	          </tr>
+	          <tr>
+	            <td>Biodegradation NITE</td>
+	            <td>Aquatic ECETOC</td>
+	            <td>Food TOX Hazard EFSA</td>
+	            <td>Aquatic Japan MoE</td>
+	            <td>Aquatic OASIS</td>
+	          </tr>
+	          <tr>
+	            <td>Micronuleus ISSMIC</td>
+	            <td>ToxRdfDB US-EPA</td>
+	            <td>Micronucleus OASIS</td>
+	            <td>Skin irritation</td>
+	            <td>Receptor Mediated Effects</td>
+	          </tr>
+	          <tr>
+	            <td>Rep Dose Tox Fraunhofer ITEM</td>
+	            <td>Dendritic cells COLIPA</td>
+	            <td>Biocides and plant protection ISSBIOC</td>
+	            <td>Skin sensitization ECETOC</td>
+	            <td>Rodent Inhalation Toxicity Database</td>
+	          </tr>
+	          <tr>
+	            <td>Acute Oral toxicity</td>
+	            <td>ToxCastDB</td>
+	            <td>Cell transformation Assay ISSCTA</td>
+	            <td>Repeated Dose Toxicity HESS</td>
+	            <td>Keratinacyte gene expression LuSens</td>
+	          </tr>
+	          <tr>
+	            <td>Genotoxicity pesticides EFSA</td>
+	            <td>ZEBET database</td>
+	            <td>Developmental & Reproductive Toxicity (DART)</td>
+	            <td>Human Half-Life</td>
+	            <td>Skin Sensitization</td>
+	          </tr>
+	          <tr>
+	            <td>REACH Skin Sensitisation database (normalised)</td>
+	            <td>GARD Skin sensitization</td>
+	            <td>Yeast estrogen assay database</td>
+	            <td>Transgenic Rodent Database</td>
+	            <td>Genotoxicity & Carcinogenicity ECVAM</td>
+	          </tr>
+	          <tr>
+	            <td>Carcinogenic Potency Databse (CPDB)</td>
+	            <td>Carcinagenicity ISSCAN</td>
+	            <td>Toxicity Japan MHLW</td>
+	            <td>Genotoxicity OASIS</td>
+	            <td>Keratinacyte gene expression Givaudan</td>
+	          </tr>
+	          <tr>
+	            <td>Eye irritation ECETOC</td>
+	            <td>Toxicity to reproduction (ER)</td>
+	            <td>Developmental toxicity ILSI</td>
+	            <td>MUNRO non-canceer EFSA</td>
+	            <td>Bacterial mutagenicity ISSSTY</td>
+	          </tr>
+	          <tr>
+	            <td>Developmental toxicity databse (CAESAR)</td>
+	            <td>ADME database</td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	          </tr>
+	        </table>
         <div class="title_3"><p>2. SMILES</p></div>
         <p>&emsp;&emsp; Simplified Molecular Input Line Entry System (SMILES) is a set of chemical notations which commonly uses in molecular databases. The characteristic of SMILES is that it can easily use 1-dimensional syntax to represent a 3-dimensional chemical structure. In other words, once we have the SMILES of the chemical, we can get the chemical structure in 1-dimensional syntax.</p>
         <img id="f3" src="https://2019.igem.org/wiki/images/6/62/T--NCTU_Formosa--smiles.png">
@@ -161,7 +168,7 @@
         <p>&emsp;&emsp; During human practice, we have an interview about machine learning with a postdoctoral student in the computer science laboratory at NCTU. He suggests that we should not put SMILES as input data directly without any preprocessing. Instead, we should extract features of different substructures. After doing a lot of paper research, we finally discover a paper suggesting 67 kinds of substructures with mutagen potential. Since one chemical structure can address in multiple ways in SMILES, we cannot merely catch the substring from SMILES. We use RDKit in python API, which is an open-source library commonly used in cheminformatics to catch substructures. After catching all the substructures, we can take it as input features for machine learning.</p>
         <div class="title_3"><p>4. Labeling</p></div>
         <p>&emsp;&emsp; The result of Ames test is “Positive” or “Negative.” However, it is hard for the machine to understand the meaning of “Positive” or “Negative,” so we label “Positive” and “Negative” with “1” and “0.”</p>
-        <div class="title_2"><p>Support Vector Machine</p></div>
+        <div class="title_2" id="SVM"><p>Support Vector Machine</p></div>
         <p>&emsp;&emsp; Support Vector Machine model is built for quantifying mutagenicity of chemical compounds. To achieve this goal, we choose a machine learning algorithm called Support Vector Machine (SVM). SVM mainly emphasizes data classification in pattern recognition. Generally speaking, this kind of method simulates a plane equation to operate data into two classes. Because of the plane might equation classify a multi-dimensional data in machine learning, we name it “hyperplane.” For example, to divide a 3-D space, we need to use a 2-D plane. Therefore, we can deduce that in N-dimensional space, we can split it with an (N-1)-D hyperplane. Among all data, some data points will determine the optimal hyperplane, and those critical points are called “support vectors.”</p>
         <p>&emsp;&emsp;Practically, we use the classification learner toolbox from MATLAB to build up our SVM model. We choose the quadratic SVM algorithm in the toolbox to train our data. The result of SVM model was shown below. Also, we further analyze our result through Confusion Matrix and ROC Curve.</p>
         <div class="title_2"><p>SVM Scoring Function</p></div>
@@ -178,7 +185,7 @@
           </tr>
           <tr>
             <td>$$\alpha_i$$</td>
-            <td>The coefficient associated with the \left(i\right)th training data point.</td>
+            <td>The coefficient associated with the i th training data point.</td>
             <td>variable</td>
           </tr>
           <tr>
@@ -208,35 +215,39 @@
           </tr>
           <tr>
             <td>MNNG</td>
-            <td>10.57323</td>
+            <td>29.13</td>
           </tr>
           <tr>
             <td>MMS</td>
-            <td>-1.08074</td>
+            <td>0.073</td>
           </tr>
           <tr>
             <td>EMS</td>
-            <td>-1.08074</td>
-          </tr>
-          <tr>
-            <td>Diazouracil</td>
-            <td>0.585388</td>
+            <td>0.073</td>
           </tr>
           <tr>
             <td>Azacytidine</td>
-            <td>0.585388</td>
+            <td>5.50</td>
+          </tr>
+          <tr>
+            <td>Aminopurine</td>
+            <td>4.62</td>
           </tr>
           <tr>
             <td>Glyoxal</td>
-            <td>-0.91738</td>
+            <td>0.70</td>
+          </tr>
+					<tr>
+            <td>Formaldehyde</td>
+            <td>0.70</td>
           </tr>
           <tr>
             <td>Captan</td>
-            <td>6.31457</td>
+            <td>18.36</td>
           </tr>
           <tr>
             <td>Phosmet</td>
-            <td>0.556026</td>
+            <td>3.79</td>
           </tr>
         </table>
         <div class="title_2"><p>Kernel Function</p></div>
@@ -247,21 +258,23 @@
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 4: The examples of input and output of kernel function</p>
-        <div class="title_2"><p>Results</p></div>
-        <p class="equations">$$Accuracy = \frac{TP+TF}{TP+TN+FP+FN} = 0.834 $$</p>
-        <div class="comment">
-          <p><b>TP:</b>True positive</p>
-          <p><b>TN:</b>True negative</p>
-          <p><b>FP:</b>False Positive</p>
-          <p><b>FN:</b>False negative</p>
-          <p><b>Validation:</b>k-folds cross validation (k = 5)</p>
-          <p><b>Training data:</b>7231 mutagens and 13769 non-mutagens</p>
-        </div>
+        <div class="title_2" id="results"><p>Results</p></div>
         <div class="title_2"><p>Confusion Matrix</p></div>
         <img id="f5" src="https://2019.igem.org/wiki/images/4/43/T--NCTU_Formosa--Quadratic_SVM.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 5: The confusion matrix of predicted class and true class</p>
+				<p class="equations">$$Accuracy = \frac{TPN+TFN}{TPN+TNN+FPN+FNN} = 0.834 $$</p>
+				<p class="equations">$$Sensitivity = \frac{TPN}{TPN+FNN} = \frac{5138}{7231} = 0.71 $$</p>
+				<p class="equations">$$Specificity = \frac{TNN}{TNN+FPN} = \frac{12380}{13769} = 0.899 $$</p>
+        <div class="comment">
+          <p><b>TPN:</b>True positive number</p>
+          <p><b>TNN:</b>True negative number</p>
+          <p><b>FPN:</b>False Positive number</p>
+          <p><b>FNN:</b>False negative number</p>
+          <p><b>Validation:</b>k-folds cross validation (k = 5)</p>
+          <p><b>Training data:</b>7231 mutagens and 13769 non-mutagens</p>
+        </div>
         <p>&emsp;&emsp;The confusion matrix shows the data amount of true class and predicted class. The "0" and "1" are the labels in our model. The X-axis is the prediction of our model, and the Y-axis is the label.</p>
         <div class="title_2"><p>ROC Curve</p></div>
         <p>&emsp;&emsp; A receiver operating characteristic (ROC) curve is one of the most important evaluation metrics for checking performance of classifiers. It compares two operating characteristics, true positive rate (TPR) and false positive rate (FPR), to diagnosis the ability of model also known as relative operating characteristic curve.</p>
@@ -277,28 +290,79 @@
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 7: Statistical data of SVM score</p>
         <div class="title_2"><p>Comparison of Ames Test Colonies and SVM scores</p></div>
-        <p>&emsp;&emsp; The result of Ames test can refer to quantified mutagenicity. To prove our artificial intelligence is trustworthy, we import the linear regression of the result of Ames test to our model prediction. The result shows that the two has a R2 of 0.9206, which indicates their high relativeness.</p>
+        <p>&emsp;&emsp; The result of Ames test can refer to quantified mutagenicity. To prove our artificial intelligence is trustworthy, we import the linear regression of the result of Ames test to our model prediction. The result shows that the two has a R2 of 0.9699, which indicates their high relativeness.</p>
+				<p class="equations">$$Correlation\,\,coefficient=  R^2 = 0.9699 $$</p>
         <img id="f8" src="https://2019.igem.org/wiki/images/f/f7/T--NCTU_Formosa--regression.jpg">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 8: Regression of Ames test and model prediction</p>
-        <p class="explanation">
-        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
-        Table 4: Parameters of Regression</p>
-        <table id="t4">
-          <tr>
-            <td>$$y = 0.0066871 \cdot x - 0.60941$$</td>
-            <td>$$Norm\,of\,residuals = 3.3056$$</td>
-          </tr>
-          <tr>
-            <td>$$Average\,error: -5.9%$$</td>
-            <td>$$R^{2} = 0.9206$$</td>
-          </tr>
-        </table>
-        <div class="title_2"><p>Demonstration</p></div>
+				<div class="title_2" id="sum"><p>Summary of all of our model</p></div>
+        <div class="title_2" id="demo"><p>Demonstration</p></div>
         <p>&emsp;&emsp; We design a UI for the public and you. Click the website below to experience our artificial intelligence!</p>
+				<a href="http://sharon.terrychan999.nctu.me/" target="_blank"><img src="https://2019.igem.org/wiki/images/d/da/T--NCTU_Formosa--tryit.png" class="try"></a>
+				<p id="try_it">Try it!</p>
     </div>
   </div>
+	<script type="text/javascript">
+  $(function(){
+  $('#p1').click(function(){
+    $('html, body').animate(
+      //scrollTop是指離底部的距離
+      {scrollTop: $('#ML').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#SVM').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p3').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#results').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p4').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#sum').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p5').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#demo').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  window.onscroll = function() {
+  //要同時判斷，不能用class
+  var box = document.getElementById('side');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(osTop)
+      if (osTop>620) {
+      box.style.visibility = "visible"
+      }
+      if (osTop<620) {
+      box.style.visibility = "hidden"
+      }
+  }
+	$(".try").hover(function(){
+       $("#try_it").css("animation", "subtitle 2s linear");
+       }, function(){
+       $("#try_it").css("opacity", "1");
+   });
+  </script>
 </body>
 </html>
 {{NCTU_Formosa/Footer}}
