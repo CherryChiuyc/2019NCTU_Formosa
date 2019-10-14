@@ -1,0 +1,96 @@
+{{NCTU_Formosa/test}}
+{{NCTU_Formosa/devicecss}}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sensor Box</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="sensorbox.css">
+</head>
+<body>
+  <div class="wrapper">
+    <video width="100%" muted autoplay>
+      <source src="https://2019.igem.org/wiki/images/8/8a/T--NCTU_Formosa--Sensorbox.mp4" type="video/mp4">
+      <!-- <source src="notebookv.ogg" type="video/ogg"> -->
+      Your browser does not support the video tag.
+    </video>
+		<div id="side">
+      <img id="line" src="https://2019.igem.org/wiki/images/4/4d/T--NCTU_Formosa--circle4.png">
+      <p id="p1">Introduction</p>
+      <p id="p2">Incubator</p>
+      <p id="p3">Sensor</p>
+			<p id="p4">Biosafety</p>
+    </div>
+    <div class="sec1">
+      <div class="title_1"><p>Sensor Box</p></div>
+			<img id="f1" src="https://2019.igem.org/wiki/images/7/7b/T--NCTU_Formosa--sensorbox1.png">
+			<p class="explanation">
+			<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+			Figure 1: Perspective schematic view of our device</p>
+			<div class="title_2" id="in"><p>Introduction</p></div>
+				<p>&emsp;&emsp; Starting with our initial concepts that we want to raise public awareness of health and environment, we created a visulizable system to evaluate the danger of chemical substances out of the lab. This device included the whole process of determining the mutagenicity where to get the sample. Furthermore, it is capable of measuring the fluorescence intensity and optical density by our detected system and sending instant data to save in the online database.</p>
+				<p>&emsp;&emsp; Our device consists of three main parts: incubator part, detected sensor, biosafety part.</p>
+			<div class="title_2" id="cu"><p>Incubator</p></div>
+				<p>&emsp;&emsp; In order to culture our <i>E. coli</i> in the Sensor Box, we simulate the optimal growth condition for bacteria and make sure they can survive. We added a PTC heater to maintain the temperature at 42 degrees, and with the copper wall to heat up uniformly. Besides, four springs are added to the corners of the shaker to ensure steady shaking progress.</p>
+				<p>&emsp;&emsp; Most of the parts of the box are made by the 3D printer, which can easily be customized to fit any condition. The other advantage is that the material can be acquired without any effort.</p>
+				<div class="title_2" id="se"><p>Sensor</p></div>
+					<p>&emsp;&emsp; There is an Arduino broad, and three sensors build up this system: an O.D. sensor, RFP sensor, and temperature sensor. The temperature sensor sends real-time temperature to the internet, monitoring the whole Sensor Box. O.D. sensor will screen the concentration of the bacterial fluid. Once the concentration reaches OD 0.3, a notification will be sent to the users, reminding them is the time to induce IPTD and insert the chemical compound. RFP detector monitors the development of the RFP. Once the QS system is activated, the RFP would appear. The timestamp will be sent when the RFP is detected(at a certain level). At the time our IoT system receives a two-time stamp(O.D.0.3 and RFP), the U.V. light will function, kill all the remaining bacteria.</p>
+				<div class="title_2" id="bs"><p>Biosafety</p></div>
+					<p>&emsp;&emsp; Biosafety and biosecurity are a big concern when working with possibly contaminated samples and engineering microorganisms. Engineering <i>E. coli</i>, which cultured in our device, may stronger than those wild types. It could harm the environment when it spreads outside. To avoid the bacteria from surviving in nature in case of an accidental spill, we created two security mechanisms: double shields and UV light.</p>
+				<div class="title_3"><p>Double shields</p></div>
+					<p>&emsp;&emsp; We design double-shell protection to prevent the leakage of Engineering <i>E. coli</i>.  Bleaching water is carefully added between two folds, and when the device is accidentally damaged, the bleaching water will overflow to eliminate the bacteria cultured in the device. The material we used to assemble the shell is polylactic acid (PLA), which can resist the corrosiveness of bleach and have enough density to keep the bleaching water in the folds.</p>
+				<div class="title_3"><p>UV light</p></div>
+					<p>&emsp;&emsp; The ability of UV light to disinfection was proven decades ago. In our device, we set the UV light bulb above the shaker, allowing it to lit up the entire tube. The UV light would operate once each experiment has done, killing all the remaining <i>E. coli</i>.</p>
+			</div>
+  </div>
+	<script type="text/javascript">
+  $(function(){
+  $('#p1').click(function(){
+    $('html, body').animate(
+      //scrollTop是指離底部的距離
+      {scrollTop: $('#in').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#cu').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p3').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#se').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p4').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#bs').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  window.onscroll = function() {
+  //要同時判斷，不能用class
+  var box = document.getElementById('side');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(osTop)
+      if (osTop>620) {
+      box.style.visibility = "visible"
+      }
+      if (osTop<620) {
+      box.style.visibility = "hidden"
+      }
+  }
+  </script>
+</body>
+</html>
+{{NCTU_Formosa/Footer}}
