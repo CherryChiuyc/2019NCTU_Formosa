@@ -27,6 +27,55 @@ p{
   font-size: 1.7vw !important;
   margin: 0;
 }
+#line{
+  width:1.8%;
+  height:40%;
+  top: 20%;
+  left: 1%;
+  position: fixed;
+  z-index: 4;
+}
+#side{
+  width: 10%;
+  height: auto;
+  visibility: hidden;
+}
+#p1{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 19.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p2{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 27%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p3{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 34.5%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p4{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 42%;
+  left: 3.5%;
+	cursor: pointer;
+}
+#p5{
+	font-size: 1.4vw!important;
+  position: fixed;
+  top: 49%;
+  left: 3.5%;
+	cursor: pointer;
+	z-index: 10;
+}
 .wrapper{
   width: 100%;
   font-family: Quenda !important;
@@ -35,7 +84,7 @@ p{
   font-size: 1.7vw;
   width: 70%;
   position: relative;
-  margin-left: 15%;
+  margin-left: 19%;
   /* margin-top: 2%;
   margin-bottom: 2%; */
   text-align: justify;
@@ -57,6 +106,11 @@ p{
   font-family: Quenda !important;
   font-size: 2.2vw !important;
   margin-top: 1%;
+}
+.title_4 p{
+  font-family: Quenda !important;
+  font-size: 2vw !important;
+	margin-left: 30%;
 }
 .equations{
   width: 70%;
@@ -98,4 +152,36 @@ table td {
   width: 1.5vw;
   vertical-align: middle;
   color: #7e392e;
+}
+#f1{
+	width:45%;
+	margin-left: 30%;
+}
+#f2{
+	width:55%;
+	margin-left: 25%;
+}
+#f3{
+	width:55%;
+	margin-left: 25%;
+}
+#f4{
+	width:55%;
+	margin-left: 25%;
+}
+#f5{
+	width:55%;
+	margin-left: 25%;
+}
+#f6{
+	width:55%;
+	margin-left: 25%;
+}
+#f7{
+	width:55%;
+	margin-left: 25%;
+}
+#t1{
+	width: 30%;
+	margin-left: 38%!important;
 }

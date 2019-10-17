@@ -4,33 +4,264 @@
 <head>
   <meta charset="UTF-8">
   <title>QS System</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
   <link rel="stylesheet" type="text/css" href="QS.css">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+			MathJax.Hub.Config({
+					extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+					jax: ["input/TeX", "output/HTML-CSS"],
+					tex2jax: {
+							inlineMath: [
+									['$', '$'],
+									["\\(", "\\)"]
+							],
+							displayMath: [
+									['$$', '$$'],
+									["\\[", "\\]"]
+							],
+					},
+					"HTML-CSS": {
+							availableFonts: ["TeX"]
+					}
+			});
+	</script>
 </head>
 <body>
   <div class="wrapper">
     <video width="100%" muted autoplay>
-      <source src="https://2019.igem.org/wiki/images/f/f6/T--NCTU_Formosa--QSv.mp4" type="video/mp4" type="video/mp4">
+      <source src="https://2019.igem.org/wiki/images/a/a3/T--NCTU_Formosa--QS.mp4" type="video/mp4" type="video/mp4">
       <!-- <source src="notebookv.ogg" type="video/ogg"> -->
       Your browser does not support the video tag.
     </video>
+		<div id="side">
+      <img id="line" src="https://2019.igem.org/wiki/images/a/aa/T--NCTU_Formosa--circle5.png">
+      <p id="p1">Introduction</p>
+      <p id="p2">Scheme of QS</p>
+      <p id="p3">AHL Diffusion Model</p>
+			<p id="p4">Simulation of QS</p>
+			<p id="p5">Data Fitting</p>
+    </div>
     <div class="sec1">
       <div class="title_1"><p>Quorum Sensing Model</p></div>
-      <div class="title_2"><p>Introduction</p></div>
-        <p>&emsp;&emsp; The purpose of building QS model is...</p>
-      <div class="title_2"><p>title_2</p></div>
-				//figure
-        <img id="f1" src="">
+      <div class="title_2" id="intro"><p>Introduction</p></div>
+        <p>&emsp;&emsp; Measuring OD value consistently to get the bacterial growth curve requires the high sensitivity of the machine. However, we want to simplify the cost and size of our device to improve the convenience. Therefore, we design a quorum sensing system for it. Our E. coli with quorum sensing system can express abundant RFP when the bacteria reach a specific concentration. This way, once our device gets the time of red fluorescence, we can get the mutagenicity of the analyte.</p>
+      <div class="title_2"><p>Quorum Sensing Mechanism</p></div>
+				<p>&emsp;&emsp; As we can see from the mechanism figure below, our quorum sensing system lets our bacteria express abundant RFP when it reaches a specific concentration. Want to know the detail? Click the link below.</p>
+        <img id="f1" src="https://2019.igem.org/wiki/images/1/15/T--NCTU_Formosa--qs_system_num.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
-        Figure 1: </p>
-        //table
-        <p class="explanation">
+        Figure 1: The mechanism of quorum sensing system</p>
+			<div class="title_2" id="scheme"><p>The Scheme of QS Model</p></div>
+				<img id="f2" src="https://2019.igem.org/wiki/images/0/04/T--NCTU_Formosa--scheme_qs.png">
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+				Figure 2: The scheme of QS model</p>
+				<p>&emsp;&emsp; The QS system involves much interaction of compounds in and out of the cell, thus, we use the following three assumptions for our model and use differential equations to describe the  rate of change of each compound. With those assumptions, we can get the relationship of red fluorescence intensity.<br><br></p>
+			<div class="title_4"><p>Three assumptions are shown below: </p></div>
+			<div class="title_4"><p>1. The processes obey the law of mass action</p></div>
+			<div class="title_4"><p>2. Mean cell volume is a constant</p></div>
+			<div class="title_4"><p>3. Cell volume is much smaller than the total volume<br><br></p></div>
+				<p>&emsp;&emsp; Furthermore, we generally consider the following four factors in each element's differential equation:</p>
+				<p>&emsp;&emsp; Generation: Each intermediate product is generated from reactants. We assume that generation reactions obey the law of mass action. In our model, the symbol "C" is the reaction rate constant.</p>
+				<p>&emsp;&emsp; Degradation: We consider chemical degradation. We assume that except for the stable DNA, each chemical compound will be degraded and the degradation reactions are all first-order reaction. In our model, we use the symbol "D" as the reaction rate constant.</p>
+				<p>&emsp;&emsp; Reaction: We assume that the reactions in our model are all elementary steps. The symbol "k" represents the reaction rate constant, and the symbol "k'" represents the reverse reaction rate constant.</p>
+				<p>&emsp;&emsp; Diffusion: The unique part of the quorum sensing system is the diffusion of AHL. Therefore, we cite the Fick's First Law for it. However, the algebras in Fick's First Law are in the unit of amount, which is different from our model. Thus, we restate the formulas as following:</p>
+				<p class="equations">$$Fick's First Law: J = -Duf_{1}\frac{d[S]}{dx}$$</p>
+				<p>&emsp;&emsp; We assume that the cell volume is constant, thus, the cell surface area is also constant.</p>
+				<p class="equations">$$J\cdot A = -Duf_{1}\cdot A\frac{d[S]}{dx}=-Duf_{2}\frac{d[S]}{dx} $$</p>
+				<p>&emsp;&emsp; Due to the cell membrane is very thin, we assume that the concentration gradient between the outer membrane and inner membrane is the same. We define Thickness<sub>membrane</sub> is the thickness of cell membrane.</p>
+				<p class="equations">$$\frac{dS_{in}}{dt}= -Duf_{2}\frac{d[S]}{dx}=-Duf_{2}\frac{[S_{in}]-[S_{ex}]}{Thickness_{membrane}}=-Duf_{3}([S_{in}]-[S_{ex}])$$</p>
+				<p>&emsp;&emsp; In the following step, we restate the amount into concentration.</p>
+				<p class="equations">$$\frac{d[S_{in}]}{dt}=\frac{dS}{dx*V_{cell}}== -\frac{Duf_{3}}{V_{cell}}([S_{in}]-[S_{ex}])=-{Duf_{4}}([S_{in}]-[S_{ex}])$$</p>
+				<p class="equations">$$\frac{d[S_{ex}]}{dt}=\frac{-d[S]}{dx}*\frac{V_{cell}}{V_{out}} = +[{Duf_{4}}\frac{V_{cell}}{V_{out}}([S_{in}]-[S_{ex}])]*B$$</p>
+				<p>&emsp;&emsp; We use the symbol “[S<sub>in</sub>]” to represent the concentration inside the cell, and the symbol “[S<sub>ex</sub>]” to represent the concentration outside the cell.</p>
+			<div class="title_2" id="AHL"><p>AHL Diffusion Model</p></div>
+				<p>&emsp;&emsp; As a result of the effect of toxin protein, we assume that the AHL inside the bacteria will be released after cell lysis.</p>
+				<img id="f3" src="https://2019.igem.org/wiki/images/1/16/T--NCTU_Formosa--qs_ahl_diff.png">
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+				Figure 3: The demonstration of AHL releasing after cell lysis.</p>
+				<p>&emsp;&emsp; The following differential equations show the AHL concentration internal and external bacteria.</p>
+				<p class="equations">$$\frac{d[AHL_{in}]}{dt} = C_{AHL_{in}}[LuxI]-D_{AHL_{in}}[AHL_{in}]-k_{A-R}[AHL_{in}]+k_{A-R}'[A-R]-{Duf_{AHL_{in}}}[AHL_{in}]+{Duf_{AHL_{in}}}[AHL_{ex}]$$</p>
+				<p class="equations">$$\frac{d[AHL_{ex}]}{dt} = +[{Duf_{AHL_{in}}}[AHL_{in}]-{Duf_{AHL_{in}}}[AHL_{ex}]*B*\frac{Vcell}{Vout}+T_{toxin}*[toxin]*B_{M}*[AHL_{in}]*\frac{Vcell}{Vout}$$</p>
+				<p>&emsp;&emsp; We simulate the AHL concentration internal and external bacteria.</p>
+				<img id="f4" src="https://2019.igem.org/wiki/images/2/27/T--NCTU_Formosa--simulation_diffusion.jpg">
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+				Figure 4: The simulation of AHL concentration inside and outside the bacteria.</p>
+			<div class="title_2" id="QS"><p>Simulation of Quorum Sensing Model</p></div>
+				<p>&emsp;&emsp; We sum up the equations in quorum sensing model as following:</p>
+				<p class="equations">$$\frac{d[AHL_{in}]}{dt} = C_{AHL_{in}}[LuxI]-D_{AHL_{in}}[AHL_{in}]-k_{A-R}[AHL_{in}][LuxR]+k_{A-R}'[A-R]-{Duf_{AHL_{in}}}[AHL_{in}]+{Duf_{AHL_{in}}}[AHL_{ex}]$$</p>
+				<p class="equations">$$\frac{d[AHL_{ex}]}{dt} = +[{Duf_{AHL_{in}}}[AHL_{in}]-{Duf_{AHL_{in}}}[AHL_{ex}]*B*\frac{Vcell}{Vout}+T_{toxin}*[toxin]*B_{M}*[AHL_{in}]*\frac{Vcell}{Vout}$$</p>
+				<p class="equations">$$\frac{d[mRNA_{LuxI}]}{dt} = C_{mRNA_{LuxI}}-D_{mRNA_{LuxI}}[mRNA_{LuxI}]$$</p>
+				<p>&emsp;&emsp; Here, C<sub>mRNA<sub>LuxI</sub></sub> is the reaction rate constant of mRNA<sub>LuxI</sub> generation.</p>
+				<p>&emsp;&emsp; D<sub>mRNA<sub>LuxI</sub></sub> is the reaction rate constant of mRNA<sub>LuxI</sub> degradation.</p>
+				<p class="equations">$$\frac{d[LuxI]}{dt} = C_{LuxI}[mRNA_{LuxI}]-D_{LuxI}[LuxI]$$</p>
+				<p>&emsp;&emsp; In the formula, C<sub> LuxI</sub> is the reaction rate constant of LuxI generation .</p>
+				<p>&emsp;&emsp; D<sub> LuxI</sub> is the reaction rate constant of LuxI degradation .</p>
+				<p class="equations">$$\frac{d[mRNA_{LuxR}]}{dt} = C_{mRNA_{LuxR}}-D_{mRNA_{LuxR}}[mRNA_{LuxR}]$$</p>
+				<p>&emsp;&emsp; C<sub>mRNA<sub>LuxR</sub></sub> is the reaction rate constant of mRNA<sub>LuxR</sub> generation.</p>
+				<p>&emsp;&emsp; D<sub>mRNA<sub>LuxR</sub></sub> is the reaction rate constant of mRNA<sub>LuxR</sub> degradation.</p>
+				<p class="equations">$$\frac{d[LuxR]}{dt} = C_{LuxR}[mRNA_{LuxR}]-D_{LuxR}[LuxR]$$</p>
+				<p>&emsp;&emsp; C<sub> LuxR</sub> is the reaction rate constant of LuxR generation.</p>
+				<p>&emsp;&emsp; D<sub> LuxR</sub> is the reaction rate constant of LuxR degradation.</p>
+				<p>&emsp;&emsp; The following figure shows the simulation of LuxI and LuxR generation.</p>
+				<img id="f5" src="https://2019.igem.org/wiki/images/b/b0/T--NCTU_Formosa--simulation_luxi_luxr.jpg">
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+				Figure 5: The simulation of LuxI and LuxR Generation</p>
+			<div class="title_3"><p>The binding reaction of AHL and LuxR</p></div>
+				<p>&emsp;&emsp; The change rate of AHL-LuxR complex is decided by the following two reversible reactions and degradation reaction:</p>
+				<p class="equations">$$AHL+LuxR\rightleftharpoons A-R$$</p>
+				<p>&emsp;&emsp; where k<sub>A-R</sub> is the rate constant of forward reaction while k’<sub>A-R</sub> is the rate constant of reverse reaction.</p>
+				<p class="equations">$$2 (A-R)\rightleftharpoons(A-R)_{2}$$</p>
+				<p>&emsp;&emsp; where k<sub>(A-R)<sub>2</sub></sub> is the rate constant of forward reaction while k’<sub>(A-R)<sub>2</sub></sub> is the rate constant of reverse reaction.</p>
+				<p class="equations">$$A-R \rightarrow \phi$$</p>
+				<p>&emsp;&emsp; D<sub>A-R</sub> is the rate constant about AHL-LuxR complex</p>
+				<p>&emsp;&emsp; We derive and get the differential equation of AHL-LuxR complex below:</p>
+				<p class="equations">$$\frac{d[A-R]}{dt} = -D_{A-R}[A-R]+k_{A-R}[AHL_{in}][LuxR]-k_{A-R}'[A-R]-2*k_{(A-R)_{2}}[A-R]^{2}+2*k_{(A-R)_{2}}'[(A-R)_{2}]$$</p>
+			<div class="title_3"><p>The binding reaction of AHL-LuxR dimer and Plux</p></div>
+				<p>&emsp;&emsp; The change of (A-R)<sub>2</sub> complex is decided by two reversible reaction and degradation</p>
+				<p class="equations">$$2 (A-R)\rightleftharpoons(A-R)_{2}$$</p>
+				<p>&emsp;&emsp; where k<sub>(A-R)<sub>2</sub></sub> is the rate constant of forward reaction while k’<sub>(A-R)<sub>2</sub></sub> is the rate constant of reverse reaction.</p>
+				<p class="equations">$$(A-R)_{2}+Plux\rightleftharpoons Plux-(A-R)_{2}$$</p>
+				<p>&emsp;&emsp; where k<sub>Plux-(A-R)<sub>2</sub></sub>is the rate constant of forward reaction while k’<sub>Plux-(A-R)<sub>2</sub></sub> is the rate constant of reverse reaction.</p>
+				<p class="equations">$${(A-R)}_2\rightarrow \phi$$</p>
+				<p>&emsp;&emsp; D<sub>(A-R)<sub>2</sub></sub> is the rate constant about AHL-LuxR complex</p>
+				<p>&emsp;&emsp; We derive and get the differential equation of AHL-LuxR dimer below:</p>
+				<p class="equations">$$\frac{d[(A-R)_{2}]}{dt} = -D_{(A-R)_{2}}[(A-R)_{2}]+k_{(A-R)_{2}}[A-R]^{2}-k_{(A-R)_{2}}'[(A-R)_{2}]-k_{Plux-(A-R)_{2}}[A-R][Plux]+k_{Plux-(A-R)_{2}}'[Plux-(A-R)_{2}]$$</p>
+				<p>&emsp;&emsp; Plux-(AHL-LuxR)2 complex is decided by a reversible reaction.</p>
+				<p class="equations">$$(A-R)_{2}+Plux\rightleftharpoons Plux-(A-R)_{2}$$</p>
+				<p>&emsp;&emsp; where k<sub>Plux-(A-R)<sub>2</sub></sub>is the rate constant of forward reaction while k’<sub>Plux-(A-R)<sub>2</sub></sub> is the rate constant of reverse reaction.We derive and get the differential equation of Plux-(A-R)<sub>2</sub> complex below:</p>
+				<p class="equations">$$\frac{d[P_{lux}-(A-R)_{2}]}{dt}= +k_{P_{lux}-(A-R)_{2}}[A-R][P_{lux}]-k_{P_{lux}-(A-R)_{2}}'[P_{lux}-(A-R)_{2}]$$</p>
+				<p>&emsp;&emsp; The following figure shows the simulation of the binding reaction of AHL, LuxR and Plux.</p>
+				<img id="f6" src="https://2019.igem.org/wiki/images/6/61/T--NCTU_Formosa--simulation_QS.jpg">
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+				Figure 6: The simulation of AHL, LuxR and Plux reaction</p>
+				<p class="equations">$$\frac{d[mRNA_{RFP}]}{dt} = C_{mRNA_{RFP}}[Plux-(A-R)_{2}]-D_{mRNA_{RFP}}[mRNA_{RFP}]$$</p>
+				<p>&emsp;&emsp; Here, C<sub>mRNA<sub>RFP</sub></sub> is the reaction rate constant of mRNA<sub>RFP</sub> generation.</p>
+				<p>&emsp;&emsp; D<sub>mRNA<sub>RFP</sub></sub> is the reaction rate constant of mRNA<sub>RFP</sub> degradation.</p>
+				<p class="equations">$$\frac{d[RFP]}{dt} = C_{RFP}[mRNA_{RFP}]-D_{RFP}[RFP]$$</p>
+				<p>&emsp;&emsp; Here, C<sub> RFP</sub> is the reaction rate constant of RFP generation.D<sub> RFP</sub> is the reaction rate constant of RFP degradation.</p>
+				<p>&emsp;&emsp; Finally, we get the intensity equals to the product of [RFP] and [BT] .</p>
+				<p class="equations">$$Intensity = [RFP] \cdot B_{T}$$</p>
+				<p>&emsp;&emsp; We combine our quorum sensing model and bacterial growth analytic model to simulate the red fluorescence intensity with different mutation rate M<sub>2</sub>.</p>
+				<img id="f7" src="https://2019.igem.org/wiki/images/1/1f/T--NCTU_Formosa--simulation_RFP.jpg">
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+				Figure 7: The simulation of different mutation rate to RFP intensity</p>
+				<p>&emsp;&emsp; As we can observe above, the higher the mutation rate M<sub>2</sub>, the earlier the red fluorescence light up.</p>
+				<p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
-        Table 1:</p>
-				//title 3
-        <div class="title_3"><p>title_3</p></div>
+        Table 1: The following table shows the parameters we used in the simulation.</p>
+				<table id="t1">
+					<tr><td>g</td><td>0.07146</td></tr>
+					<tr><td>B<sub>Max</sub></td><td>320</td></tr>
+					<tr><td>IPTG</td><td>2.5E-7</td></tr>
+					<tr><td>T<sub>IPTG</sub></td><td>2.110648</td></tr>
+					<tr><td>C<sub>t</sub></td><td>0.000108</td></tr>
+					<tr><td>D<sub>t</sub></td><td>0.004806</td></tr>
+					<tr><td>T<sub>t</sub></td><td>7.2</td></tr>
+					<tr><td>T<sub>chem</sub></td><td>0.0</td></tr>
+					<tr><td>M <sub>1</sub></td><td>3.0E-8</td></tr>
+					<tr><td>C<sub>mRNA<sub>LuxI</sub></sub></td><td>0.1</td></tr>
+					<tr><td>D<sub>mRNA<sub>LuxI</sub></sub></td><td>0.03</td></tr>
+					<tr><td>C<sub>LuxI</sub></td><td>0.5</td></tr>
+					<tr><td>D<sub>LuxI</sub></td><td>0.05</td></tr>
+					<tr><td>C<sub>mRNA<sub>LuxR</sub></sub></td><td>0.3</td></tr>
+					<tr><td>D<sub>mRNA<sub>LuxR</sub></sub></td><td>0.03</td></tr>
+					<tr><td>C<sub>LuxR</sub></td><td>0.5</td></tr>
+					<tr><td>D<sub>LuxR</sub></td><td>0.05</td></tr>
+					<tr><td>C<sub>AHL<sub>in</sub></sub></td><td>0.005</td></tr>
+					<tr><td>D<sub>LuxR</sub></td><td>0.05</td></tr>
+					<tr><td>C<sub>AHL<sub>in</sub></sub></td><td>0.65</td></tr>
+					<tr><td>D<sub>AHL<sub>in</sub></sub></td><td>0.05</td></tr>
+					<tr><td>Duf<sub>AHL<sub>in</sub></sub></td><td>0.005</td></tr>
+					<tr><td>V<sub>cell</sub> / V<sub>out</sub></td><td>0.00001</td></tr>
+					<tr><td>k<sub>A-R</sub></td><td>0.005</td></tr>
+					<tr><td>k’<sub>A-R</sub></td><td>0.05</td></tr>
+					<tr><td>D<sub>A-R</sub></td><td>0.2</td></tr>
+					<tr><td>K<sub>(A-R)<sub>2</sub></sub></td><td>0.003</td></tr>
+					<tr><td>k’<sub>(A-R)<sub>2</sub></sub></td><td>0.03</td></tr>
+					<tr><td>D<sub>(A-R)<sub>2</sub></sub></td><td>0.02</td></tr>
+					<tr><td>K<sub>Plux_(A-R)<sub></sub>2</sub></td><td>0.05</td></tr>
+					<tr><td>k’<sub>Plux_(A-R)<sub></sub>2</sub></td><td>0.0062</td></tr>
+					<tr><td>C<sub>mRNA</sub>RFP<sub></sub></td><td>0.03</td></tr>
+					<tr><td>D<sub>mRNA</sub>RFP<sub></sub></td><td>0.8</td></tr>
+					<tr><td>C<sub>RFP</sub></td><td>0.03</td></tr>
+					<tr><td>D<sub>RFP</sub></td><td>2.40228</td></tr>
+				</table>
+			<div class="title_2" id="fit"><p>Data Fitting</p></div>
+				<p>&emsp;&emsp; We found that the [AHL] is strongly related to BT and the expression rate of LuxR is nearly a constant, so we simplify our model as following.</p>
+				<p>&emsp;&emsp; We use the result in figureX to simplify the formula of AHL</p>
+				<p class="equations">$$[AHL] = a\cdot B_{T} + f \rightarrow\frac{d[AHL]}{dt} = a\cdot \frac{B_{T}}{dt}$$</p>
+				<p class="equations">$$\frac{d[LuxR]}{dt} = C_{LuxR}-D_{LuxR}[LuxR] -k_{A-R}[AHL_{in}][LuxR]+k_{A-R}'[A-R]$$</p>
+				<p>&emsp;&emsp; Our biobrick neither regulate the generation of promoter of LuxR nor bind to RBS on mRNA<sub>LuxR</sub>, so we assume the generation rate of LuxR is a constant.</p>
+				<p class="equations">$$\frac{d[A-R]}{dt} = -D_{A-R}[A-R]+k_{A-R}[AHL_{in}][LuxR]-k_{A-R}'[A-R]-2*k_{(A-R)_{2}}[A-R]^{2}+2*k_{(A-R)_{2}}'[(A-R)_{2}]$$</p>
+				<p class="equations">$$\frac{d[(A-R)_{2}]}{dt} = -D_{(A-R)_{2}}[(A-R)_{2}]+k_{(A-R)_{2}}[A-R]^{2}-k_{(A-R)_{2}}'[(A-R)_{2}]-k_{Plux-(A-R)_{2}}[A-R][Plux]+k_{Plux-(A-R)_{2}}'[Plux-(A-R)_{2}]$$</p>
+				<p class="equations">$$\frac{d[P_{lux}-(A-R)_{2}]}{dt}= -D_{Plux-(A-R)_{2}}[(Plux-(A-R)_{2}]+k_{P_{lux}-(A-R)_{2}}[A-R][P_{lux}]-k_{P_{lux}-(A-R)_{2}}'[P_{lux}-(A-R)_{2}]$$</p>
+				<p class="equations">$$\frac{d[mRNA_{RFP}]}{dt} = C_{mRNA_{RFP}}[Plux-(A-R)_{2}]-D_{mRNA_{RFP}}[mRNA_{RFP}]$$</p>
+				<p class="equations">$$\frac{d[RFP]}{dt} = C_{RFP}[[Plux-(A-R)_{2}]-D_{RFP}[RFP]$$</p>
+				<p class="equations">$$Intensity = [RFP]\cdot B_{T}$$</p>
     </div>
   </div>
+	<script type="text/javascript">
+  $(function(){
+  $('#p1').click(function(){
+    $('html, body').animate(
+      //scrollTop是指離底部的距離
+      {scrollTop: $('#intro').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#scheme').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p3').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#AHL').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p4').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#QS').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p5').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#fit').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  window.onscroll = function() {
+  //要同時判斷，不能用class
+  var box = document.getElementById('side');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(osTop)
+      if (osTop>620) {
+      box.style.visibility = "visible"
+      }
+      if (osTop<620) {
+      box.style.visibility = "hidden"
+      }
+  }
+  </script>
 </body>
 </html>
 {{NCTU_Formosa/Footer}}

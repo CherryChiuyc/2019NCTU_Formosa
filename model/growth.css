@@ -99,6 +99,11 @@ p{
   font-size: 2.2vw !important;
   margin-top: 1%;
 }
+.title_4 p{
+	font-family: Quenda !important;
+  font-size: 2vw !important;
+  margin-top: 1%;
+}
 .equations{
   width: 70%;
   margin-left: 15%;
@@ -172,6 +177,22 @@ table td {
 	margin-left: 28%;
 }
 #f6{
+	width: 50%;
+	margin-left: 28%;
+}
+#f7{
+	width: 50%;
+	margin-left: 28%;
+}
+#f8{
+	width: 50%;
+	margin-left: 28%;
+}
+#f9{
+	width: 50%;
+	margin-left: 28%;
+}
+#f10{
 	width: 50%;
 	margin-left: 28%;
 }
