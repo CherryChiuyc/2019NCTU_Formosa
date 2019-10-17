@@ -194,17 +194,10 @@
 					<tr><td>D<sub>RFP</sub></td><td>2.40228</td></tr>
 				</table>
 			<div class="title_2" id="fit"><p>Data Fitting</p></div>
-				<p>&emsp;&emsp; We found that the [AHL] is strongly related to BT and the expression rate of LuxR is nearly a constant, so we simplify our model as following.</p>
-				<p>&emsp;&emsp; We use the result in figureX to simplify the formula of AHL</p>
-				<p class="equations">$$[AHL] = a\cdot B_{T} + f \rightarrow\frac{d[AHL]}{dt} = a\cdot \frac{B_{T}}{dt}$$</p>
-				<p class="equations">$$\frac{d[LuxR]}{dt} = C_{LuxR}-D_{LuxR}[LuxR] -k_{A-R}[AHL_{in}][LuxR]+k_{A-R}'[A-R]$$</p>
-				<p>&emsp;&emsp; Our biobrick neither regulate the generation of promoter of LuxR nor bind to RBS on mRNA<sub>LuxR</sub>, so we assume the generation rate of LuxR is a constant.</p>
-				<p class="equations">$$\frac{d[A-R]}{dt} = -D_{A-R}[A-R]+k_{A-R}[AHL_{in}][LuxR]-k_{A-R}'[A-R]-2*k_{(A-R)_{2}}[A-R]^{2}+2*k_{(A-R)_{2}}'[(A-R)_{2}]$$</p>
-				<p class="equations">$$\frac{d[(A-R)_{2}]}{dt} = -D_{(A-R)_{2}}[(A-R)_{2}]+k_{(A-R)_{2}}[A-R]^{2}-k_{(A-R)_{2}}'[(A-R)_{2}]-k_{Plux-(A-R)_{2}}[A-R][Plux]+k_{Plux-(A-R)_{2}}'[Plux-(A-R)_{2}]$$</p>
-				<p class="equations">$$\frac{d[P_{lux}-(A-R)_{2}]}{dt}= -D_{Plux-(A-R)_{2}}[(Plux-(A-R)_{2}]+k_{P_{lux}-(A-R)_{2}}[A-R][P_{lux}]-k_{P_{lux}-(A-R)_{2}}'[P_{lux}-(A-R)_{2}]$$</p>
-				<p class="equations">$$\frac{d[mRNA_{RFP}]}{dt} = C_{mRNA_{RFP}}[Plux-(A-R)_{2}]-D_{mRNA_{RFP}}[mRNA_{RFP}]$$</p>
-				<p class="equations">$$\frac{d[RFP]}{dt} = C_{RFP}[[Plux-(A-R)_{2}]-D_{RFP}[RFP]$$</p>
-				<p class="equations">$$Intensity = [RFP]\cdot B_{T}$$</p>
+			<img id="f8" src="https://2019.igem.org/wiki/images/3/33/T--NCTU_Formosa--RFP_fitting.jpg">
+			<p class="explanation">
+			<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+			Figure 8: The RFP intensity with respect to time</p>
     </div>
   </div>
 	<script type="text/javascript">
