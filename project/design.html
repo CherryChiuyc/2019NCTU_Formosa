@@ -4,35 +4,136 @@
 <head>
   <meta charset="UTF-8">
   <title>Design</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
   <link rel="stylesheet" type="text/css" href="design.css">
 </head>
 <body>
   <div class="wrapper">
     <video width="100%" muted autoplay>
-      <source src="" type="video/mp4">
+      <source src="https://2019.igem.org/wiki/images/0/03/T--NCTU_Formosa--Design.mp4" type="video/mp4">
       <!-- <source src="notebookv.ogg" type="video/ogg"> -->
       Your browser does not support the video tag.
     </video>
+		<div id="side">
+      <img id="line" src="https://2019.igem.org/wiki/images/a/aa/T--NCTU_Formosa--circle5.png">
+      <p id="p1">Biosensor</p>
+      <p id="p2">Device</p>
+      <p id="p3">Model</p>
+			<p id="p4">AI & Database</p>
+			<p id="p5">Web & Education Kit</p>
+    </div>
     <div class="sec1">
-			//title 1 2
       <div class="title_1"><p>Design</p></div>
-      <div class="title_2"><p>title_2</p></div>
-        <p>&emsp;&emsp; Please ignore me.</p>
-      <div class="title_2"><p>title_2</p></div>
-				//figure
-        <img id="f1" src="">
+			<div class="title_2" id="biosensor"><p>Biosensor</p></div>
+        <p>&emsp;&emsp; Securing biosafety is one of the most critical problems that iGEMers will face while building up their projects. During brainstorming, we have learned a lot of different ways to provide biosafety from former iGEMers. One of them is to express toxin gene. The method works easily, in which bacteria will express the suicide gene in certain conditions and therefore kill themselves. However, after discussing with our TA and instructors, we find out that this method is instead "bio-not-so-safety." The reason is that bacteria will turn out mutate itself and block down toxin gene expression, and the bacteria population will grow up once again.<br><br></p>
+				<p>&emsp;&emsp; Knowing this unique phenomenon, we constructed our special biosensor by combining the toxin gene and the Quorum Sensing (QS) report system. Once the system was activated, <i>E. coli</i> will start expressing toxin gene, and the entire bacteria population will drop dramatically. However, after mutation occurred and successfully block down toxin gene expression, the population of <i>E. coli</i> will grow back up again. As time goes on, the population will finally reach a certain level and activate the QS report system. By comparing the time difference between systems adding different mutagens, we can easily calculate the mutagenicity of the environment.<br><br></p>
+				<img id="f1" src="">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 1: </p>
-        //table
-        <p class="explanation">
-        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
-        Table 1:</p>
-				//title 3
-        <div class="title_3"><p>title_3</p></div>
-
+				<div class="title_3" id="bi"><p>BioBrick</p></div>
+					<img id="f2" src="https://2019.igem.org/wiki/images/d/d2/T--NCTU_Formosa--all_biobrick.png">
+					<p class="explanation">
+					<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+					Figure 2: The designed biobrick of E.Phoenix. The quorum sensing system is located on the first two strands and the last strand contains toxin gene.</p>
+					<p>&emsp;&emsp; In Quorum Sensing (QS) system part, LuxI protein and LuxR protein will be produced continuously as  <i>E. coli</i>  grows under the constitutive promoter. LuxI protein catalysts the process of turning S-Adenosyl methionine (SAM) into Acyl Homoserine Lactones (AHL). As long as the amount of the  <i>E. coli</i>  reaches the threshold, there will be enough AHL to combine with LuxR protein and form LuxR-AHL complex, which can induce the Lux promoter and thus enables RFP to be produced. That is,  <i>E. coli</i>  will display red fluorescence provided that its culture is large enough.</p>
+					<p>&emsp;&emsp; Toxin gene is promoted by lac promoter and IPTG will be added to induce toxin gene when the growth of bacteria reaches the desired stage (O.D.=0.3) during our experiment, making the population of  <i>E. coli</i>  raise slowly or even stop raising. However, some mutation might happen spontaneously after a period of time, causing the malfunction or deactivation of toxin gene. As a result, the amount of the bacteria would increase again. The higher the mutation potential is, the more likely the toxin genes will be mutated and thus losses function, making the population of  <i>E. coli</i>  increase faster. Combining QS system and toxin gene, we are able to know whether mutation has happened by detecting red fluorescence.</p>
+					<p>&emsp;&emsp; To sum up, the higher the mutation potential is, the faster the population of  <i>E. coli</i>  will reach the threshold and thus begin to express red fluorescence.</p>
+	      <div class="title_3" id="QS"><p>Quorum Sensing</p></div>
+					<p>&emsp;&emsp; Quorum sensing (QS) is a gene expression system responding to the fluctuation of cell density. This unique system enables bacteria to communicate with each other, but in a different way. Unlike we human communicate through talking, bacteria connect each other by coordinating gene expression. The existence of certain chemical signal such as Acylated Homoserine Lactone (AHL) will indirectly affect whether to express certain genes and thus serves as a way to represent the cell density.</p>
+					<img id="f3" src="https://2019.igem.org/wiki/images/3/3f/T--NCTU_Formosa--QS_system.png">
+	        <p class="explanation">
+	        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+	        Figure 3: Mechanism of quorum sensing system.</p>
+				<div class="title_3" id="TS"><p>Toxin-antitoxin System</p></div>
+					<p>&emsp;&emsp; In our project, six kinds of toxin genes are applied, including Mazf, ccdB, ydfD, yafQ, chpBK and hipA. Except ydfD, all toxic genes used are members of Toxin-antitoxin system (TA system), which is composed of toxin gene and its cognate antitoxin gene. It exists in bacteria, archaea, and fungi and toxins of it will lead to cell growth arrest or even cell death, while antitoxin will bond to corresponding toxin to form stable toxin-antitoxin complex and thus neutralize the toxicity of toxin. There are at least 33 TA systems in  <i>E. coli</i> . Take ccdB and MazF, two of the toxin genes used in our project, for example. Under normal conditions, ccdB and MazF will bind with antitoxin ccdA and MazE respectively so the growth of <i>E. coli</i> won’t be affected. However, once  <i>E. coli</i>  faces severe conditions, ccdA and MazE will lose their function as they are degraded by protease. Therefore, the growth of  <i>E. coli</i>  will be suppressed. Researches shows that TA system plays an important role in organism as it may help the maintenance of plasmid and also allow organism to survive under stress. </p>
+					<p>&emsp;&emsp; Base on the regulation of toxicity, TA system is divided into three types. In type I TA system, antitoxin gene mRNA will bind to toxin gene mRNA, causing toxin gene mRNA to degrade without being translated. That is, toxicity is regulated by toxin and antitoxin gene mRNA. Most type I TA system inhibit the synthesis of ATP. In type II TA system, toxicity is regulated by toxin and antitoxin protein by forming complex. Notice that the stability of antitoxin protein is lower in comparison to that of toxin protein. In order to continuously neutralization toxicity of toxic protein, antitoxin protein will be produced continuously. In our project, ccdB, MazF, chpBK, hipA, and yafQ are all members of type II TA system toxin protein but each of them works differently, details will be mentioned later. In type III TA system, antitoxin mRNA reacts directly with toxin protein to regular toxicity.</p>
+					<img class="type1" src="https://2019.igem.org/wiki/images/1/11/T--NCTU_Formosa--expd1.png">
+					<img class="type2" src="https://2019.igem.org/wiki/images/e/e3/T--NCTU_Formosa--expd4.png">
+					<p class="explanation">
+					<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+					Figure 4: Type I TA system.</p>
+					<img class="type1" src="https://2019.igem.org/wiki/images/6/63/T--NCTU_Formosa--expd2.png">
+					<img class="type2" src="https://2019.igem.org/wiki/images/e/e9/T--NCTU_Formosa--expd5.png">
+					<p class="explanation">
+					<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+					Figure 5: Type II TA system.</p>
+					<img class="type1" src="https://2019.igem.org/wiki/images/6/65/T--NCTU_Formosa--expd3.png">
+					<img class="type2" src="https://2019.igem.org/wiki/images/e/e1/T--NCTU_Formosa--expd6.png">
+					<p class="explanation">
+					<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+					Figure 6: Type III TA system.</p>
+				<div class="title_2" id="device"><p>Device</p></div>
+				 	<p>&emsp;&emsp; To bring E. Phoenix to everyday life, we need to provide a workspace that enables our biology part to work safe and efficient. Therefore, we construct a device that integrates sensors, incubating platform, and biosafety design.</p>
+				<div class="title_2" id="model"><p>Model</p></div>
+				 	<p>&emsp;&emsp; Our bacterial growth analytic model analyzes and simulates the results of our experiment. The parameters considered include substance toxicity, nutrient limit, and mutagenicity. Through modeling, we can use these conditions to calculate the mutation rate. Next, our Quorum Sensing Model calculates the effect of mutagenicity from the time taken for cells to express red fluorescence, which can be easily measured by our device. Combining these two, we can convert results measured by our device into mutation rate.</p>
+				<div class="title_2" id="AI"><p>AI & Database</p></div>
+					<p>&emsp;&emsp; Mutagenicity Prediction AI can predict the mutagenicity by analyzing the chemical structure. With our database of SMILES and verified Ames test results as training data for machine learning, we used the Support Vector Machine (SVM) algorithm to train our model and therefore predict the mutagenicity accurately. Upon using our software, all the results will be recorded and saved in our database in order to collect data and optimize our Mutagenicity Prediction AI.</p>
+				<div class="title_2" id="web"><p>Web & Education Kit</p></div>
+					<p>&emsp;&emsp; To showcase our result and demonstrate mutagenicity, we build up a web page. Moreover, base on our IoT system, we had constructed an education kit that is also connected to our web page. With our web page and kit, people can type in chemicals online, and the mutagenicity calculated will be converted into the speed of our unique designed racecar. While a car race is conducted, people can feel and compare mutagenicity among different chemicals clearly and directly.</p>
     </div>
   </div>
+	<script type="text/javascript">
+  $(function(){
+  $('#p1').click(function(){
+    $('html, body').animate(
+      //scrollTop是指離底部的距離
+      {scrollTop: $('#biosensor').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#device').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p3').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#model').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p4').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#AI').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p5').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#Web').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  window.onscroll = function() {
+  //要同時判斷，不能用class
+  var box = document.getElementById('side');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(osTop)
+      if (osTop>620) {
+      box.style.visibility = "visible"
+      }
+      if (osTop<620) {
+      box.style.visibility = "hidden"
+      }
+  }
+	$(".try").hover(function(){
+       $("#try_it").css("animation", "subtitle 2s linear");
+       }, function(){
+       $("#try_it").css("opacity", "1");
+   });
+  </script>
 </body>
 </html>
 {{NCTU_Formosa/Footer}}

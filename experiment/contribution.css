@@ -142,7 +142,7 @@ table td {
 }
 #t1{
 	width: 45%!important;
-	margin-left: 28%!important;
+	margin-left: 30%!important;
 }
 #f1{
 	width: 30%;
@@ -161,6 +161,10 @@ table td {
 	margin-left: 20%;
 }
 #f5{
+	width: 60%;
+	margin-left: 20%;
+}
+#f6{
 	width: 60%;
 	margin-left: 20%;
 }

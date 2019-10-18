@@ -4,35 +4,79 @@
 <head>
   <meta charset="UTF-8">
   <title>Safety</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
   <link rel="stylesheet" type="text/css" href="safety.css">
 </head>
 <body>
   <div class="wrapper">
     <video width="100%" muted autoplay>
-      <source src="https://2019.igem.org/wiki/images/8/87/T--NCTU_Formosa--saftyv.mp4" type="video/mp4">
+      <source src="https://2019.igem.org/wiki/images/0/02/T--NCTU_Formosa--Safety.mp4" type="video/mp4">
       <!-- <source src="notebookv.ogg" type="video/ogg"> -->
       Your browser does not support the video tag.
     </video>
+		<div id="side">
+      <img id="line" src="https://2019.igem.org/wiki/images/0/03/T--NCTU_Formosa--circle2.png">
+      <p id="p1">Inside the Lab</p>
+      <p id="p2">Outside the Lab</p>
+    </div>
     <div class="sec1">
-			//title 1 2
       <div class="title_1"><p>Safety</p></div>
-      <div class="title_2"><p>title_2</p></div>
-        <p>&emsp;&emsp; Please ignore me.</p>
-      <div class="title_2"><p>title_2</p></div>
-				//figure
-        <img id="f1" src="">
+      <div class="title_2"><p>Overview</p></div>
+        <p>&emsp;&emsp;  Our system provides a nice bio-detector, which serves as a convenient tool for detecting mutagens. Since we plan to utilize our product into reality, we must make sure that these gene-modified <i>E. coli</i>s will not be spread into the environment. Accordingly, we cut into different aspects to ensure the safety of our product: the training of the experimenter, the level and the rule of the laboratory, and the safety of our final products using in the environment.</p>
+      <div class="title_2" id="in"><p>Safety Training Inside the Laboratory</p></div>
+				<p>&emsp;&emsp; Our experiments were done in the BSL1 laboratory. All of our team members received several training courses and passed exams offered by Laboratory Management System before entering the laboratory. Each member must wear the lab coat, trousers, gloves, and shoes when carrying out experiments. Before and after the experiments, we have to clean the gloves and the experiment table with EtOH. Everybody strictly followed the experimental procedure and never carry anything out of the lab.</p>
+				<p>&emsp;&emsp; Besides, to make sure the lysate would not contain any alive <i>E. coli</i>, we boiled the lysate for 2 hours after wrapping the Eppendorf that contained 100μL of our modified <i>E. coli</i> with Aluminium foil and put boiled lysate on an LB plate and cultured it at 37℃ for 16 hours. Figure 1 showed the result of the plate and we could see that the boiled lysate had no alive bacteria exist.</p>
+        <img id="f1" src="https://2019.igem.org/wiki/images/4/4b/T--NCTU_Formosa--before.png">
+				<img id="f2" src="https://2019.igem.org/wiki/images/f/f4/T--NCTU_Formosa--after.png">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
-        Figure 1: </p>
-        //table
+        Figure 1: Confirm that no Rosetta-gami grow on the LB plate after heat sterilization.<br>Samples are ydfD + quorum sensing gene.</p>
+			<div class="title_2" id="out"><p>Outside the Laboratory<br>Confirm the Safety of the Bio-detector</p></div>
+				<p>&emsp;&emsp; In the future, our modified <i>E. coli</i> will be taken out of the laboratory for outdoor testing. To make sure no bacteria will be sprayed into the environment, we made a double-shield protection as we designed our device. First, bleach water was added to the space between two walls to prevent modified bacteria from leaking out when encounter with damages. Second, we set a UV light bulb above the shaker to sterilize. We conducted two experiments to prove that both bleach water and UV light were able to disinfect.</p>
+			<div class="title_3"><p>Bleach Water Sterilization Test</p></div>
+				<p>&emsp;&emsp; We mixed 35μL of bleach water and 35μL of our modified <i>E. coli</i>, Rosetta-gami contained insert part, ydfD-QS gene, put them on LB agar plate, and incubated them under 37℃ for 16 hours. The result shows that no alive <i>E. coli</i> exists on the plate.</p>
+				<img id="f3" src="https://2019.igem.org/wiki/images/4/45/T--NCTU_Formosa--no_bleach.png">
+				<img id="f4" src="https://2019.igem.org/wiki/images/3/3d/T--NCTU_Formosa--bleach.png">
         <p class="explanation">
-        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
-        Table 1:</p>
-				//title 3
-        <div class="title_3"><p>title_3</p></div>
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 2: Confirm that no Rosetta-gami grow on the LB plate after bleach water sterilization.<br>Samples are ydfD + quorum sensing gene.</p>
+			<div class="title_3"><p>UV Sterilization Test</p></div>
 
     </div>
   </div>
+	<script type="text/javascript">
+  $(function(){
+  $('#p1').click(function(){
+    $('html, body').animate(
+      //scrollTop是指離底部的距離
+      {scrollTop: $('#in').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#out').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+
+  window.onscroll = function() {
+  //要同時判斷，不能用class
+  var box = document.getElementById('side');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(osTop)
+      if (osTop>620) {
+      box.style.visibility = "visible"
+      }
+      if (osTop<620) {
+      box.style.visibility = "hidden"
+      }
+  }
+  </script>
 </body>
 </html>
 {{NCTU_Formosa/Footer}}
