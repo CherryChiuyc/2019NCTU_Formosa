@@ -17,6 +17,7 @@ p{
 .wrapper{
   width: 100%;
   font-family: Quenda !important;
+	overflow: hidden;
 }
 .sec1 p{
   font-size: 1.7vw;

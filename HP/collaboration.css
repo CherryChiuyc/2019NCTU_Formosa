@@ -58,12 +58,6 @@ p{
   font-size: 2.2vw !important;
   margin-top: 1%;
 }
-.equations{
-  width: 70%;
-  margin-left: 15%;
-  overflow: auto;
-  margin: 2%;
-}
 table {
   font-family: Quenda;
   color: #000;
@@ -98,4 +92,33 @@ table td {
   width: 1.5vw;
   vertical-align: middle;
   color: #7e392e;
+}
+#f1{
+	width:10%;
+	margin-top: 1%;
+	margin-left: 15%;
+}
+#f2{
+	width:10%;
+	margin-top: 1%;
+}
+#f3{
+	width:10%;
+	margin-top: 1%;
+}
+#f4{
+	width:10%;
+	margin-top: 1%;
+}
+#f5{
+	width:10%;
+	margin-top: 1%;
+}
+#f6{
+	width:10%;
+	margin-top: 1%;
+}
+#f7{
+	width:10%;
+	margin-bottom: 2%;
 }

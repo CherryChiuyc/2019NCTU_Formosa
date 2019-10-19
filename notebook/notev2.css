@@ -1,0 +1,337 @@
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-size: 0;
+    font-family: Quenda;
+    box-sizing: border-box;
+    background-color: white;
+  }
+
+  *:after {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+  }
+
+  body {
+    background: white !important;
+    font-family: Levenim MT;
+  }
+
+  table tr td a {
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  hr {
+    color: #ed3521;
+    background: #ed3521;
+    border: solid 0.5px #ed3521;
+    margin-top: 0.75em;
+    margin-bottom: 1em;
+  }
+
+  .month a {
+    padding: 2vmin;
+    padding-top: 2vmin;
+    padding-bottom: 2vmin;
+    font-weight: bold !important;
+    font-size: 22px;
+    background: #611614;
+    display: inline-block;
+    color: #a6a3a0;
+    text-decoration: none;
+    -webkit-border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  #J {
+    position: absolute;
+    margin-left: 14%;
+    margin-bottom: 10%;
+  }
+
+  #A {
+    position: absolute;
+    margin-left: 29%;
+    margin-bottom: 10%;
+  }
+
+  #S {
+    position: absolute;
+    margin-left: 44%;
+    margin-bottom: 10%;
+  }
+
+  #O {
+    position: absolute;
+    margin-left: 59%;
+    margin-bottom: 10%;
+  }
+
+  #mJul {
+    position: absolute;
+    margin-left: 13%;
+    margin-bottom: 5%;
+  }
+
+  #mAug {
+    position: absolute;
+    margin-left: 13%;
+    margin-bottom: 5%;
+  }
+
+  #mSep {
+    position: absolute;
+    margin-left: 13%;
+    margin-bottom: 5%;
+  }
+
+  #mOct {
+    position: absolute;
+    margin-left: 13%;
+    margin-bottom: 5%;
+  }
+
+  .month a:hover {
+    background: #ffec00;
+  }
+
+  .month a.active {
+    color: #fff;
+    background: #cc4932;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .month a.active i {
+    color: #80cbb7;
+  }
+
+  .month a i {
+    margin-right: 3px;
+    color: #aaaaaa;
+  }
+
+  .menu {
+    margin-left: 7%;
+    margin-top: 3vw;
+    width: 35%;
+    position: relative;
+    font-family: Quenda;
+    display: inline-block;
+    float: left;
+  }
+
+  @media screen and(max-width:768px) {
+    .menu {
+      margin-left: 10%;
+      margin-top: 130px;
+      width: 80%;
+      position: relative;
+      font-family: Quenda;
+    }
+
+    .notebook {
+      width: 80%;
+      margin-left: 10%;
+      position: relative;
+      margin-top: 2vw;
+    }
+  }
+
+  .month_wrapper .month_item {
+    line-height: 1.3;
+    color: #76716f;
+    display: none;
+  }
+
+  .month_wrapper .month_item.item-active {
+    display: block;
+    color: #053B77;
+  }
+
+  /*
+  .calender{
+      position:relative;
+      margin:auto;
+      border-radius:12px !important;
+  }
+  */
+  .calendar {
+    /* border: 3px solid #f28d00; */
+    border-collapse: separate;
+    width: 35vw;
+    table-layout: fixed;
+    font-family: Quenda;
+    font-size: 4vw;
+    background-color: #cc4932;
+    border-radius: 30px;
+    float: left;
+  }
+
+
+  .month {
+    width: 7%;
+    height: 4%;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    display: inline-block;
+  }
+
+  .month p {
+    font-size: 6vh;
+    color: #a6a3a0;
+    background-color: #611614;
+    text-align: center;
+    margin-bottom: 0%;
+    margin-left: 5%;
+    border-radius: 20% 20% 0% 0%;
+  }
+
+  .month p:hover {
+    cursor: pointer;
+    border: #cc4932;
+    background-color: #cc4932;
+    color: #fff;
+  }
+
+  #men table {
+    position: relative;
+    left: -10px;
+    margin-right: 10px;
+    border: unset;
+    border-collapse: unset;
+    width: 35vw;
+    margin:unset;
+    margin-bottom: unset;
+    margin-top: 15px;
+    margin-right: unset;
+    margin-left: unset;
+    color: white;
+  }
+
+  #men table tr th {
+    color: white;
+    font-weight: bold;
+    background-color: unset;
+    padding: unset;
+    color: unset;
+    border: unset;
+    border-collapse: unset;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 2vw;
+  }
+
+  #men table tr td {
+    color: white;
+    border: unset;
+    border-collapse: unset;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0px;
+    font-size: 2vw;
+  }
+
+  .calendar td {
+    height: 10vh;
+  }
+
+
+  /*notebook content*/
+
+  .notebook {
+    margin-left: 10%;
+    margin-bottom: 150px;
+    width: 35%;
+    display: inline-block;
+    margin-top: 3vw;
+  }
+
+  .notebook_wrapper {
+    background: #a8a8a8;
+    width: 100%;
+    height: 490px;
+    border-radius: 10px;
+    padding: 25px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .notebook_wrapper .note-item {
+    display: none;
+  }
+
+  .notebook_wrapper .note-item.note_active {
+    display: block;
+  }
+
+  .notebook_wrapper .note-item h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 5vh;
+    padding: 13px;
+    margin-top: 0;
+    border-radius: 10px;
+    background: #cc4932;
+  }
+
+  .notebook_wrapper .note-item p {
+    font-size: 2vh;
+    padding: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .td-item.td-active {
+    border-radius: 3.5em;
+    background: #6f6b65;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+
+  table tr td a.active {
+    color: #d15d07;
+  }
+
+  .notebook_wrapper .note-item .note-title {
+    font-size: 4vh !important;
+    font-weight: bold !important;
+  }
+	.notebook_wrapper .note-item .note-titlem {
+    font-size: 4vh !important;
+    font-weight: bold !important;
+		color: #405ee8 !important;
+  }
+  .note-content {
+    font-size: 1.5em !important;
+  }
+
+  .list {
+    font-size: 15pt !important;
+    text-align: justify;
+    line-height: 1.2;
+    padding-bottom: 8px;
+    padding-left: 5px !important;
+    font-family: Quenda;
+  }
+  /*
+  #HQ_page th {
+    vertical-align: middle;
+  }
+  */

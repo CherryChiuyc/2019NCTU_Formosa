@@ -28,14 +28,16 @@ p{
   visibility: hidden;
 }
 #p1{
+	font-size: 1.4vw!important;
   position: fixed;
-  top: 19.5%;
+  top: 20%;
   left: 3.5%;
   cursor: pointer;
 }
 #p2{
+	font-size: 1.4vw!important;
   position: fixed;
-  top: 27.5%;
+  top: 28%;
   left: 3.5%;
   cursor: pointer;
 }

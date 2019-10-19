@@ -1,0 +1,248 @@
+{{NCTU_Formosa/test}}
+{{NCTU_Formosa/growthcss}}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Growth Model</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="growth.css">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">
+			MathJax.Hub.Config({
+					extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+					jax: ["input/TeX", "output/HTML-CSS"],
+					tex2jax: {
+							inlineMath: [
+									['$', '$'],
+									["\\(", "\\)"]
+							],
+							displayMath: [
+									['$$', '$$'],
+									["\\[", "\\]"]
+							],
+					},
+					"HTML-CSS": {
+							availableFonts: ["TeX"]
+					}
+			});
+	</script>
+</head>
+<body>
+  <div class="wrapper">
+    <video width="100%" muted autoplay>
+      <source src="https://2019.igem.org/wiki/images/c/ce/T--NCTU_Formosa--growth.mp4" type="video/mp4">
+      <!-- <source src="notebookv.ogg" type="video/ogg"> -->
+      Your browser does not support the video tag.
+    </video>
+		<div id="side">
+      <img id="line" src="https://2019.igem.org/wiki/images/4/4d/T--NCTU_Formosa--circle4.png">
+      <p id="p1">Overview</p>
+      <p id="p2">IPTG</p>
+      <p id="p3">Toxin Protein</p>
+			<p id="p4">Chemical</p>
+    </div>
+    <div class="sec1">
+      <div class="title_1"><p>Bacterial Growth Analytic Model</p></div>
+      <div class="title_2"><p>Introduction</p></div>
+        <p>&emsp;&emsp; The purpose of building a bacterial growth analytic model is to simulate and analyze the experiment result. We use Simbiology toolbox in Matlab to simulate the genetic regulation and fit the experiment data into our model. After modeling, we can calculate mutation frequency of any chemical compound.</p>
+      <div class="title_2" id="step"><p>Overview</p></div>
+				<p>&emsp;&emsp; To calculate the exact mutation caused by testing objects, we need to isolate its cause to bacteria growth from other factors including IPTG inhibition, natural mutation, and chemical toxicity. First of all, while using IPTG to induce toxin gene the addition of IPTG will inhibit the growth of E. coli. Hence, we isolate the toxin gene to deal with this problem. Second, we calculate the effect of the toxin gene to get the natural mutation frequency of the bacteria. Third, we also take the inhibition effect of the chemical into consideration as a constant. In the end, we combine the parameters we have got to get the mutation parameter caused by chemicals. The following flow chart shows the steps of building our bacterial growth analytic model. </p>
+				<img id="f1" src="https://2019.igem.org/wiki/images/7/7d/T--NCTU_Formosa--growth_flow.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 1: The steps of building bacterial growth analytic model</p>
+			<div class="title_2" id="IPTG"><p>The Effect of IPTG</p></div>
+			<div class="title_3"><p>Growth Curve without Biobrick</p></div>
+				<p>&emsp;&emsp; This model is mainly focusing on the effect of IPTG because IPTG will inhibit the bacterial growth curve. Thus, we isolate the IPTG inhibition effect to get the parameter of IPTG’s toxicity. The equation below is the formula we use in Matlab to fit the data of pSB1A3 growth.</p>
+				<p class="equations">$$\frac{dB}{dt} = g\cdot B(1-\frac{B}{B_{Max}})$$</p>
+				<p>&emsp;&emsp; The model shows the growth rate of microbe in an isolated environment. As we can see above, the growth rate increases as time goes by when the population of <i>E. coli</i> is significantly smaller than B<sub>Max</sub>, which is the maximum capacity of the isolated environment. However, the growth rate decreases when the amount of <i>E. coli</i> approaches to B<sub>Max</sub>.</p>
+			<div class="title_4"><p>Data Fitting</p></div>
+				<p>&emsp;&emsp; We use the experiment data of the pSB1A3 growth curve to fit in.</p>
+				<img id="f2" src="https://2019.igem.org/wiki/images/6/6c/T--NCTU_Formosa--g1.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 2: Growth curve without IPTG induction and toxin gene.</p>
+				<p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 1: The parameters of g and B<sub>Max</sub></p>
+				<table class="parameter">
+					<tr>
+						<td>g</td>
+						<td>0.00888645 min<sup>-1</sup></td>
+					</tr>
+					<tr>
+						<td>B<sub>Max</sub></td>
+						<td>2.54242678 O.D.</td>
+					</tr>
+				</table>
+			<div class="title_3"><p>IPTG Inhibition</p></div>
+				<p>&emsp;&emsp; Getting the parameter g and B<sub>Max</sub> of pSB1A3 from the previous part, we can use the parameter to estimate the toxicity of IPTG in the following part further.</p>
+				<p class="equations">$$\frac{dB}{dt} = g\cdot B(1-\frac{B}{B_{Max}})-T_{IPTG}\cdot[IPTG]\cdot B$$</p>
+				<p>&emsp;&emsp; In this step, we assume that part of the bacteria will die due to the toxicity of IPTG. We are using the Mass Action Law to descript the inhibition effect. The differential equation is shown above, where T<sub>IPTG</sub> is the rate constant of IPTG inhibition, and [IPTG]．B is the Reaction Quotient.</p>
+			<div class="title_4"><p>Simulation</p></div>
+				<p>&emsp;&emsp; We simulate the bacterial growth curve with the parameter "T<sub>IPTG</sub>" from 0 to 10000, which shows the sensitivity of T<sub>IPTG</sub>.</p>
+				<img id="f3" src="https://2019.igem.org/wiki/images/4/49/T--NCTU_Formosa--TIPTG.jpg">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 3: Simulation of different IPTG toxicity</p>
+			<div class="title_4"><p>Data Fitting</p></div>
+				<p>&emsp;&emsp; We fit the experiment data of pSB1A3 with IPTG. We found that the effect of IPTG inhibition is slight, but we still chose to fit it in the following equations to be more accurate.</p>
+				<img id="f4" src="https://2019.igem.org/wiki/images/7/70/T--NCTU_Formosa--g2.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 4: Growth curve of pSB1A3 with IPTG</p>
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 2: The parameters of T<sub>IPTG</sub> and [IPTG]</p>
+				<table class="parameter">
+					<tr>
+						<td>T<sub>IPTG</sub></td>
+						<td>2.11064842 mol<sup>-1</sup>．L．min<sup>-1</sup></td>
+					</tr>
+					<tr>
+						<td>[IPTG]</td>
+						<td>2.5×10<sup>-7</sup> mol．L<sup>-1</sup></td>
+					</tr>
+				</table>
+			<div class="title_2" id="Toxin"><p>The Effect of Toxin Protein</p></div>
+			<div class="title_3"><p>Growth Curve with Different Biobrick</p></div>
+				<p>&emsp;&emsp; The <i>E. coli</i> colonies with different inserted genes may have different bacterial growth curve, so we do the experiment to observe the growth curve with different inserted gene.</p>
+				<img id="f5" src="https://2019.igem.org/wiki/images/f/f4/T--NCTU_Formosa--g3.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 5: Comparison of different inserted gene</p>
+				<p>&emsp;&emsp; As we can see above, we compare the bacterial growth curve, and we found that the statistical significance “p-value” of each curve and the average are all above 0.05, so we can prove that bacteria with different inserted toxin gene don’t have statistical significance, which means the experiment sample can be regarded as the same, so that we can use the general growth curve to calculate our bacterial growth curve.</p>
+			<div class="title_3"><p>Growth Curve with Toxin Protein Induced</p></div>
+				<p>&emsp;&emsp; In this model, we simulate the effect of toxin protein and analyze the natural mutation rate, or we called the background mutation rate.</p>
+				<p>&emsp;&emsp; Before building our mutation model, it is essential to define what exactly mutation is in our model. We assume that mutation happens randomly in the DNA in <i>E. coli</i>. Once the toxin gene cannot generate toxin protein functionally, we define it as "mutation happens."</p>
+				<img id="f6" src="https://2019.igem.org/wiki/images/e/ea/T--NCTU_Formosa--lac_int.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 6: An overview of IPTG-LacI mechanism</p>
+				<p class="equations">$$\frac{d[toxin]}{dt}=C_{toxin}-D_{toxin}\cdot [toxin]$$</p>
+				<p>&emsp;&emsp; The concentration of protein is dynamic. C<sub>toxin</sub> is the rate constant of toxin generation. D<sub>toxin</sub> is the rate constant that toxin protein degrades. The Following parameters are the fitting results from the toxin gene “ydfD.”</p>
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 3: The parameters of C<sub>toxin</sub> and D<sub>toxin</sub></p>
+				<table class="parameter">
+					<tr>
+						<td>C<sub>toxin</sub></td>
+						<td>0.00001636 mol．L<sup>-1</sup>．min<sup>-1</sup></td>
+					</tr>
+					<tr>
+						<td>D<sub>toxin</sub></td>
+						<td>0.00547822 min<sup>-7</sup></td>
+					</tr>
+				</table>
+				<p class="equations">$$\frac{dB_{N}}{dt}=[ g\cdot B_{N}(1-\frac{B_{T}}{B_{Max}})-T_{IPTG}\cdot B_{N}\cdot [IPTG] ](1-M_{1})-T_{toxin}\cdot B_{N}\cdot [toxin]$$</p>
+				<p class="equations">$$\frac{dB_{M}}{dt}=[ g\cdot B_{N} (1-\frac{B_{T}}{B_{Max}})-T_{IPTG}\cdot B_{N}\cdot [IPTG]] (M_{1})+[g\cdot B_{M}(1-\frac{B_{T}}{B_{Max}})-T_{IPTG}\cdot B_{M}\cdot [IPTG]]$$</p>
+				<img id="f7" src="https://2019.igem.org/wiki/images/a/af/T--NCTU_Formosa--bacteria_generation.png">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 7: Bacteria growth generation</p>
+				<p>&emsp;&emsp; We assume that non-mutated bacteria(B<sub>N</sub>) have a natural mutation rate (M<sub>1</sub>) transforming into mutated bacteria (B<sub>M</sub>), and the possibility of mutated bacteria transforms into non-mutated bacteria is too low so that we don’t count it in.</p>
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 4: The parameters of M<sub>1</sub> and T<sub>toxin</sub></p>
+				<table class="parameter">
+					<tr>
+						<td>M<sub>1</sub></td>
+						<td>0.00000003</td>
+					</tr>
+					<tr>
+						<td>T<sub>toxin</sub></td>
+						<td>1.36961908 mol<sup>-1</sup>．L．min<sup>-1</sup></td>
+					</tr>
+				</table>
+        <p>&emsp;&emsp; We sum up the differential equation of B<sub>N</sub> and B<sub>M</sub> to get the total bacterial population (B<sub>T</sub>).</p>
+				<p class="equations">$$\frac{dB_{T}}{dt}=[ g\cdot B_{T} (1-\frac{B_{T}}{B_{Max}})-T_{IPTG}\cdot B_{T}\cdot [IPTG]]-T_{toxin}\cdot B_{N}\cdot [toxin]$$</p>
+			<div class="title_4"><p>Simulation</p></div>
+				<p>&emsp;&emsp; We simulate the mutated bacteria and non-mutated bacteria with estimated parameters.</p>
+				<img id="f8" src="https://2019.igem.org/wiki/images/d/dc/T--NCTU_Formosa--simulation_toxin.jpg">
+        <p class="explanation">
+        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+        Figure 8: Simulation of toxin induction.</p>
+			<div class="title_4"><p>Data Fitting</p></div>
+				<p>&emsp;&emsp; We assume that the generation parameter C<sub>toxin</sub>, degradation parameter D<sub>toxin</sub> and natural mutation rate M<sub>1</sub> will not be changed by changing toxin genes. By fixing these parameters, we compare the toxicity parameters of different toxin gene as shown below:</p>
+				<img id="f9" src="https://2019.igem.org/wiki/images/d/d2/T--NCTU_Formosa--comparison.jpg">
+	      <p class="explanation">
+	      <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+	      Figure 9: Comparison of toxicity parameters of different toxin gene</p>
+			<div class="title_2" id="che"><p>The Effect of Chemical</p></div>
+      <div class="title_3"><p>Chemical Inhibition</p></div>
+        <p>&emsp;&emsp; As a result of the effect of the chemicals on our growth curve, not only by altering mutation rate but also by killing some bacteria in the process, we firstly compared the growth curve of the bacteria with and without chemical to get the parameter of chemical inhibition (T<sub>chem</sub>). Then, we fit the growth curve with a mutation rate (M<sub>2</sub>), which caused by chemicals.</p>
+				<p>&emsp;&emsp; We assume that the chemical inhibition effect is constant, and we fit our experiment data with the formula below.</p>
+				<p class="equations">$$\frac{dB}{dt}=g\cdot B(1-\frac{B}{B_{Max}})-T_{chem}\cdot B$$</p>
+				<p class="explanation">
+				<svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-down" class="svg-inline--fa fa-arrow-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"></path></svg>
+        Table 5: The parameters of T<sub>chem</sub> while the chemical is EtBr with concentration 1μM</p>
+				<table class="parameter">
+					<tr>
+						<td>T<sub>chem</sub></td>
+						<td>0.00196036 O.D．mol<sup>-1</sup>．L．min<sup>-1</sup></td>
+					</tr>
+				</table>
+        <div class="title_3"><p>Mutagenicity of Chemicals</p></div>
+        <p>&emsp;&emsp; We take the mutation rate of chemicals (M<sub>2</sub>) into consideration, and rewrite the growth curve with the differential equation below.</p>
+				<p class="equations">$$\frac{dB_{N}}{dt}=[ g\cdot B_{N}(1-\frac{B_{T}}{B_{Max}})-T_{IPTG}\cdot B_{N}\cdot [IPTG] -T_{chem}\cdot B_{N}](1-M_{1}-M_{2})-T_{toxin}\cdot B_{N}\cdot [toxin]$$</p>
+				<p class="equations">$$\frac{dB_{M}}{dt}=[g\cdot B_{N}(1-\frac{B_{T}}{B_{Max}})-T_{IPTG}\cdot B_{N}\cdot [IPTG]-T_{chem}\cdot B_{N} ] (M_{1}+M_{2})+[g\cdot B_{M}(1-\frac{B_{T}}{B_{Max}})-T_{IPTG}\cdot B_{M}\cdot [IPTG]-T_{chem}\cdot B_{M}]$$</p>
+        <p class="equations">$$\frac{dB_{T}}{dt}=[g\cdot B_{T}(1-\frac{B_{T}}{B_{Max}})-T_{IPTG}\cdot B_{N}\cdot [IPTG]-T_{chem}\cdot B_{T} ] -T_{toxin}\cdot B_{N}\cdot [toxin]$$</p>
+			<div class="title_4"><p>Simulation</p></div>
+				<p>&emsp;&emsp; We simulate our model with different estimated mutation rate M<sub>2</sub> as following:</p>
+				<img id="f10" src="https://2019.igem.org/wiki/images/7/7c/T--NCTU_Formosa--simulation_t_chem.jpg">
+	      <p class="explanation">
+	      <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+	      Figure 10: The simulation of bacterial growth curve under different mutagenicity from 0.01 to 0.07. The deeper color means it has the higher mutation rate M<sub>2</sub>.</p>
+				<p>&emsp;&emsp; As we can see above, the higher the mutation rate M<sub>2</sub>, the higher the growth curve. Due to the increasing of mutation rate M<sub>2</sub>, the mutated <i>E. coli</i> will grow faster, which influences the whole bacteria O.D. value significantly.</p>
+    </div>
+  </div>
+	<script type="text/javascript">
+  $(function(){
+  $('#p1').click(function(){
+    $('html, body').animate(
+      //scrollTop是指離底部的距離
+      {scrollTop: $('#step').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  $(function(){
+  $('#p2').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#IPTG').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p3').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#Toxin').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+	$(function(){
+  $('#p4').click(function(){
+    $('html, body').animate(
+      {scrollTop: $('#che').offset().top-100},
+       1500, "easeOutCubic");
+    return false;
+  });
+  });
+  window.onscroll = function() {
+  //要同時判斷，不能用class
+  var box = document.getElementById('side');
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(osTop)
+      if (osTop>620) {
+      box.style.visibility = "visible"
+      }
+      if (osTop<620) {
+      box.style.visibility = "hidden"
+      }
+  }
+  </script>
+</body>
+</html>
+{{NCTU_Formosa/Footer}}
