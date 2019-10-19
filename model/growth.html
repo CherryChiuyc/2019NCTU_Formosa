@@ -36,7 +36,7 @@
     </video>
 		<div id="side">
       <img id="line" src="https://2019.igem.org/wiki/images/4/4d/T--NCTU_Formosa--circle4.png">
-      <p id="p1">Steps</p>
+      <p id="p1">Overview</p>
       <p id="p2">IPTG</p>
       <p id="p3">Toxin Protein</p>
 			<p id="p4">Chemical</p>
@@ -45,7 +45,7 @@
       <div class="title_1"><p>Bacterial Growth Analytic Model</p></div>
       <div class="title_2"><p>Introduction</p></div>
         <p>&emsp;&emsp; The purpose of building a bacterial growth analytic model is to simulate and analyze the experiment result. We use Matlab to simulate the genetic regulation and fit the experiment data into our model. After modeling, we can calculate mutation frequency of any chemical compound.</p>
-      <div class="title_2" id="step"><p>The Steps of Building Bacterial Growth Analytic Model</p></div>
+      <div class="title_2" id="step"><p>Overview</p></div>
 				<p>&emsp;&emsp; To calculate the exact mutation caused by testing objects, we need to isolate its cause to bacteria growth from other factors including IPTG inhibition, natural mutation,  and chemical toxicity. First of all, while using IPTG to induce toxin gene the addition of IPTG may inhibit the growth of<i>E. coli</i>. Hence, we isolate the toxin gene to deal with this problem. Second, we calculate the effect of the toxin gene to get the natural mutation frequency of the bacteria. Third, we also take the inhibition effect of the chemical into consideration as a constant. In the end, we combine the parameters we have got to get the mutation parameter caused by chemicals.</p>
 				<p>&emsp;&emsp; The following flow chart shows the steps of building our bacterial growth analytic model.</p>
 				<img id="f1" src="https://2019.igem.org/wiki/images/7/7d/T--NCTU_Formosa--growth_flow.png">
@@ -55,18 +55,13 @@
 
 			<div class="title_2" id="IPTG"><p>The Effect of IPTG</p></div>
 			<div class="title_3"><p>IPTG Inhibits Bacterial Growth</p></div>
-				<p>&emsp;&emsp; Isopropyl β-D-1-thiogalactopyranoside (IPTG) is a molecular biology reagent, which is closely similar to lactose structurally. However, bacteria cannot consume it metabolically and inhibits the growth of the bacteria. In order to solve check if the dose of IPTG we used in our experiment will inhibit the growth curve and how it affects the growth curve, we compare the growth curve of<i>E. coli</i> with and without IPTG as following:</p>
+				<p>&emsp;&emsp; Isopropyl β-D-1-thiogalactopyranoside (IPTG) is a molecular biology reagent, which is closely similar to lactose structurally. However, bacteria cannot consume it metabolically, and it also inhibits the growth of the bacteria. In order to solve check if the dose of IPTG we used in our experiment will inhibit the growth curve and how it affects the growth curve, we compare the growth curve of<i>E. coli</i> with and without IPTG as following:</p>
 				<p class="equations">$$Statistical\: Significance:\: p-value=0.504679$$</p>
 				<img id="f2" src="https://2019.igem.org/wiki/images/0/03/T--NCTU_Formosa--IPTG_Inhibition.jpg">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 2: Comparison of IPTG toxicity</p>
-				<p>&emsp;&emsp; As we can see above, the statistical significance p-value is above 0.05, which means the two data are not from the different experiment samples, so we can prove that the bacterial growth curve will not be influenced by IPTG inhibition statistically.</p>
-			<div class="title_3"><p>IPTG Inhibits Bacterial Growth</p></div>
-				<p>&emsp;&emsp; Getting the parameter g and B<sub>Max</sub> of pSB1A3 from the previous part, we can use the parameter to estimate the toxicity of IPTG in the following part further.</p>
-				<p class="equations">$$\frac{dB}{dt} = g\cdot B(1-\frac{B}{B_{Max}})-T_{IPTG}\cdot[IPTG]\cdot B$$</p>
-				<p>&emsp;&emsp; In this step, we assume that part of the bacteria will die due to the toxicity of IPTG. We are using the Mass Action Law to descript the inhibition effect. The differential equation is shown above, where T<sub>IPTG</sub> is the rate constant of IPTG inhibition, and [IPTG]．B is the Reaction Quotient.</p>
-
+				<p>&emsp;&emsp; According to the definition of statistical significance, the p-value should be higher than 0.05 so that the two data have “statistical significance,” which indicates that the two data are not from the same experimental sample. As we can see above, the statistical significance p-value is above 0.05, which means the two data are not from the different experiment samples, so we can prove that the bacterial growth curve will not be influenced by IPTG inhibition statistically.</p>
 			<div class="title_2" id="Toxin"><p>The Effect of Toxin Protein</p></div>
 			<div class="title_3"><p>Bacterial Growth Parameters with Different Inserted Gene</p></div>
 				<p>&emsp;&emsp; Bacteria with different inserted genes may have different growth rates due to the reason that the bacteria have to distribute the energy to the genes to generate proteins instead of doing mitosis. We observe the bacterial growth curve with different toxin inserted as follows:</p>
@@ -103,7 +98,7 @@
 						<td>0.87345055</td>
 					</tr>
 				</table>
-				<p>&emsp;&emsp; According to the definition of statistical significance, the p-value should be higher than 0.05 so that the two data have “statistical significance,” which indicates that the two data are not from the same experimental sample. The p-values of pSB1A3 with each toxin gene are all higher than 0.05, as shown in the table. In other words, statistically, the bacterial growth data cannot be regarded as a different experiment sample. Thus, we can take the difference of the growth curve as experiment error and use the general parameters to model the growth curve.</p>
+				<p>&emsp;&emsp; The p-values of pSB1A3 with each toxin gene are all higher than 0.05, as shown in the table. In other words, statistically, the bacterial growth data cannot be regarded as a different experiment sample. Thus, we can take the difference of the growth curve as experiment error and use the general parameters to model the growth curve.</p>
 			<div class="title_3"><p>Growth Curve with Toxin Protein Induced</p></div>
 				<p>&emsp;&emsp; In this model, we simulate the effect of toxin protein and analyze the natural mutation rate, or we called the background mutation rate.</p>
 				<p>&emsp;&emsp; Before building our mutation model, it is essential to define what exactly mutation is in our model. We assume that mutation happens randomly in the DNA in <i>E. coli</i>. Once the toxin gene cannot generate toxin protein functionally, we define it as "mutation happens."</p>
@@ -119,11 +114,11 @@
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
         Figure 5: The demonstration of mutation rate “M.”</p>
-				<p>&emsp;&emsp; We assume that non-mutated bacteria(B<sub>N</sub>) have a natural mutation rate(M<sub>1</sub>) transforming into mutated bacteria(B<sub>M</sub>), and the possibility of mutated bacteria transforms into non-mutated bacteria is too low so that we don’t count it in.</p>
+				<p>&emsp;&emsp; We assume that non-mutated bacteria(B<sub>N</sub>) have a natural mutation rate(M<sub>1</sub>) transforming into mutated bacteria(B<sub>M</sub>), and the possibility of mutated bacteria transforming into non-mutated bacteria is too low so that we don’t count it in.</p>
 				<p>&emsp;&emsp; We sum up the differential equation of BN and BM to get the total bacterial population (B<sub>T</sub>).</p>
 				<p class="equations">$$\frac{dB_{T}}{dt}= g\cdot B_{T} (1-\frac{B_{T}}{B_{Max}})-T_{toxin}\cdot B_{N}\cdot [toxin]$$</p>
 			<div class="title_4"><p>Prediction</p></div>
-				<p>&emsp;&emsp; We substitute the parameters in the following table into the ODEs to predict the experiment result as following. As we can see below, the prediction curve is highly related to our experiment result, which proves both of our model and experiment are successful.</p>
+				<p>&emsp;&emsp; We substitute the parameters in the following table into the ODEs to predict the experiment result as following. As we can see below, the prediction curve is correlated to our experiment result, which proves both of our model and experiment are successful.</p>
 				<img id="f6" src="https://2019.igem.org/wiki/images/2/2c/T--NCTU_Formosa--ccdB_prediction.jpg">
         <p class="explanation">
         <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
@@ -168,17 +163,17 @@
 						<td>relative unit</td>
 					</tr>
 				</table>
-
+				<div class="but"><a target="_blank" href="https://www.biorxiv.org/content/10.1101/225045v1.full#F2"><p>Parameters Source</p></a></div>
 			<div class="title_2" id="che"><p>The Effect of Chemical</p></div>
-				<p>&emsp;&emsp; As a result of the effect of the chemicals on our growth curve, not only by offering a mutation rate but also by killing some bacteria in the process, we firstly compare the growth curve of the bacteria with and without chemical to get the parameter of chemical inhibition (T<sub>chem</sub>). Then, we fit the growth curve with a mutation rate (M<sub>2</sub>), which caused by chemicals.</p>
+				<p>&emsp;&emsp; As a result of the effect of the chemicals on our growth curve, not only by altering a mutation rate but also by killing some bacteria in the process, we firstly compare the growth curve of the bacteria with and without chemical to get the parameter of chemical inhibition (T<sub>chem</sub>). Then, we fit the growth curve with a mutation rate (M<sub>2</sub>), which caused by chemicals.</p>
+        <p>&emsp;&emsp; We assume that the chemical inhibition effect is constant, and we fit our experiment data with the formula below to get the toxicity parameter of the chemical T<sub>chem</sub>.</p>
+        <p class="equations">$$\frac{dB}{dt}=g\cdot B(1-\frac{B}{B_{Max}})-T_{chem}\cdot B$$</p>
 				<p>&emsp;&emsp; We take the mutation rate of chemicals (M<sub>2</sub>) into consideration, and restate the ODEs below.</p>
-				<p>&emsp;&emsp; We assume that the chemical inhibition effect is constant, and we fit our experiment data with the formula below.</p>
-				<p class="equations">$$\frac{dB}{dt}=g\cdot B(1-\frac{B}{B_{Max}})-T_{chem}\cdot B$$</p>
 				<p class="equations">$$\frac{dB_{N}}{dt}=[ g\cdot B_{N}(1-\frac{B_{T}}{B_{Max}}) -T_{chem}\cdot B_{N}](1-M_{1}-M_{2})-T_{toxin}\cdot B_{N}\cdot [toxin]$$</p>
 				<p class="equations">$$\frac{dB_{M}}{dt}=[g\cdot B_{N}(1-\frac{B_{T}}{B_{Max}})-T_{chem}\cdot B_{N} ] (M_{1}+M_{2})+[g\cdot B_{M}(1-\frac{B_{T}}{B_{Max}})-T_{chem}\cdot B_{M}]$$</p>
 				<p>&emsp;&emsp; We sum up the differential equation of B<sub>N</sub> and B<sub>M</sub> to get the total bacterial population (B<sub>T</sub>).</p>
 				<p class="equations">$$\frac{dB_{T}}{dt}=[g\cdot B_{T}(1-\frac{B_{T}}{B_{Max}})-T_{chem}\cdot B_{T} ] -T_{toxin}\cdot B_{N}\cdot [toxin]$$</p>
-			<div class="title_4"><p>Prediction</p></div>
+			<div class="title_4"><p>Proof of Concept</p></div>
 				<img id="f7" src="https://2019.igem.org/wiki/images/a/aa/T--NCTU_Formosa--etbr0.05.png">
 				<img id="f8" src="https://2019.igem.org/wiki/images/c/ca/T--NCTU_Formosa--etbr0.5.png">
 				<img id="f9" src="https://2019.igem.org/wiki/images/0/04/T--NCTU_Formosa--etbr1.png">
@@ -192,7 +187,6 @@
 	      <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
 	      Figure 8: The simulation of bacterial growth curve under different mutagenicity</p>
 				<p>&emsp;&emsp; The deeper color means it has the higher mutation rate M<sub>2</sub>.<br>&emsp;&emsp; As we can see above, the higher the mutation rate M<sub>2</sub>, the higher the growth curve. Due to the increasing of mutation rate M<sub>2</sub>, the mutated <i>E. coli</i> will grow faster, which influences the whole bacteria O.D. value significantly.</p>
-
     </div>
   </div>
 	<script type="text/javascript">

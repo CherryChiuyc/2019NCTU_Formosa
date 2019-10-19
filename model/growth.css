@@ -197,3 +197,21 @@ table td {
 	width: 70%;
 	margin-left: 18%;
 }
+.but {
+  width: 33% !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+	margin-left: 40%!important;
+	margin:1%;
+}
+.but a:link{
+  color: #405ee8;
+  text-decoration:none;
+}
+.but a:visited{
+  color: #405ee8;
+  text-decoration:none;
+}
+.but a:hover{
+  color:#f28d00;
+}
